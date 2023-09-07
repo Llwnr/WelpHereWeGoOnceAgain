@@ -8,7 +8,6 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
 
     public void DealDamage(float dmgAmt){
         maxHp -= dmgAmt;
-        Debug.Log("Damaged by: " + dmgAmt);
         if(maxHp <= 0){
             Destroy(gameObject);
         }
