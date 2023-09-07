@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface IOnDeath
 {
-    void OnDeath();
-    void OnDeath(float dmgAmt);
+    public void OnDeath();
 }

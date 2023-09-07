@@ -263,8 +263,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 5412813265501462477, guid: d8b78f95dd34cce45a85f4e2cd8d1f78, type: 3}
   radius: 20
-  generationTimer: 3
-  randomTime: 2
+  generationTimer: 2.5
+  randomTime: 1
 --- !u!4 &291785071
 Transform:
   m_ObjectHideFlags: 0
@@ -511,8 +511,9 @@ GameObject:
   - component: {fileID: 597148028}
   - component: {fileID: 597148029}
   - component: {fileID: 597148031}
-  - component: {fileID: 597148033}
   - component: {fileID: 597148030}
+  - component: {fileID: 597148033}
+  - component: {fileID: 597148034}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -691,6 +692,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ef7c6b57eecb947a97999fd3e3ca29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &597148034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597148025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c000faa5faebf743aba66ce6573fbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectRadius: 2
 --- !u!1 &652291181
 GameObject:
   m_ObjectHideFlags: 0
