@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBasicStats : MonoBehaviour
+public class PlayerBasicStats : MonoBehaviour, IOnLevelUp
 {
     public enum PlayerStatType{
         maxHp, currHp, atkSpeed, atkPower, reloadSpeed, critChance, critDamage, movementSpeed
@@ -16,6 +16,14 @@ public class PlayerBasicStats : MonoBehaviour
             return;
         }
         instance = this;
+    }
+
+    private void Start() {
+        PlayerLevelManager.AddLevelupListener(this);
+    }
+
+    private void OnDisable() {
+        PlayerLevelManager.RemoveLevelupListener(this);
     }
 
     //All the stats of players. Upgrades will improve these stats
@@ -46,38 +54,21 @@ public class PlayerBasicStats : MonoBehaviour
         return critDamage;
     }
 
-    public void UpgradeStat(PlayerStatType statType){
-        //Each 1 point of upgrade will increase certain stats by certain amt
-        //for excample 1 point on crit chance = +0.5% crit chance
-        //1 point on max hp = +5 max hp;
-        switch(statType){
-            case PlayerStatType.maxHp:
-                maxHp += 5;
-                break;
-            case PlayerStatType.currHp:
+    //When you level up you will upgrade your stats
+    public void OnLevelUp(){
+        UpgradeStat();
+    }
 
-                break;
-            case PlayerStatType.atkSpeed:
-                atkSpeedMultiplier += 0.05f;
-                break;
-            case PlayerStatType.atkPower:
-                atkPowerMultiplier += 0.05f;
-                break;
-            case PlayerStatType.critChance:
-                critChance += 0.5f;
-                break;
-            case PlayerStatType.critDamage:
-                critDamage += 1;
-                break;
-            case PlayerStatType.reloadSpeed:
-                reloadSpeedMultiplier += 0.05f;
-                break;
-            case PlayerStatType.movementSpeed:
-                movementSpeedMultiplier += 0.05f;
-                break;
-            default:
-                Debug.LogError("Invalid stats to upgrade.");
-                break;
-        }
+    public void UpgradeStat(){
+        //Each level up will increase certain stats by certain amt
+        //For excample on crit chance = +0.5% crit chance
+        //On max hp = +5 max hp;
+        maxHp += 5;
+        atkSpeedMultiplier += 0.05f;
+        atkPowerMultiplier += 0.05f;
+        critChance += 0.5f;
+        critDamage += 1;
+        reloadSpeedMultiplier += 0.05f;
+        movementSpeedMultiplier += 0.05f;
     }
 }
