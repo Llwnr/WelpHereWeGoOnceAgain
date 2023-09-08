@@ -10,6 +10,8 @@ public class MoveTowardsPlayer : MonoBehaviour
     public Vector2 dir;
 
     [SerializeField]private float moveSpeed, maxMoveSpeed;
+    //Don't limit movement speed when external force is applied
+    private bool externalForceApplied = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,27 @@ public class MoveTowardsPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        dir = (target.position - transform.position).normalized;
+        //Don't use this script when external force is applied. Get stunned when external force such as knockback is applied
+        if(!externalForceApplied){
+            dir = (target.position - transform.position).normalized;
+            rb.AddForce(dir*moveSpeed, ForceMode2D.Impulse);
         
-        rb.AddForce(dir*moveSpeed, ForceMode2D.Impulse);
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxMoveSpeed);
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxMoveSpeed);
+        }
+        //Implement drag/friction when external force is applied
+        else{
+            rb.velocity *= 0.75f;
+        }
+    }
+
+    //For a couple of duration the object has very high max velocity
+    public void SetExternalForceToActive(float duration){
+        externalForceApplied = true;
+        StartCoroutine(ResetExternalForce(duration));
+    }
+
+    IEnumerator ResetExternalForce(float duration){
+        yield return new WaitForSeconds(duration);
+        externalForceApplied = false;
     }
 }
