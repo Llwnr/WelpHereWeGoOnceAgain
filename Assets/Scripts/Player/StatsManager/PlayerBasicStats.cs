@@ -62,13 +62,13 @@ public class PlayerBasicStats : MonoBehaviour, IOnLevelUp
     public void UpgradeStat(){
         //Each level up will increase certain stats by certain amt
         //For excample on crit chance = +0.5% crit chance
-        //On max hp = +5 max hp;
-        maxHp += 5;
-        atkSpeedMultiplier += 0.05f;
-        atkPowerMultiplier += 0.05f;
+        //On max hp = +2 max hp;
+        maxHp += 2;
+        atkSpeedMultiplier += 0.01f;
+        atkPowerMultiplier += 0.01f;
         critChance += 0.5f;
         critDamage += 1;
-        reloadSpeedMultiplier += 0.05f;
-        movementSpeedMultiplier += 0.05f;
+        reloadSpeedMultiplier += 0.01f;
+        movementSpeedMultiplier += 0.005f;
     }
 }

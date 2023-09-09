@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour, IDamagable
 {
     private PlayerBasicStats playerStats;
-    private int currHp, maxHp;
+    private int currHp, maxHp, prevMaxHp;
 
     //To notify when player has been damaged
     private List<IWhenDamaged> onDamageListeners = new List<IWhenDamaged>();
@@ -25,6 +25,16 @@ public class HealthManager : MonoBehaviour, IDamagable
         playerStats = GetComponent<PlayerBasicStats>();
         currHp = playerStats.GetMaxHp();
         maxHp = playerStats.GetMaxHp();
+        prevMaxHp = maxHp;
+    }
+
+    private void Update() {
+        maxHp = playerStats.GetMaxHp();
+        //Increase current hp when max hp increases
+        if(maxHp > prevMaxHp){
+            currHp += maxHp - prevMaxHp;
+            prevMaxHp = maxHp;
+        }
     }
 
     public void DealDamage(float dmgAmt){

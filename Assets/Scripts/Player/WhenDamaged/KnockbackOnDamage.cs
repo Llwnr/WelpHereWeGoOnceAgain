@@ -26,6 +26,5 @@ public class KnockbackOnDamage : MonoBehaviour, IWhenDamaged
                 collider.attachedRigidbody.AddForce(pushDir.normalized*knockbackForce/Mathf.Min(10f, pushDir.magnitude), ForceMode2D.Impulse);
             }
         }
-
     }
 }

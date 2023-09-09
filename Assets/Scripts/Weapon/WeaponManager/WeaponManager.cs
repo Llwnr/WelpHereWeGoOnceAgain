@@ -4,6 +4,30 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    //Singleton
+    public static WeaponManager instance{get; private set;}
+    private void Awake() {
+        if(instance != null){
+            Debug.LogError("More than one weapon manager scripts");
+            return;
+        }
+        instance = this;
+    }
+
+    //To notify scripts when player attacks/shoots
+    private List<IOnAttack> onAttackListeners = new List<IOnAttack>();
+    public void AddOnAttackListener(IOnAttack listener){
+        onAttackListeners.Add(listener);
+    }
+    public void RemoveOnAttackListener(IOnAttack listener){
+        onAttackListeners.Remove(listener);
+    }
+    void NotifyWhenPlayerAttacks(){
+        foreach(IOnAttack listener in onAttackListeners){
+            listener.OnAttack();
+        }
+    }
+
     private GameObject player;
     private WeaponBase equippedWeapon;
     private PlayerBasicStats playerStats;
@@ -56,8 +80,10 @@ public class WeaponManager : MonoBehaviour
             if(CanShoot()){
                 //Activate the effects of the weapon
                 ActivateWeapon();
+                NotifyWhenPlayerAttacks();
                 //Things to do after weapon is activated... such as reset atk interval, reload maybe etc
                 atkInterval = 1;
+                remainingBullets--;//Consume a bullet
             }
         }
     }
@@ -84,18 +110,15 @@ public class WeaponManager : MonoBehaviour
         else return false;
     }
 
-    void ActivateWeapon(){
+    public void ActivateWeapon(float angle = 0){
         //Get the direction to shoot at
-        Vector2 shootDir = ConvertAngleToVector(transform.eulerAngles.z);
+        Vector2 shootDir = ConvertAngleToVector(transform.eulerAngles.z+angle);
         //Shoot from the tip of the gun
         Rigidbody2D bulletRb = Instantiate(equippedWeapon.bullet, (Vector2)transform.position + shootDir*0.5f, Quaternion.identity).GetComponent<Rigidbody2D>();
         bulletRb.AddForce(shootDir*shootForce, ForceMode2D.Impulse);
         bulletRb.transform.localEulerAngles = new Vector3(0,0, transform.eulerAngles.z+90);
         //Set the bullet's dmg amt
         bulletRb.GetComponent<DamageEnemy>().SetDmgAmt(atkPower);
-
-        //Reduce remaning bullets
-        remainingBullets--;
 
         Vector2 ConvertAngleToVector(float angle){
             angle += 90;

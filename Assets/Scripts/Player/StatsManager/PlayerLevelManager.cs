@@ -39,8 +39,10 @@ public static class PlayerLevelManager
                 level++;
                 Debug.Log("Level increased. Stats are slightly buffed and you can pick an upgrade");
 
-                //Notify that player has leveled up
-                NotifyLevelUp();
+                //Notify that player has leveled up only if player isn't max level
+                if(level < 20){
+                    NotifyLevelUp();
+                }
             }
         }
     }
