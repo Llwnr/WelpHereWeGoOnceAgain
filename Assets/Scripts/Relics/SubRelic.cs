@@ -5,8 +5,10 @@ using UnityEngine;
 public abstract class SubRelic : MonoBehaviour, IOnAttack
 {
     [SerializeField]protected string relicName, relicDescription;
+    protected GameObject player;
     protected WeaponManager weaponManager;
     private void Start() {
+        player = GameObject.FindWithTag("Player");
         weaponManager = WeaponManager.instance;
         weaponManager.AddOnAttackListener(this);
         OnStart();
@@ -15,14 +17,20 @@ public abstract class SubRelic : MonoBehaviour, IOnAttack
     private void OnDisable() {
         weaponManager.RemoveOnAttackListener(this);
     }
-
-    public virtual void OnAttack(){
-        
-    }
     //The stuff to do at the start of the scene
     protected virtual void OnStart(){
 
     }
+    //The stuff to do when player shoots a bullet
+    public virtual void OnAttack(){
+        
+    }
+
+    //All the relic upgrades will be updated using this function
+    public virtual void UpdateRelicUpgrades(){
+
+    }
+    
     //The main skill function to activate
     public abstract void ActivateSkill();
 }

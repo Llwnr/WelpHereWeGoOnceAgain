@@ -35,6 +35,8 @@ public class ThrowManager : MonoBehaviour
         transform.position = resultPoint;
         //Set shadow position but without height
         shadow.position = Vector2.Lerp(startingPos, destinationPos, lerpIndex/smoothness) + shadowLocalOffset;
+        //Make shadow be behind player
+        shadow.localPosition += new Vector3(0,0,1);
         lerpIndex++;
     }
 

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ProcAOE : ShotCounterBasedRelic
 {
+    [SerializeField]private int numOfExtraShots;
+    private int numOfUpgradedExtraShots = 0;
     public override void OnAttack(){
         base.OnAttack();
     }
 
     public override void ActivateSkill(){
         Debug.Log("procced at shot: " + bulletShot);
-        StartCoroutine(MultiShot(2));
+        StartCoroutine(MultiShot(numOfExtraShots+numOfUpgradedExtraShots));
     }
 
     IEnumerator MultiShot(int numOfShots){
