@@ -23,7 +23,5 @@ public class DisplayPopup : MonoBehaviour, IWhenDamaged
         newDmgPopup.SetSlideDir(player.position-transform.position);
         //Set its position to popupContainer in canvas
         newDmgPopup.transform.SetParent(popupContainer, false);
-        //Set its position relative to canvas
-        Debug.Log(newDmgPopup.transform.position);
     }
 }

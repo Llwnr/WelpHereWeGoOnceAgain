@@ -34,6 +34,7 @@ public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
                 foreach(ISetDamageMultiplier setDamageMultiplier in newBomb.GetComponents<ISetDamageMultiplier>()){
                     this.setDamageMultipliers.Add(setDamageMultiplier);
                 }
+                UpdateRelicUpgrades();
             }
         }
     }
@@ -49,5 +50,13 @@ public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
     {
         this.dmgMultiplier = dmgMultiplier;
         UpdateRelicUpgrades();
+    }
+
+    public float GetDamageMultiplier(){
+        return dmgMultiplier;
+    }
+
+    public void IncreaseNumberOfBombsBy(int amt){
+        numOfBombs += amt;
     }
 }
