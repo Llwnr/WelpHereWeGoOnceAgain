@@ -6,6 +6,7 @@ public abstract class RelicUpgrader : MonoBehaviour
 {
     public new string name;
     public List<string> description;
+    public Sprite icon;
     //The gameobject that will hold all the relics
     protected GameObject relicManager;
     //Priority of the relic based on first unlock, second unlock, third unlock etc
