@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class SubRelic : MonoBehaviour, IOnAttack
 {
-    [SerializeField]protected string relicName, relicDescription;
-    [SerializeField]protected Sprite icon;
+    public string relicName, relicDescription;
+    public Sprite icon;
     protected GameObject player;
     protected WeaponManager weaponManager;
     private void Start() {

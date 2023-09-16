@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TwoNormalBombs : U_YellowBomb
 {
+    [SerializeField]private int numofExtraBombs;
     public override void Upgrade(){
-        relicManager.GetComponent<ThrowBombs>().IncreaseNumberOfBombsBy(2);
+        relicManager.GetComponent<ThrowBombs>().IncreaseNumberOfBombsBy(numofExtraBombs);
         Debug.Log("Upgraded");
     }
 }

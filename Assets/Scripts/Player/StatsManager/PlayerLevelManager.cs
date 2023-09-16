@@ -5,7 +5,7 @@ using UnityEngine;
 public static class PlayerLevelManager
 {
     public static float expForNextLevel{get; private set;} = 5;
-    private static float expThresholdIncrease = 2;
+    private static float expThresholdIncrease = 4.5f;
     public static float expAmt{get; private set;} = 0;
     private static int level = 1;
 
@@ -33,7 +33,7 @@ public static class PlayerLevelManager
             if(expAmt >= expForNextLevel){
                 expAmt = 0;
                 //Increase exp required to reach next level
-                expForNextLevel += expThresholdIncrease;
+                expForNextLevel += expThresholdIncrease + expForNextLevel*0.05f;
 
                 //Also increase level
                 level++;

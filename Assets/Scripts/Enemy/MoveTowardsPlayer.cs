@@ -12,6 +12,7 @@ public class MoveTowardsPlayer : MonoBehaviour
     [SerializeField]private float moveSpeed, maxMoveSpeed;
     //Don't limit movement speed when external force is applied
     private bool externalForceApplied = false;
+    private bool haltMovement = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,9 @@ public class MoveTowardsPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(haltMovement){
+            return;
+        }
         //Don't use this script when external force is applied. Get stunned when external force such as knockback is applied
         if(!externalForceApplied){
             dir = (target.position - transform.position).normalized;
@@ -39,6 +43,10 @@ public class MoveTowardsPlayer : MonoBehaviour
     public void SetExternalForceToActive(float duration){
         externalForceApplied = true;
         StartCoroutine(ResetExternalForce(duration));
+    }
+
+    public void SetHaltState(bool value){
+        haltMovement = value;
     }
 
     IEnumerator ResetExternalForce(float duration){

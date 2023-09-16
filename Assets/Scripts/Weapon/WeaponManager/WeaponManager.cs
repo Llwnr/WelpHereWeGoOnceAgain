@@ -111,6 +111,8 @@ public class WeaponManager : MonoBehaviour
     }
 
     public void ActivateWeapon(float angle = 0){
+        //Slight randomness
+        angle += Random.Range(-2.5f,2.5f);
         //Get the direction to shoot at
         Vector2 shootDir = ConvertAngleToVector(transform.eulerAngles.z+angle);
         //Shoot from the tip of the gun
