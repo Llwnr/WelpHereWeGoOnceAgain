@@ -11,9 +11,14 @@ public abstract class RelicUpgrader : MonoBehaviour
     protected GameObject relicManager;
     //Priority of the relic based on first unlock, second unlock, third unlock etc
     // [SerializeField]protected int priority;
-    private void Start() {
+    private void Awake() {
         relicManager = GameObject.FindWithTag("RelicManager");
     }
     //Where all the upgrades will take place
     public abstract void Upgrade();
+
+    private void OnEnable() {
+        Awake();
+        Upgrade();
+    }
 }

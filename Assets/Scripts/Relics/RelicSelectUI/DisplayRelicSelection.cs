@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayRelicSelection : MonoBehaviour
+public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
 {
-    [SerializeField]private GameObject relicSelectionUI;
+    private void Start() {
+        PlayerLevelManager.AddLevelupListener(this);
+        gameObject.SetActive(false);
+    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy() {
+        PlayerLevelManager.RemoveLevelupListener(this);
+    }
+
+    public void OnLevelUp()
     {
-        if(Input.GetKeyDown(KeyCode.X)){
-            relicSelectionUI.SetActive(!relicSelectionUI.activeSelf);
-            if(relicSelectionUI.activeSelf){
-                Time.timeScale = 0;
-            }else{
-                Time.timeScale = 1;
-            }
-        }
+        gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void OnDisable(){
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 }

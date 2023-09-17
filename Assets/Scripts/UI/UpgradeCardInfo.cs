@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class UpgradeCardInfo : MonoBehaviour
 {
     [SerializeField]private RelicUpgrader relicUpgrader;
-    [SerializeField]private TextMeshProUGUI nameBox, descBox;
+    [SerializeField]private TextMeshProUGUI nameBox;
+    private string desc;
     [SerializeField]private Image iconImg;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        nameBox.text = relicUpgrader.name;
-        descBox.text = relicUpgrader.description[0];
-        iconImg.sprite = relicUpgrader.icon;
+    public void SetCardInfo(RelicUpgrader relicUpgrade){
+        relicUpgrader = relicUpgrade;
+        nameBox.text = relicUpgrade.name;
+        desc = relicUpgrade.description[0];
+        iconImg.sprite = relicUpgrade.icon;
+    }
+
+    public string GetUpgradeDesc(){
+        return desc;
     }
 
     public void PurchaseUpgrade(){

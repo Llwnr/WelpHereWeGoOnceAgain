@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class DisplayRelicOptions : MonoBehaviour
+public class AddRelicSelectionOptions : MonoBehaviour
 {
     private List<SubRelic> equippableRelic = new List<SubRelic>();
     [SerializeField]private GameObject relicHolder, relicUIHolder;
@@ -24,7 +25,10 @@ public class DisplayRelicOptions : MonoBehaviour
             newCard.transform.SetParent(relicUIHolder.transform, false);
             //Set info on those cards based on relic data
             RelicInfo relicInfo = newCard.GetComponent<RelicInfo>();
-            relicInfo.SetRelicInfo(relic.relicName, relic.relicDescription, relic.icon);
+            relicInfo.SetRelicInfo(relic.relicName, relic.relicDescription, relic.icon, relic);
+
+            //Also give it scripts to execute when button clicked
+            newCard.GetComponent<Button>().onClick.AddListener(GetComponent<ExecuteRelicSelection>().EnableRelic);
         }
     }
 

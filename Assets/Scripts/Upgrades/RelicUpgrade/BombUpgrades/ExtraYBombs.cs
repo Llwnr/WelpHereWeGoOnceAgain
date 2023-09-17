@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TwoNormalBombs : U_YellowBomb
+public class ExtraYBombs : U_YellowBomb
 {
     [SerializeField]private int numofExtraBombs;
     public override void Upgrade(){

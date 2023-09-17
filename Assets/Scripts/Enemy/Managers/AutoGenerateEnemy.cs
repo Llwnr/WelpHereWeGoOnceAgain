@@ -7,13 +7,12 @@ public class AutoGenerateEnemy : MonoBehaviour
 {
     [SerializeField]private List<GameObject> enemies;
     [SerializeField]private List<GameObject> rarerEnemies;
-    [SerializeField]private float radius, generationTimer, randomTime;
+    [SerializeField]private float rareEnemyProc, radius, generationTimer, randomTime;
 
     //For generating enemies inside the given boundary
     [SerializeField]private SpriteRenderer boundary;
     private float xLeft, xRight, yLeft, yRight;
 
-    private int resetCount = 0;//To take note of how many times enemy is generated
     private float realTimeCount = 0;//Take note of time passed since game started
     private float timerCount;
 
@@ -41,13 +40,12 @@ public class AutoGenerateEnemy : MonoBehaviour
         realTimeCount += Time.deltaTime;
         timerCount -= Time.deltaTime;
         if(timerCount <= 0){
-            resetCount++;
             ResetTimer();
             Vector2 generatedPos = GenerateRandomPosAtEdgeOfCircle();
             //Instantiate(enemies[(int)realTimeCount/20], generatedPos, Quaternion.identity);
             Instantiate(enemies[0], generatedPos, Quaternion.identity);
             //Every 5th normal generation generate a rare monster
-            if(resetCount % 7 == 0){
+            if(Random.Range(0f,1) < rareEnemyProc){
                 Instantiate(rarerEnemies[0], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
             }
             

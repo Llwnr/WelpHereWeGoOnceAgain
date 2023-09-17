@@ -12,7 +12,7 @@ public class ProcAOE : ShotCounterBasedRelic
     }
 
     public override void ActivateSkill(){
-        Debug.Log("procced at shot: " + bulletShot);
+        Debug.Log("procced at shot: " + activateOnShot);
         StartCoroutine(MultiShot(numOfExtraShots+numOfUpgradedExtraShots));
     }
 

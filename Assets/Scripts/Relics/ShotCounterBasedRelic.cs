@@ -6,7 +6,10 @@ using UnityEngine;
 //For example: For every 5 bullets shot activate this skill
 public abstract class ShotCounterBasedRelic : SubRelic
 {
-    [SerializeField]protected int bulletShot, bulletShotCounter;
+    [Header ("Upgrade Properties")]
+    //Activate this after a certain number of bullets are shot
+    [SerializeField]protected int activateOnShot;
+    protected int bulletShotCounter;
 
     //Start() is replaced with OnStart()
     protected override void OnStart(){
@@ -15,7 +18,7 @@ public abstract class ShotCounterBasedRelic : SubRelic
 
     public override void OnAttack(){
         bulletShotCounter++;
-        if(bulletShotCounter == bulletShot){
+        if(bulletShotCounter == activateOnShot){
             bulletShotCounter = 0;
             ActivateSkill();
         }
