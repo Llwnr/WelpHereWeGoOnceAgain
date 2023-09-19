@@ -353,7 +353,6 @@ MonoBehaviour:
   highlightBorder: {fileID: 8451001404503562374, guid: 7cecfb133a90b27499c64e481078cf83,
     type: 3}
   descBox: {fileID: 1487203447}
-  selectedRelic: {fileID: 0}
 --- !u!114 &165817936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1062,7 @@ GameObject:
   - component: {fileID: 537038040}
   - component: {fileID: 537038042}
   - component: {fileID: 537038041}
+  - component: {fileID: 537038043}
   m_Layer: 0
   m_Name: YellowBombUpgrades
   m_TagString: Untagged
@@ -1132,6 +1132,23 @@ MonoBehaviour:
   description:
   - Throw 1 extra yellow bomb
   numofExtraBombs: 1
+--- !u!114 &537038043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537038038}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9217507fcd8943aa9f44925407dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Range Plus
+  icon: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
+  description:
+  - Increase range of bombs
+  increaseRangeBy: 4
 --- !u!1 &559493976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1929,9 @@ GameObject:
   m_Component:
   - component: {fileID: 962061852}
   - component: {fileID: 962061853}
+  - component: {fileID: 962061854}
+  - component: {fileID: 962061856}
+  - component: {fileID: 962061855}
   m_Layer: 0
   m_Name: MultiShootUpgrades
   m_TagString: Untagged
@@ -1947,6 +1967,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRelicType: 3
+--- !u!114 &962061854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962061851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce1c06b27c856489b6e2e1bed0cd67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Multi shoot
+  icon: {fileID: 0}
+  description:
+  - Increase burst shot dmg by 10%
+  increaseBy: 0.1
+--- !u!114 &962061855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962061851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce1c06b27c856489b6e2e1bed0cd67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Multi shoot
+  icon: {fileID: 0}
+  description:
+  - Increase burst shot dmg by 10%
+  increaseBy: 0.1
+--- !u!114 &962061856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962061851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce1c06b27c856489b6e2e1bed0cd67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Multi shoot
+  icon: {fileID: 0}
+  description:
+  - Increase burst shot dmg by 10%
+  increaseBy: 0.1
 --- !u!1 &984620407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3614,7 +3685,7 @@ MonoBehaviour:
   relicDescription: Throws destructive bombs every 12 shot
   icon: {fileID: 21300000, guid: 8b89521090283864e8bc33d5165597fc, type: 3}
   myRelicType: 1
-  activateOnShot: 12
+  activateOnShot: 7
   range: 5
   numOfBombs: 2
   bomb: {fileID: 4757827744473381982, guid: 6f1a9008dd6cfdd4cb3e06ac814d48b8, type: 3}
@@ -3636,7 +3707,7 @@ MonoBehaviour:
   myRelicType: 3
   activateOnShot: 7
   numOfExtraShots: 5
-  shootInterval: 0.1
+  bullet: {fileID: 8009271588578554507, guid: 9c57e670e4aeb70489edc51590fa7579, type: 3}
 --- !u!1 &1968469012
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class SelectUpgrade : MonoBehaviour
         }
 
         selectedRelic.Upgrade();
+        selectedRelic.SetAsUsed();
         gameObject.SetActive(false);
     }
 }

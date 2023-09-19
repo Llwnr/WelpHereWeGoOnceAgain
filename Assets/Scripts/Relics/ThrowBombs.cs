@@ -11,8 +11,7 @@ public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
 
     //Manage upgrades
     private float dmgMultiplier = 1;
-
-    List<ISetDamageMultiplier> setDamageMultipliers = new List<ISetDamageMultiplier>();
+    private float explosionRange = 8;
 
     public override void OnAttack(){
         base.OnAttack();
@@ -28,24 +27,12 @@ public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
             ThrowManager throwManager = newBomb.GetComponent<ThrowManager>();
             throwManager.SetDestination(bombPos);
 
-            //Get the script to set dmg multipliers in case the relic's dmg is upgraded
-            if(newBomb.GetComponent<ISetDamageMultiplier>() != null){
-                //Store all dmg upgradable script
-                foreach(ISetDamageMultiplier setDamageMultiplier in newBomb.GetComponents<ISetDamageMultiplier>()){
-                    this.setDamageMultipliers.Add(setDamageMultiplier);
-                }
-                UpdateRelicUpgrades();
-            }
+            //Give bomb stats such as explosion range and dmg buff
+            newBomb.GetComponent<BombExplosionManager>().SetExplosionStats(dmgMultiplier, explosionRange);
         }
     }
 
-    public override void UpdateRelicUpgrades(){
-        //Increase damage
-        foreach(ISetDamageMultiplier damageMultiplier in setDamageMultipliers){
-            damageMultiplier.SetDamageMultiplier(dmgMultiplier);
-        }
-    }
-
+    //UPGRADES ARE DONE FROM FOLLOWING FUNCTIONS
     public void SetDamageMultiplier(float dmgMultiplier)
     {
         this.dmgMultiplier = dmgMultiplier;
@@ -58,5 +45,9 @@ public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
 
     public void IncreaseNumberOfBombsBy(int amt){
         numOfBombs += amt;
+    }
+
+    public void IncreaseExplosionRange(float byAmt){
+        explosionRange += byAmt;
     }
 }
