@@ -11,4 +11,10 @@ public class DamagePlayer : MonoBehaviour
             other.transform.GetComponent<IDamagable>().DealDamage(dmgAmt);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.transform.CompareTag("Player")){
+            other.transform.GetComponent<IDamagable>().DealDamage(dmgAmt);
+        }
+    }
 }

@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5412813265501462323}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5412813265501462477
 GameObject:
@@ -49,9 +49,9 @@ GameObject:
   - component: {fileID: 6632149926067503064}
   - component: {fileID: 6729594777680936381}
   - component: {fileID: 1215070343853153434}
-  - component: {fileID: 2277870093179367521}
+  - component: {fileID: -3345936983054523548}
   m_Layer: 3
-  m_Name: Enemy1Dash
+  m_Name: PeaShooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,6 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1708179956000486613}
   - {fileID: 2072985756776350804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,7 +115,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f7ba6793e35e2944b97d5db3dcb4ab30, type: 3}
-  m_Color: {r: 0.33962262, g: 0.048151735, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.79290247, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -187,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0}
   moveSpeed: 3
-  maxMoveSpeed: 2
+  maxMoveSpeed: 2.4
 --- !u!114 &5412813265501462327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgPopup: {fileID: -4412041119683429460, guid: 0406b91694103084aa29d426cea240ae,
     type: 3}
---- !u!114 &2277870093179367521
+--- !u!114 &-3345936983054523548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,73 +266,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5412813265501462477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe67a00afa685f409618c11691809d1, type: 3}
+  m_Script: {fileID: 11500000, guid: df9e003354d48ba4daca09ed86ec040a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  waitDuration: 1.5
-  dashForce: 20
-  maxDashSpeed: 20
-  durationForDashable: 2
-  dashDuration: 0.25
-  pivot: {fileID: 2072985756776350804}
-  anticipationObj: {fileID: 9178387897948749203, guid: 8219bcebbb0fdb94abe043b7c10028ab,
-    type: 3}
---- !u!1 &6319317920773670096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1708179956000486613}
-  - component: {fileID: 6667700467867859620}
-  m_Layer: 8
-  m_Name: AvoidCohesion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1708179956000486613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319317920773670096}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5412813265501462323}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6667700467867859620
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319317920773670096}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
-  m_EdgeRadius: 0
+  shootingRange: 16
+  bullet: {fileID: 8009271588578554507, guid: 275387ff19d995847932a566276fccc8, type: 3}
+  shootForce: 5
+  atkInterval: 5

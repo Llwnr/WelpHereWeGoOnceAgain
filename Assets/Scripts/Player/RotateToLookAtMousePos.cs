@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRotation : MonoBehaviour
+public class RotateToLookAtMousePos : MonoBehaviour
 {
-    private Transform target;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +11,8 @@ public class PlayerRotation : MonoBehaviour
     }
 
     void LookAtMouse(){
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Offset mouse position by 0.33f since you want to look at center of the mouse not tip of the mouse
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0.33f, -0.33f, 0);
         float zAngle = ConvertPosToAngle(mousePos);
         //Change rotation of player
         transform.eulerAngles = new Vector3(0, 0, zAngle);

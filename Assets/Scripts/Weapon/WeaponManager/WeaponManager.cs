@@ -112,14 +112,17 @@ public class WeaponManager : MonoBehaviour
 
     public void ActivateWeapon(float angle = 0, GameObject bullet = null, float dmgMultiplier = 1){
         //Slight randomness
-        angle += Random.Range(-2.5f,2.5f);
+        angle += Random.Range(-1f,1f)*3;
+
         //Get the direction to shoot at
         Vector2 shootDir = ConvertAngleToVector(transform.eulerAngles.z+angle);
-        //Shoot from the tip of the gun
+
+        
         if(bullet == null){
             //Set default bullet type based on weapon
             bullet = equippedWeapon.bullet;
         }
+        //Shoot from the tip of the gun
         Rigidbody2D bulletRb = Instantiate(bullet, (Vector2)transform.position + shootDir*0.5f, Quaternion.identity).GetComponent<Rigidbody2D>();
         bulletRb.AddForce(shootDir*shootForce, ForceMode2D.Impulse);
         bulletRb.transform.localEulerAngles = new Vector3(0,0, transform.eulerAngles.z+90);

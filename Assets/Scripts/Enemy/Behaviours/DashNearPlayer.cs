@@ -47,7 +47,6 @@ public class DashNearPlayer : MonoBehaviour
         //For anticipation
         GameObject newAnticipationInfo = Instantiate(anticipationObj, transform.position, Quaternion.identity);
         newAnticipationInfo.transform.SetParent(pivot, false);
-        newAnticipationInfo.transform.localPosition = new Vector3(0,-2.5f,5);
 
         float waitDurationCounter = waitDuration;
         while(waitDurationCounter > waitDuration/2f){
@@ -72,6 +71,7 @@ public class DashNearPlayer : MonoBehaviour
     }
 
     void Dash(){
+        Debug.Log("Dashing hm");
         rb.AddForce(dashDir*dashForce, ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxDashSpeed);
 
