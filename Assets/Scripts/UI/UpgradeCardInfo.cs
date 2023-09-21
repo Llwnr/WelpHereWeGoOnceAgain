@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class UpgradeCardInfo : MonoBehaviour
 {
-    [SerializeField]private RelicUpgrader relicUpgrader;
+    [SerializeField]private RelicSkill relicUpgrader;
     [SerializeField]private TextMeshProUGUI nameBox;
     private string desc;
     [SerializeField]private Image iconImg;
 
-    public void SetCardInfo(RelicUpgrader relicUpgrade){
+    public void SetCardInfo(RelicSkill relicUpgrade){
         relicUpgrader = relicUpgrade;
         nameBox.text = relicUpgrade.name;
         desc = relicUpgrade.description[0];
@@ -26,7 +26,7 @@ public class UpgradeCardInfo : MonoBehaviour
         relicUpgrader.Upgrade();
     }
 
-    public RelicUpgrader GetRelicUpgrader(){
+    public RelicSkill GetRelicUpgrader(){
         return relicUpgrader;
     }
 }

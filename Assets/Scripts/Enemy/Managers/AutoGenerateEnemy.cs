@@ -7,7 +7,8 @@ public class AutoGenerateEnemy : MonoBehaviour
 {
     [SerializeField]private List<GameObject> enemies;
     [SerializeField]private List<GameObject> rarerEnemies;
-    [SerializeField]private float rareEnemyProc, radius, generationTimer, randomTime;
+    [SerializeField]private float rareEnemyProc, radius, generationTimer;
+    [SerializeField]private float randomTime;
 
     //For generating enemies inside the given boundary
     [SerializeField]private SpriteRenderer boundary;
@@ -41,14 +42,21 @@ public class AutoGenerateEnemy : MonoBehaviour
         timerCount -= Time.deltaTime;
         if(timerCount <= 0){
             ResetTimer();
-            Vector2 generatedPos = GenerateRandomPosAtEdgeOfCircle();
-            //Instantiate(enemies[(int)realTimeCount/20], generatedPos, Quaternion.identity);
-            Instantiate(enemies[0], generatedPos, Quaternion.identity);
-            //Every 5th normal generation generate a rare monster
-            if(Random.Range(0f,1) < rareEnemyProc){
-                Instantiate(rarerEnemies[0], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
-            }
-            
+            GenerateEnemy();
+        }
+    }
+
+    void GenerateEnemy(){
+        float maxTime = 240/enemies.Count;
+        float time = Time.timeSinceLevelLoad;
+        Vector2 generatedPos = GenerateRandomPosAtEdgeOfCircle();
+        //Higher chance to pick next array enemy as time goes on
+        int enemyIndex = Mathf.Min(enemies.Count-1, Mathf.FloorToInt(Random.Range(0.5f, 1f) * time/maxTime));
+
+        Instantiate(enemies[enemyIndex], generatedPos, Quaternion.identity);
+        //Generate a rare monster at the given chance proc
+        if(Random.Range(0f,1) < rareEnemyProc){
+            Instantiate(rarerEnemies[enemyIndex], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
         }
     }
 

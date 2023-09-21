@@ -25,9 +25,9 @@ public class UICreateRelicUpgrades : MonoBehaviour
         }
 
         //Display the upgrades for that relic
-        foreach(RelicUpgrader relicUpgrader in upgradeHolderForTargetRelicType.GetComponents<RelicUpgrader>()){
+        foreach(RelicSkill relicUpgrader in upgradeHolderForTargetRelicType.GetComponents<RelicSkill>()){
             //Only show upgrades that haven't been activated yet
-            if(relicUpgrader.HasBeenUsed()) continue;
+            if(relicUpgrader.HasBeenUnlocked()) continue;
 
             Debug.Log("Creating card for " + relicUpgrader.name);
             GameObject newCard = Instantiate(upgradeCard, Vector2.zero, Quaternion.identity);

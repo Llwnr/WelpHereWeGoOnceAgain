@@ -6,7 +6,7 @@ public class BombExplosionManager : MonoBehaviour
 {
     [SerializeField]private float explodeDuration;
     [SerializeField]private GameObject explosion;
-    private float explosionSize = 8;
+    [SerializeField]private float explosionSize = 4;
 
     //When you upgrade bombs damage
     private float dmgMultiplier = 1;

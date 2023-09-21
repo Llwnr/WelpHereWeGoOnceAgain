@@ -8,10 +8,9 @@ public class SelectUpgrade : MonoBehaviour
 {
     //To show that the selected relic is being highlighted
     [SerializeField]private GameObject highlightBorder;
-    [SerializeField]private TextMeshProUGUI descBox;
     private GameObject createdHighlightBorder;
 
-    private RelicUpgrader selectedRelic;
+    private RelicSkill selectedRelic;
 
     private void Start() {
         createdHighlightBorder = Instantiate(highlightBorder, Vector2.zero, Quaternion.identity);
@@ -21,9 +20,8 @@ public class SelectUpgrade : MonoBehaviour
     public void SetSelectedRelic(){
         //Get the mouse clicked relic's data
         GameObject selectedBtn = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-        selectedRelic = selectedBtn.GetComponent<UpgradeCardInfo>().GetRelicUpgrader();
+        selectedRelic = selectedBtn.GetComponent<RelicSkill>();
         //Set description of selected relic
-        descBox.text = selectedRelic.description[0];
         
         //Also show the relic upgrade as selected through a highlighting border
         if(createdHighlightBorder == null){
@@ -40,8 +38,12 @@ public class SelectUpgrade : MonoBehaviour
             return;
         }
 
-        selectedRelic.Upgrade();
-        selectedRelic.SetAsUsed();
-        gameObject.SetActive(false);
+        if(selectedRelic.UnlockSkill()){
+            selectedRelic.SetAsUsed();
+            gameObject.SetActive(false);
+        }else{
+            Debug.LogError("Skill is not unlockable yet");
+        }
+        
     }
 }
