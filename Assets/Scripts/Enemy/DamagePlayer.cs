@@ -15,6 +15,13 @@ public class DamagePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Player")){
             other.transform.GetComponent<IDamagable>().DealDamage(dmgAmt);
+
+            //Destroy bullet when they collide with player
+            if(transform.CompareTag("Bullet")){
+                Destroy(gameObject);
+            }
         }
+
+        
     }
 }

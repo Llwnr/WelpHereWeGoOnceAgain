@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public abstract class RelicSkill : MonoBehaviour
 {
     public new string name;
     public Sprite icon;
     [TextArea]
     public List<string> description;
-    private bool isUnlocked = false;
-    private bool isBlocked = false;
+    public bool isUnlocked{get; private set;} = false;
+    public bool isBlocked{get; private set;} = false;
 
     public void SetAsUsed(){
         isUnlocked = true;
@@ -29,6 +30,12 @@ public abstract class RelicSkill : MonoBehaviour
 
     private void OnEnable() {
         Awake();
+        //Only unlockable buttons should be clickable
+        if(CanBeUnlocked() && !isBlocked && !isUnlocked){
+            GetComponent<Button>().interactable = true;
+        }else{
+            GetComponent<Button>().interactable = false;
+        }
     }
 
     //SKILL TREE MANAGER

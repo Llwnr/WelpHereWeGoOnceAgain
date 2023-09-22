@@ -9,6 +9,7 @@ TagManager:
   - PopupContainer
   - RelicManager
   - RelicCard
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,12 @@ public class PlayerBasicStats : MonoBehaviour, IOnLevelUp
         instance = this;
     }
 
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.C)){
+            PlayerLevelManager.LevelUp();
+        }
+    }
+
     private void Start() {
         PlayerLevelManager.AddLevelupListener(this);
     }

@@ -10,7 +10,7 @@ public class UpgradeDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField]private Transform infoBox;
     [SerializeField]private TextMeshProUGUI nameBox, descBox;
     [SerializeField]private float waitToDisplay;
-    private float displayTimer;
+    [SerializeField]private float displayTimer;
 
     private RelicSkill myRelicSkill;
 
@@ -25,7 +25,7 @@ public class UpgradeDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerE
     private void Update() {
         //Display info when player hovers for a while
         if(isHovering){
-            displayTimer -= Time.deltaTime;
+            displayTimer -= Time.unscaledDeltaTime;
             if(displayTimer <= 0){
                 DisplayUpgradeInfo();
             }

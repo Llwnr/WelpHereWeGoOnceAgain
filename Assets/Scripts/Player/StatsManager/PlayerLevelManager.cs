@@ -22,6 +22,11 @@ public static class PlayerLevelManager
             listener.OnLevelUp();
         }
     }
+
+    public static void LevelUp(){
+        level++;
+        NotifyLevelUp();
+    }
     
     public static void AddExp(float expGained){
         expAmt += expGained;

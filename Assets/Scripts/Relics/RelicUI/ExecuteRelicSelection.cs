@@ -21,6 +21,7 @@ public class ExecuteRelicSelection : MonoBehaviour
 
     void DisplayRelicUpgrades(RelicType.RelicTypes relicType){
         relicUpgradeUI.SetActive(true);
-        relicUpgradeUI.GetComponent<UICreateRelicUpgrades>().ActivateUpgradeSelection(relicType);
+        //Display the skill tree of the selected relic type only
+        relicUpgradeUI.GetComponent<DisplaySkillTree>().DisplaySkillTreeOfRelicType(relicType);
     }
 }
