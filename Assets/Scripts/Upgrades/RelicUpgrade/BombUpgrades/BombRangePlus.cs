@@ -5,8 +5,9 @@ using UnityEngine;
 public class BombRangePlus : RelicSkill
 {
     [SerializeField]private float increaseRangeBy;
+    [SerializeField]private Bomber.BombType bombType;
     public override void Upgrade()
     {
-        relicManager.GetComponent<ThrowBombs>().IncreaseExplosionRange(increaseRangeBy);
+        relicManager.GetComponent<Bomber>().IncreaseExplosionRange(bombType, increaseRangeBy);
     }
 }

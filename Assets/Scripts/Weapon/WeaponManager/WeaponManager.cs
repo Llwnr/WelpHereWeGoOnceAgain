@@ -25,6 +25,7 @@ public class WeaponManager : MonoBehaviour
     void NotifyWhenPlayerAttacks(){
         foreach(IOnAttack listener in onAttackListeners){
             listener.OnAttack();
+            Debug.Log(listener.GetType());
         }
     }
 
@@ -39,7 +40,7 @@ public class WeaponManager : MonoBehaviour
     //Upgradable variables
     private int extraBullets = 0;
     private float extraAtkPower, extraAtkSpeed = 0;
-    private float reloadSpeedMultiplier = 1;
+    private float reloadTimeReduc = 0;
 
     [SerializeField]private DisplayReload reloadDisplay;
     // Start is called before the first frame update
@@ -70,6 +71,7 @@ public class WeaponManager : MonoBehaviour
 
     //Reset the bullet reload to max
     void ResetReloadTimer(){
+        maxReloadTime -= maxReloadTime*reloadTimeReduc;
         currReloadTime = maxReloadTime;
     }
 
@@ -152,6 +154,17 @@ public class WeaponManager : MonoBehaviour
     }
 
     public void IncreaseBulletAmtBy(int amt){
+        remainingBullets += amt;
         extraBullets += amt;
+    }
+
+    public void IncreaseAtkSpeedBy(float amt){
+        extraAtkSpeed += amt;
+    }
+
+    public void DecreaseReloadTimeBy(float amt){
+        reloadTimeReduc += amt;
+        RecordWeaponData();
+        ResetReloadTimer();
     }
 }

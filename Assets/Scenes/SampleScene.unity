@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 143949733}
   - component: {fileID: 143949732}
   - component: {fileID: 143949734}
-  - component: {fileID: 143949731}
+  - component: {fileID: 143949736}
   - component: {fileID: 143949735}
   m_Layer: 5
   m_Name: Skill1
@@ -475,32 +475,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 604223358}
+  m_Father: {fileID: 2075800692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 275}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &143949731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143949729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7135e4318c180284fa051c33e0dae24f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Extra bombs
-  icon: {fileID: 21300000, guid: fec3a37421b3cb14c89a88b81b457cca, type: 3}
-  description:
-  - Throw 1 extra bomb
-  myRequiredNodes: []
-  numofExtraBombs: 2
 --- !u!114 &143949732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +593,28 @@ MonoBehaviour:
   nameBox: {fileID: 383865818}
   descBox: {fileID: 1487203447}
   waitToDisplay: 0.25
+--- !u!114 &143949736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143949729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0719239282bb47a9828d3e0ae41b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Destructo
+  icon: {fileID: 21300000, guid: fec3a37421b3cb14c89a88b81b457cca, type: 3}
+  description:
+  - Throw destructive bombs
+  myRequiredNodes: []
+  activateOnShot: 5
+  range: 7
+  numOfBombs: 1
+  bomb: {fileID: 4757827744473381982, guid: 6f1a9008dd6cfdd4cb3e06ac814d48b8, type: 3}
+  bombType: 0
 --- !u!1 &165817932
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a153a0f80da38448eab594c8bcc346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRelicType: 4
+  myRelicType: 1
 --- !u!114 &197234580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,7 +1564,7 @@ MonoBehaviour:
   - Deal More Damage(+10%)
   myRequiredNodes:
   - {fileID: 115119741}
-  - {fileID: 1362019948}
+  - {fileID: 1362019952}
   increaseBy: 0.1
 --- !u!222 &309998767
 CanvasRenderer:
@@ -2112,8 +2116,9 @@ MonoBehaviour:
   description:
   - Bombs deal more damage
   myRequiredNodes:
-  - {fileID: 143949731}
-  increaseMultiplier: 0
+  - {fileID: 143949736}
+  increaseMultiplier: 0.2
+  bombType: 0
 --- !u!114 &368810012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,6 +2671,7 @@ MonoBehaviour:
   - Throw 1 extra bomb
   myRequiredNodes: []
   numofExtraBombs: 2
+  bombType: 0
 --- !u!114 &420344642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3383,6 +3389,7 @@ MonoBehaviour:
   - {fileID: 1913472936}
   - {fileID: 968339908}
   numofExtraBombs: 8
+  bombType: 0
 --- !u!114 &554888723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,98 +3807,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
---- !u!1 &604223357
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 604223358}
-  - component: {fileID: 604223361}
-  - component: {fileID: 604223360}
-  - component: {fileID: 604223359}
-  m_Layer: 5
-  m_Name: SkillMask
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &604223358
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604223357}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 143949730}
-  m_Father: {fileID: 2075800692}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 160, y: 160}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &604223359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604223357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
---- !u!114 &604223360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604223357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.015686275}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 489c141e652d1974da0c286714c96be9,
-    type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &604223361
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604223357}
-  m_CullTransparentMesh: 1
 --- !u!1 &639741032
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,8 +4080,9 @@ MonoBehaviour:
   description:
   - Increase explosion range of bombs
   myRequiredNodes:
-  - {fileID: 143949731}
-  increaseRangeBy: 0
+  - {fileID: 143949736}
+  increaseRangeBy: 4
+  bombType: 0
 --- !u!114 &706347160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4354,6 +4270,7 @@ MonoBehaviour:
   - {fileID: 2096541466}
   - {fileID: 2127866553}
   numofExtraBombs: 8
+  bombType: 0
 --- !u!114 &751413082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5513,6 +5430,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 420344641}
   increaseMultiplier: 0
+  bombType: 0
 --- !u!114 &934947979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5683,6 +5601,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 1202344129}
   increaseMultiplier: 0
+  bombType: 0
 --- !u!114 &968339909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6433,6 +6352,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 1432179491}
   increaseRangeBy: 0
+  bombType: 0
 --- !u!114 &1145989319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6788,6 +6708,7 @@ MonoBehaviour:
   - Throw 1 extra bomb
   myRequiredNodes: []
   numofExtraBombs: 2
+  bombType: 0
 --- !u!114 &1202344130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6957,6 +6878,7 @@ MonoBehaviour:
   - Throw 1 extra bomb
   myRequiredNodes: []
   numofExtraBombs: 2
+  bombType: 0
 --- !u!114 &1240201986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7220,6 +7142,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 1432179491}
   increaseMultiplier: 0
+  bombType: 0
 --- !u!114 &1299519059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7568,7 +7491,7 @@ GameObject:
   - component: {fileID: 1362019951}
   - component: {fileID: 1362019950}
   - component: {fileID: 1362019949}
-  - component: {fileID: 1362019948}
+  - component: {fileID: 1362019952}
   - component: {fileID: 1362019947}
   m_Layer: 5
   m_Name: Skill1-1
@@ -7613,25 +7536,6 @@ MonoBehaviour:
   nameBox: {fileID: 383865818}
   descBox: {fileID: 1487203447}
   waitToDisplay: 0.25
---- !u!114 &1362019948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362019945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adce1c06b27c856489b6e2e1bed0cd67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: More Dmg
-  icon: {fileID: 21300000, guid: eee989162f5e91d448ab8de7c517ef3b, type: 3}
-  description:
-  - Deal More Damage(+10%)
-  myRequiredNodes:
-  - {fileID: 220304578}
-  increaseBy: 0.1
 --- !u!222 &1362019949
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7726,6 +7630,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1362019952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362019945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b722b3a255ec6542b4af6bef759afa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Pewpew
+  icon: {fileID: 0}
+  description:
+  - 'Increases atk speed by 20%
+
+    Increases reload speed by 50%'
+  myRequiredNodes: []
+  atkSpeedBuff: 100
+  reloadTimeReduc: 10
 --- !u!1 &1373690228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7803,6 +7728,7 @@ MonoBehaviour:
   - {fileID: 1145989318}
   - {fileID: 1299519058}
   numofExtraBombs: 8
+  bombType: 0
 --- !u!114 &1373690232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8437,6 +8363,7 @@ MonoBehaviour:
   - Throw 1 extra bomb
   myRequiredNodes: []
   numofExtraBombs: 2
+  bombType: 0
 --- !u!114 &1432179492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9407,7 +9334,8 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 706347159}
   - {fileID: 368810011}
-  numofExtraBombs: 8
+  numofExtraBombs: 2
+  bombType: 0
 --- !u!114 &1692551225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9501,6 +9429,7 @@ MonoBehaviour:
   - {fileID: 2100324989}
   - {fileID: 934947978}
   numofExtraBombs: 8
+  bombType: 0
 --- !u!114 &1728687112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9958,6 +9887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc210f098a81b748aa445c39536a2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadTime: 0
+  maxReloadTime: 0
 --- !u!1 &1913472935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9998,6 +9929,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 1202344129}
   increaseRangeBy: 0
+  bombType: 0
 --- !u!114 &1913472937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10137,8 +10069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914060234}
-  - component: {fileID: 1914060235}
-  - component: {fileID: 1914060236}
+  - component: {fileID: 1914060237}
   m_Layer: 0
   m_Name: RelicManager
   m_TagString: RelicManager
@@ -10161,7 +10092,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914060235
+--- !u!114 &1914060237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10170,36 +10101,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914060233}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53e0719239282bb47a9828d3e0ae41b3, type: 3}
+  m_Script: {fileID: 11500000, guid: b1e83177ec92c7249a3a408e1afc96a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relicName: YellowBomber
-  relicDescription: Throws destructive bombs every 12 shot
-  icon: {fileID: 21300000, guid: 8b89521090283864e8bc33d5165597fc, type: 3}
-  myRelicType: 1
-  activateOnShot: 12
-  range: 5
-  numOfBombs: 1
-  bomb: {fileID: 4757827744473381982, guid: 6f1a9008dd6cfdd4cb3e06ac814d48b8, type: 3}
---- !u!114 &1914060236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914060233}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107f9bc098b5cc3488d4d50db7737c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  relicName: MultiShooter
-  relicDescription: Shoots multiple bullets rapidly after every 7th shot
-  icon: {fileID: 21300000, guid: f8c7d4a488083d2458b010a1f6cb348b, type: 3}
-  myRelicType: 4
-  activateOnShot: 7
-  numOfExtraShots: 5
-  bullet: {fileID: 8009271588578554507, guid: 9c57e670e4aeb70489edc51590fa7579, type: 3}
+  relicName: She is the bomb
+  relicDescription: Tribute to deidara... EXPLOOOSION
+  icon: {fileID: 21300000, guid: fec3a37421b3cb14c89a88b81b457cca, type: 3}
+  myRelicType: 0
 --- !u!1 &1968469012
 GameObject:
   m_ObjectHideFlags: 0
@@ -10557,7 +10465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a153a0f80da38448eab594c8bcc346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRelicType: 1
+  myRelicType: 0
 --- !u!114 &2058807329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10602,7 +10510,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 604223358}
+  - {fileID: 143949730}
   - {fileID: 706347158}
   - {fileID: 368810010}
   - {fileID: 1692551220}
@@ -10704,6 +10612,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 1240201985}
   increaseRangeBy: 0
+  bombType: 0
 --- !u!114 &2096541467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10874,6 +10783,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 420344641}
   increaseRangeBy: 0
+  bombType: 0
 --- !u!114 &2100324990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11044,6 +10954,7 @@ MonoBehaviour:
   myRequiredNodes:
   - {fileID: 1240201985}
   increaseMultiplier: 0
+  bombType: 0
 --- !u!114 &2127866554
 MonoBehaviour:
   m_ObjectHideFlags: 0

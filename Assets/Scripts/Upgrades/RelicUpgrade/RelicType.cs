@@ -5,10 +5,7 @@ using UnityEngine;
 public class RelicType : MonoBehaviour
 {
     public enum RelicTypes{
-        greenBomb,
-        yellowBomb,
-        redBomb,
-        blueSlowBomb,
+        bomb,
         multiShoot
     }
     [SerializeField]private RelicTypes myRelicType;

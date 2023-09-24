@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Y_MoreBullets : RelicSkill
+public class MoreBullets : RelicSkill
 {
     public int numOfExtraBullets;
 

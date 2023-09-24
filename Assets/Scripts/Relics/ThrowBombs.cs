@@ -3,22 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
+public class ThrowBombs : ShotCounterBasedRelicSkill
 {
+    private Bomber myBomberRelic;
     [SerializeField]private float range;
     [SerializeField]private int numOfBombs;
     [SerializeField]private GameObject bomb;
+
+    [SerializeField]private Bomber.BombType bombType;
 
     //Manage upgrades
     private float dmgMultiplier = 1;
     private float explosionRange = 8;
 
-    public override void OnAttack(){
-        base.OnAttack();
+    private int finalNumOfBombs;
+    private float finalDmgMultiplier, finalExplosionRange;
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        myBomberRelic = relicManager.GetComponent<Bomber>();
     }
-    public override void ActivateSkill(){
+
+    protected override void ActivateSkill(){
+        GetBombStats();
         //Throw bombs at random direction
-        for(int i=0; i<numOfBombs; i++){
+        for(int i=0; i<finalNumOfBombs; i++){
             Ray2D ray = new Ray2D(player.transform.position, Random.onUnitSphere);
             Vector2 bombPos = ray.GetPoint(range);
 
@@ -28,26 +38,14 @@ public class ThrowBombs : ShotCounterBasedRelic, IOnAttack, ISetDamageMultiplier
             throwManager.SetDestination(bombPos);
 
             //Give bomb stats such as explosion range and dmg buff
-            newBomb.GetComponent<BombExplosionManager>().SetExplosionStats(dmgMultiplier, explosionRange);
+            newBomb.GetComponent<BombExplosionManager>().SetExplosionStats(finalDmgMultiplier, finalExplosionRange);
         }
     }
 
-    //UPGRADES ARE DONE FROM FOLLOWING FUNCTIONS
-    public void SetDamageMultiplier(float dmgMultiplier)
-    {
-        this.dmgMultiplier = dmgMultiplier;
-        UpdateRelicUpgrades();
-    }
-
-    public float GetDamageMultiplier(){
-        return dmgMultiplier;
-    }
-
-    public void IncreaseNumberOfBombsBy(int amt){
-        numOfBombs += amt;
-    }
-
-    public void IncreaseExplosionRange(float byAmt){
-        explosionRange += byAmt;
+    private void GetBombStats(){
+        //Update the stats such as 
+        finalNumOfBombs = numOfBombs+myBomberRelic.GetNumOfBombs(bombType);
+        finalDmgMultiplier = dmgMultiplier+myBomberRelic.GetDmgMultiplier(bombType);
+        finalExplosionRange = explosionRange+myBomberRelic.GetExplosionRange(bombType);
     }
 }

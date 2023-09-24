@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DisplayReload : MonoBehaviour
 {
-    private float reloadTime, maxReloadTime = 0;
+    [SerializeField]private float reloadTime, maxReloadTime = 0;
     private Image reloadBar;
 
     private void Start() {
