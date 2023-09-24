@@ -4,7 +4,7 @@ using UnityEngine;
 
 //These skills will activate based on how many numbers of attack player has done
 //For example: For every 5 bullets shot activate this skill
-public abstract class ShotCounterBasedRelic : SubRelic
+public abstract class ShotCounterBasedRelic : Relic
 {
     [Header ("Upgrade Properties")]
     //Activate this after a certain number of bullets are shot

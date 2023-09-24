@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //These skills will check if they can proc based on chance with every attack
-public abstract class ChanceBasedSkill : SubRelic
+public abstract class ChanceBasedSkill : Relic
 {
     [SerializeField]protected float procChance;
 

@@ -24,7 +24,7 @@ public class MultiBurst : ShotCounterBasedRelic
         float angle = 0;
         for(int i=0; i<numOfShots; i++){
             int iDivisor = numOfShots/2;
-            angle = (i-iDivisor)*5;
+            angle = (i-iDivisor)*15;
             weaponManager.ActivateWeapon(angle, bullet, dmgMultiplier);
         }
     }

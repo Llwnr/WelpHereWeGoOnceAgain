@@ -10,7 +10,7 @@ public class UpgradeDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField]private Transform infoBox;
     [SerializeField]private TextMeshProUGUI nameBox, descBox;
     [SerializeField]private float waitToDisplay;
-    [SerializeField]private float displayTimer;
+    private float displayTimer;
 
     private RelicSkill myRelicSkill;
 

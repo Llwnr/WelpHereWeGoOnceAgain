@@ -36,6 +36,11 @@ public class WeaponManager : MonoBehaviour
     private float atkPower, atkSpeed, atkInterval = 0; //How quickly the bullets are shot. 1 bullet per second or more
     private int remainingBullets;
 
+    //Upgradable variables
+    private int extraBullets = 0;
+    private float extraAtkPower, extraAtkSpeed = 0;
+    private float reloadSpeedMultiplier = 1;
+
     [SerializeField]private DisplayReload reloadDisplay;
     // Start is called before the first frame update
     void Start()
@@ -53,8 +58,8 @@ public class WeaponManager : MonoBehaviour
         
         //Set some data into variables for easier understanding
         shootForce = equippedWeapon.shootForce;
-        atkSpeed = equippedWeapon.atkSpeed * playerStats.GetAtkSpeed();
-        atkPower = equippedWeapon.atkPower * playerStats.GetAtkPower();
+        atkSpeed = (equippedWeapon.atkSpeed+extraAtkSpeed) * playerStats.GetAtkSpeed();
+        atkPower = (equippedWeapon.atkPower+extraAtkPower) * playerStats.GetAtkPower();
         maxReloadTime = equippedWeapon.reloadTime * (1/playerStats.GetReloadSpeed());
     }
 
@@ -94,7 +99,7 @@ public class WeaponManager : MonoBehaviour
             RecordWeaponData();
             ResetReloadTimer();
             //Reset remaining bullets to max after being reloaded
-            remainingBullets = equippedWeapon.maxNumOfBullets;
+            remainingBullets = equippedWeapon.maxNumOfBullets + extraBullets;
         }
         if(remainingBullets <= 0){
             if(currReloadTime == maxReloadTime){
@@ -137,7 +142,16 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    //FOR UPGRADES
     public WeaponBase GetWeaponData(){
         return equippedWeapon;
+    }
+
+    public int GetRemainingBullets(){
+        return remainingBullets;
+    }
+
+    public void IncreaseBulletAmtBy(int amt){
+        extraBullets += amt;
     }
 }

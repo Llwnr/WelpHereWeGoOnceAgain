@@ -8,6 +8,7 @@ public class RelicType : MonoBehaviour
         greenBomb,
         yellowBomb,
         redBomb,
+        blueSlowBomb,
         multiShoot
     }
     [SerializeField]private RelicTypes myRelicType;

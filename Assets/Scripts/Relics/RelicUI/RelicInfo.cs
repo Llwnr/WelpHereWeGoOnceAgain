@@ -8,16 +8,16 @@ public class RelicInfo : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI relicName, relicDesc;
     [SerializeField]private Image relicIcon;
-    [SerializeField]private SubRelic relic;
+    [SerializeField]private Relic relic;
     
-    public void SetRelicInfo(string name, string desc, Sprite icon, SubRelic relic){
+    public void SetRelicInfo(string name, string desc, Sprite icon, Relic relic){
         relicName.text = name;
         relicDesc.text = desc;
         relicIcon.sprite = icon;
         this.relic = relic;
     }
 
-    public SubRelic GetRelic(){
+    public Relic GetRelic(){
         return relic;
     }
 }

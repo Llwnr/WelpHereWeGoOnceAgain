@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SubRelic : MonoBehaviour, IOnAttack
+public abstract class Relic : MonoBehaviour, IOnAttack
 {
     [Header ("Info")]
     public string relicName;

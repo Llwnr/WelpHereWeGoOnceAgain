@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class AddRelicSelectionOptions : MonoBehaviour
 {
-    private List<SubRelic> equippableRelic = new List<SubRelic>();
+    private List<Relic> equippableRelic = new List<Relic>();
+    private List<GameObject> relicCards = new List<GameObject>();
     [SerializeField]private GameObject relicHolder, relicUIHolder;
     [SerializeField]private GameObject relicCard;
 
-    private void Start() {
+    private void Awake() {
         //All the disabled relics will be stored and displayed randomly for relic selection
-        foreach(SubRelic relic in relicHolder.GetComponents<SubRelic>()){
+        foreach(Relic relic in relicHolder.GetComponents<Relic>()){
             equippableRelic.Add(relic);
         }
 
@@ -19,7 +20,7 @@ public class AddRelicSelectionOptions : MonoBehaviour
     }
 
     void GenerateRelicCards(){
-        foreach(SubRelic relic in equippableRelic){
+        foreach(Relic relic in equippableRelic){
             //Generate empty relic cards
             GameObject newCard = Instantiate(relicCard, Vector2.zero, Quaternion.identity);
             newCard.transform.SetParent(relicUIHolder.transform, false);
@@ -29,7 +30,15 @@ public class AddRelicSelectionOptions : MonoBehaviour
 
             //Also give it scripts to execute when button clicked
             newCard.GetComponent<Button>().onClick.AddListener(GetComponent<ExecuteRelicSelection>().EnableRelic);
+
+            newCard.SetActive(false);
+            relicCards.Add(newCard);
+
         }
+    }
+
+    public List<GameObject> GetMyRelicCards(){
+        return relicCards;
     }
 
 
