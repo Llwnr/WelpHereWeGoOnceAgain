@@ -41,7 +41,9 @@ public class ShootBurstOfBullet : ShotCounterBasedRelicSkill, IOnReload
         for(int i=0; i<numOfShots; i++){
             int iDivisor = numOfShots/2;
             angle = (i-iDivisor)*15;
-            WeaponManager.instance.ActivateWeapon(angle, bullet, 1+multiShootInfo.dmgMultiplier);
+            GameObject myBullet = WeaponManager.instance.ActivateWeapon(angle, bullet, 1+multiShootInfo.dmgMultiplier);
+            //Give bullet info
+            myBullet.GetComponent<BulletStats>().SetExtraPiercePower(multiShootInfo.extraPiercePower);
         }
     }
 }

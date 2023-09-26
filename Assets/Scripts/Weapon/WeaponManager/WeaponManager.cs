@@ -131,7 +131,7 @@ public class WeaponManager : MonoBehaviour
         else return false;
     }
 
-    public void ActivateWeapon(float angle = 0, GameObject bullet = null, float dmgMultiplier = 1){
+    public GameObject ActivateWeapon(float angle = 0, GameObject bullet = null, float dmgMultiplier = 1){
         //Slight randomness
         angle += Random.Range(-1f,1f)*3;
 
@@ -146,7 +146,7 @@ public class WeaponManager : MonoBehaviour
         //Shoot from the tip of the gun
         Rigidbody2D bulletRb = Instantiate(bullet, (Vector2)transform.position + shootDir*0.5f, Quaternion.identity).GetComponent<Rigidbody2D>();
         bulletRb.AddForce(shootDir*shootForce, ForceMode2D.Impulse);
-        bulletRb.transform.localEulerAngles = new Vector3(0,0, transform.eulerAngles.z+90);
+        bulletRb.transform.localEulerAngles = new Vector3(0,0, transform.eulerAngles.z+90+angle);
         //Set the multiplier for bullet dmg
         bulletRb.GetComponent<DamageEnemy>().SetPlayerAtkStat(atkPower);
         bulletRb.GetComponent<DamageEnemy>().SetDmgMultiplier(dmgMultiplier);
@@ -156,6 +156,8 @@ public class WeaponManager : MonoBehaviour
             Vector2 vector = new Vector2(Mathf.Cos(angle*Mathf.Deg2Rad), Mathf.Sin(angle*Mathf.Deg2Rad));
             return vector;
         }
+
+        return bulletRb.gameObject;
     }
 
     //FOR UPGRADES

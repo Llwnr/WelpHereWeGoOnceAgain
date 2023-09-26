@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Basic Gun
   description: Just shoots bullet
   bullet: {fileID: 8009271588578554507, guid: 054e06f35a84b814ea5912953dfd75c7, type: 3}
-  maxNumOfBullets: 24
+  maxNumOfBullets: 8
   atkSpeed: 2.5
   atkPower: 36
   reloadTime: 2

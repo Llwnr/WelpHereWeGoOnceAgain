@@ -6,6 +6,7 @@ public class MultiShoot : Relic
 {
     public int extraShots{get; private set;} = 0;
     public float dmgMultiplier{get; private set;} = 0;
+    public int extraPiercePower{get; private set;} = 0;
 
     //Functions for upgrading variables
     public void IncreaseDmgMultiplierBy(float amt){
@@ -14,5 +15,9 @@ public class MultiShoot : Relic
 
     public void IncreaseNumOfExtraBulletsBy(int amt){
         extraShots += amt;
+    }
+
+    public void IncreasePiercePower(){
+        extraPiercePower++;
     }
 }

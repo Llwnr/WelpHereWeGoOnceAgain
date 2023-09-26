@@ -6,7 +6,8 @@ public class RelicType : MonoBehaviour
 {
     public enum RelicTypes{
         bomb,
-        multiShoot
+        multiShoot,
+        lightning
     }
     [SerializeField]private RelicTypes myRelicType;
     public RelicTypes GetRelicType(){

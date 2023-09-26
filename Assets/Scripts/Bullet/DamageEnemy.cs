@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BulletStats))]
 public class DamageEnemy : MonoBehaviour
 {
     [SerializeField]private float myDmg = 0;
@@ -10,6 +11,12 @@ public class DamageEnemy : MonoBehaviour
 
     //For bullet to hit only one time
     private bool alreadyUsed = false;
+
+    private BulletStats bulletStats;
+
+    private void OnEnable() {
+        bulletStats = GetComponent<BulletStats>();
+    }
 
     public void SetPlayerAtkStat(float statAmt){
         playerAtkStat = statAmt;
@@ -22,8 +29,14 @@ public class DamageEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Enemy") && !alreadyUsed){
             other.GetComponent<IDamagable>().DealDamage(CalculateDamage());
-            alreadyUsed = true;
-            Destroy(gameObject);
+
+            bulletStats.ReducePierceOnHit();
+            Debug.Log(bulletStats.pierceAmt);
+            //Only destroy the bullet when its piercing power ends
+            if(bulletStats.pierceAmt <= 0){
+                alreadyUsed = true;
+                Destroy(gameObject);
+            }
         }
     }
 
