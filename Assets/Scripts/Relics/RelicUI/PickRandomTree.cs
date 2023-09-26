@@ -30,7 +30,7 @@ public class PickRandomTree : MonoBehaviour
         }
         //Pick random trees
         for(int i=0; i<numOfTreesToPick; i++){
-            int randomIndex = Random.Range(0, allChildTrees.Count-1);
+            int randomIndex = Random.Range(0, allChildTrees.Count);
             //If picked tree already is picked then redo loop
             if(pickedTrees.Contains(allChildTrees[randomIndex])){
                 i--;

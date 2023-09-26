@@ -48,6 +48,7 @@ public class MoveTowardsPlayer : MonoBehaviour
         if(haltMovement){
             return;
         }
+        if(target == null) return;
         //Don't use this script when external force is applied. Get stunned when external force such as knockback is applied
         if(!externalForceApplied){
             dir = (target.position - transform.position).normalized;

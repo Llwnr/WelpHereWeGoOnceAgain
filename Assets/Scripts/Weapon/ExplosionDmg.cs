@@ -15,7 +15,6 @@ public class ExplosionDmg : MonoBehaviour, ISetDamageMultiplier
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Enemy")){
             other.GetComponent<IDamagable>().DealDamage(dmgAmt*dmgMultiplier);
-            Debug.Log("Dmg dealt");
         }
     }
 }

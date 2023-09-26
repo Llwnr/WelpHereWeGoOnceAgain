@@ -5,14 +5,14 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UpgradeDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class RelicSkillDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]private Transform infoBox;
     [SerializeField]private TextMeshProUGUI nameBox, descBox;
     [SerializeField]private float waitToDisplay;
     private float displayTimer;
 
-    private RelicSkill myRelicSkill;
+    private RelicSkillManager myRelicSkill;
 
     private bool isHovering;
 
@@ -37,7 +37,7 @@ public class UpgradeDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerE
         //Set data of the skill/relic upgrader
         infoBox.transform.position = Input.mousePosition + new Vector3(400,0);
         nameBox.text = myRelicSkill.name;
-        descBox.text = myRelicSkill.description[0];
+        descBox.text = myRelicSkill.description;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -51,7 +51,7 @@ public class UpgradeDataDisplay : MonoBehaviour, IPointerEnterHandler, IPointerE
     // Start is called before the first frame update
     void Start()
     {
-        myRelicSkill = GetComponent<RelicSkill>();
+        myRelicSkill = GetComponent<RelicSkillManager>();
         GetComponent<Image>().sprite = myRelicSkill.icon;
         ResetDisplayTimer();
     }

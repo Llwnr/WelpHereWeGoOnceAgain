@@ -148,8 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3fbc3604b1183449665dde2e476353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDmg: 30
-  dmgMultiplier: 1
+  myDmg: 20
 --- !u!114 &8943052490023168154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f283e69d0d63144084dc32c41be832e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeDuration: 0.4
+  lifeDuration: 0.5
 --- !u!114 &-4744272639727686875
 MonoBehaviour:
   m_ObjectHideFlags: 0

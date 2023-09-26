@@ -15,7 +15,6 @@ public abstract class ShotCounterBasedRelicSkill : RelicSkill, IOnAttack
     public override void Upgrade(){
         bulletShotCounter = 0;
         player = GameObject.FindWithTag("Player");
-        Debug.Log("Shotcounter is upgraded");
         //Subscribe to know how many bullets have been shot
         WeaponManager.instance.AddOnAttackListener(this);
     }
@@ -25,8 +24,7 @@ public abstract class ShotCounterBasedRelicSkill : RelicSkill, IOnAttack
     }
 
     public virtual void OnAttack(){
-        if(!isUnlocked) return;
-        Debug.Log("pew pew");
+        if(!relicSkillManager.isUnlocked) return;
         bulletShotCounter++;
         if(bulletShotCounter == activateOnShot){
             bulletShotCounter = 0;

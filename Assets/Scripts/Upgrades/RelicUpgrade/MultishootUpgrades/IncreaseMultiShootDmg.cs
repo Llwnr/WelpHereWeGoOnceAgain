@@ -7,6 +7,6 @@ public class IncreaseMultiShootDmg : RelicSkill
     [SerializeField]private float increaseBy;
     public override void Upgrade()
     {
-        relicManager.GetComponent<MultiBurst>().IncreaseDmgMultiplierBy(increaseBy);
+        relicManager.GetComponent<MultiShoot>().IncreaseDmgMultiplierBy(increaseBy);
     }
 }

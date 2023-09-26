@@ -25,7 +25,20 @@ public class WeaponManager : MonoBehaviour
     void NotifyWhenPlayerAttacks(){
         foreach(IOnAttack listener in onAttackListeners){
             listener.OnAttack();
-            Debug.Log(listener.GetType());
+        }
+    }
+
+    //To notify when player reloads
+    private List<IOnReload> onReloadListeners = new List<IOnReload>();
+    public void AddOnReloadListener(IOnReload listener){
+        onReloadListeners.Add(listener);
+    }
+    public void RemoveOnReloadListener(IOnReload listener){
+        onReloadListeners.Remove(listener);
+    }
+    void NotifyReload(){
+        foreach(IOnReload listener in onReloadListeners){
+            listener.OnReload();
         }
     }
 
@@ -107,6 +120,7 @@ public class WeaponManager : MonoBehaviour
             if(currReloadTime == maxReloadTime){
                 //Display the weapon being reloaded to the user
                 reloadDisplay.Reloaded(currReloadTime);
+                NotifyReload();
             }
             currReloadTime -= Time.deltaTime;
         }

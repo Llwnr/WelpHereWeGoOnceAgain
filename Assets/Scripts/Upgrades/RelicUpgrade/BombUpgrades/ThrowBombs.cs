@@ -35,7 +35,7 @@ public class ThrowBombs : ShotCounterBasedRelicSkill
             //Give info on where the bomb should land
             GameObject newBomb = Instantiate(bomb, player.transform.position, Quaternion.identity);
             ThrowManager throwManager = newBomb.GetComponent<ThrowManager>();
-            throwManager.SetDestination(bombPos);
+            throwManager.SetDestination(bombPos+bombPos*Random.Range(-0.15f, 0.15f));
 
             //Give bomb stats such as explosion range and dmg buff
             newBomb.GetComponent<BombExplosionManager>().SetExplosionStats(finalDmgMultiplier, finalExplosionRange);

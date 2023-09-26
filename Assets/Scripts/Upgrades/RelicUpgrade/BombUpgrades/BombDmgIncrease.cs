@@ -9,7 +9,5 @@ public class BombDmgIncrease : RelicSkill
     
     public override void Upgrade(){
         relicManager.GetComponent<Bomber>().IncreaseDmgMultiplier(bombType, increaseMultiplier);
-
-        Debug.Log("Bomb dmg multiplier increased");
     }
 }

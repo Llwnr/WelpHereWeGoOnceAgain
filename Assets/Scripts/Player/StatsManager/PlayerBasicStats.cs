@@ -60,6 +60,11 @@ public class PlayerBasicStats : MonoBehaviour, IOnLevelUp
         return critDamage;
     }
 
+    //FOR UPGRADES
+    public void BuffMovementSpeedBy(float amt){
+        movementSpeedMultiplier += amt;
+    }
+
     //When you level up you will upgrade your stats
     public void OnLevelUp(){
         UpgradeStat();
