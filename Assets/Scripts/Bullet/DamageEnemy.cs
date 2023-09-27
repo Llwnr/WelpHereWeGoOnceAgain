@@ -28,10 +28,9 @@ public class DamageEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Enemy") && !alreadyUsed){
-            other.GetComponent<IDamagable>().DealDamage(CalculateDamage());
+            other.GetComponent<IDamagable>().DealDamage(CalculateDamage(), other.ClosestPoint(transform.position));
 
             bulletStats.ReducePierceOnHit();
-            Debug.Log(bulletStats.pierceAmt);
             //Only destroy the bullet when its piercing power ends
             if(bulletStats.pierceAmt <= 0){
                 alreadyUsed = true;

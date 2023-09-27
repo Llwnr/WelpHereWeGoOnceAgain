@@ -14,7 +14,7 @@ public class DisplayPopup : MonoBehaviour, IWhenDamaged
     }
 
     //Create damage popup
-    public void WhenDamaged(float dmgAmt)
+    public void WhenDamaged(float dmgAmt, Vector2 hitPoint)
     {
         //Make the popup
         DmgPopup newDmgPopup = Instantiate(dmgPopup, transform.position, Quaternion.identity);

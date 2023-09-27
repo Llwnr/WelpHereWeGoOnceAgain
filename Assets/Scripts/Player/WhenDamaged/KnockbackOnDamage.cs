@@ -14,7 +14,7 @@ public class KnockbackOnDamage : MonoBehaviour, IWhenDamaged
         playerHealthManager.AddOnDamageListener(this);
     }
 
-    public void WhenDamaged(float dmgAmt){
+    public void WhenDamaged(float dmgAmt, Vector2 hitPoint){
         Vector2 pushDir = Vector2.zero;
         //Get all the objects in radius and push them away
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);

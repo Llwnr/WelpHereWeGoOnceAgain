@@ -27,15 +27,15 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
     public void RemoveOnDamageListener(IWhenDamaged damageListener){
         onDamageListeners.Remove(damageListener);
     }
-    void NotifyWhenDamaged(float dmgAmt){
+    void NotifyWhenDamaged(float dmgAmt, Vector2 hitPoint){
         foreach(IWhenDamaged damageListener in onDamageListeners){
-            damageListener.WhenDamaged(dmgAmt);
+            damageListener.WhenDamaged(dmgAmt, hitPoint);
         }
     }
 
-    public void DealDamage(float dmgAmt){
+    public void DealDamage(float dmgAmt, Vector2 hitPoint){
         maxHp -= dmgAmt;
-        NotifyWhenDamaged(dmgAmt);
+        NotifyWhenDamaged(dmgAmt, hitPoint);
         if(maxHp <= 0){
             Destroy(gameObject);
             NotifyDeath();

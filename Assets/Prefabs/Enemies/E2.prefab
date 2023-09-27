@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 5412813265501462327}
   - component: {fileID: 1115290132099970906}
   - component: {fileID: 6632149926067503064}
-  - component: {fileID: 6729594777680936381}
   - component: {fileID: 1215070343853153434}
   m_Layer: 3
   m_Name: E2
@@ -227,22 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expDropAmt: 1
   expDrop: {fileID: 1395697807140634325, guid: b40d189b71327a948961e158e5c4b58f, type: 3}
---- !u!114 &6729594777680936381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5412813265501462477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e887b6467b5d984d941217b731af1e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  injuredColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  switchDuration: 0.2
 --- !u!114 &1215070343853153434
 MonoBehaviour:
   m_ObjectHideFlags: 0

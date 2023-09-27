@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IWhenDamaged
 {
-    void WhenDamaged(float dmgAmt);
+    void WhenDamaged(float dmgAmt, Vector2 hitPoint);
 }

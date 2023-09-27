@@ -15,9 +15,9 @@ public class HealthManager : MonoBehaviour, IDamagable
     public void RemoveOnDamageListener(IWhenDamaged damageListener){
         onDamageListeners.Remove(damageListener);
     }
-    void NotifyWhenDamaged(float dmgAmt){
+    void NotifyWhenDamaged(float dmgAmt, Vector2 hitPoint){
         foreach(IWhenDamaged damageListener in onDamageListeners){
-            damageListener.WhenDamaged(dmgAmt);
+            damageListener.WhenDamaged(dmgAmt, hitPoint);
         }
     }
 
@@ -37,10 +37,10 @@ public class HealthManager : MonoBehaviour, IDamagable
         }
     }
 
-    public void DealDamage(float dmgAmt){
+    public void DealDamage(float dmgAmt, Vector2 hitPoint){
         currHp -= (int)dmgAmt;
         //Notify that player has been damaged
-        NotifyWhenDamaged(dmgAmt);
+        NotifyWhenDamaged(dmgAmt, hitPoint);
 
         if(currHp <= 0){
             Destroy(gameObject);

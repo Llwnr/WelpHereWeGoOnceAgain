@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    void DealDamage(float dmgAmt);
+    void DealDamage(float dmgAmt, Vector2 hitPoint);
 }

@@ -18,7 +18,7 @@ public class DmgPopup : MonoBehaviour
     public void SetSlideDir(Vector2 dir){
         dir = dir.normalized;
         //Only for x axis... the popup will always go up in y axis so
-        slideDir = new Vector2(dir.x, 0.5f)+(Vector2)transform.position;
+        slideDir = new Vector2(dir.x, 1f)+(Vector2)transform.position;
     }
 
     private void Start() {
