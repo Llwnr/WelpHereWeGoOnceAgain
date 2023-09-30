@@ -7,9 +7,17 @@ public class LightningDamager : MonoBehaviour
     [SerializeField]private float dmgAmt;
     private float dmgMultiplier = 1;
 
+    public void SetDmgMultiplier(float amt){
+        dmgMultiplier = amt;
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Enemy")){
-            other.GetComponent<IDamagable>().DealDamage(dmgAmt*dmgMultiplier, other.ClosestPoint(transform.position));
+            DamageTarget(other);
         }
+    }
+
+    public void DamageTarget(Collider2D target){
+        target.GetComponent<IDamagable>().DealDamage(dmgAmt*dmgMultiplier, target.ClosestPoint(transform.position));
     }
 }

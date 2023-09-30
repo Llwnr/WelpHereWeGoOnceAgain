@@ -7,7 +7,7 @@ public static class PlayerLevelManager
     public static float expForNextLevel{get; private set;} = 5;
     private static float expThresholdIncrease = 5.5f;
     public static float expAmt{get; private set;} = 0;
-    private static int level = 1;
+    public static int level{get; private set;} = 1;
 
     //Observers for when player levels up
     private static List<IOnLevelUp> levelUpListeners = new List<IOnLevelUp>();

@@ -12,7 +12,6 @@ public class DisplaySkillTree : MonoBehaviour
             //Enable the relic skill tree if it is of same type as selected relic
             if(skillTreeRelicType.GetRelicType() == relicType){
                 skillTreeRelicType.gameObject.SetActive(true);
-                Debug.Log(skillTreeRelicType);
             }
         }
     }

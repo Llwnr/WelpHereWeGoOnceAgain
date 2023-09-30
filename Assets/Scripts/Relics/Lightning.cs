@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Lightning : Relic
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public float lightningDuration{get; private set;} = 5;
+    public float dmgMultiplier{get; private set;} = 1;
+
+    public void IncreaseDuration(float amt){
+        lightningDuration += amt;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void IncreaseDmgMultiplier(float amt){
+        dmgMultiplier += amt;
     }
 }

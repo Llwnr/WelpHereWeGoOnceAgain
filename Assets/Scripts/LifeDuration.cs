@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class LifeDuration : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField]private float duration;
+    private void Update() {
+        duration -= Time.deltaTime;
+        if(duration <= 0) Destroy(gameObject);
     }
 }

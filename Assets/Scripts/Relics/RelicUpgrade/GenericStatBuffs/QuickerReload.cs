@@ -5,9 +5,9 @@ using UnityEngine;
 public class QuickerReload : RelicSkill
 {
     [Header ("In Percentage")]
-    [SerializeField]private float reloadTimeReduc;
+    [SerializeField]private float reloadSpeedBuff;
 
     public override void Upgrade(){
-        WeaponManager.instance.DecreaseReloadTimeBy(reloadTimeReduc/100f);
+        WeaponManager.instance.IncreaseReloadSpeedBy(reloadSpeedBuff/100f);
     }
 }
