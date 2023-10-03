@@ -3,40 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class LightningStrike : TimerBasedRelicSkill
+public class LightningStrike : ShotCounterBasedRelicSkill
 {
     [SerializeField]private GameObject lightning;
+    [SerializeField]private float strikeRadius;
     private float dmgMultiplier;
-    private float duration;
+    private int numOfLightningStrikes;
 
     
-    public override void ActivateSkill()
+    protected override void ActivateSkill()
     {
         //Get info about lightning such as duration, dmg power etc
         GetLightningStats();
 
-        GameObject newLightning = Instantiate(lightning, GameObject.FindWithTag("Player").transform.position + new Vector3(0,0,1), Quaternion.identity);
-        newLightning.GetComponent<LightningDamager>().SetDmgMultiplier(dmgMultiplier);
-
-
         //Strike the closest enemy with lightning
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(GameObject.FindWithTag("Player").transform.position, 3);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(GameObject.FindWithTag("Player").transform.position, strikeRadius);
         foreach(Collider2D enemy in enemies){
             if(enemy.CompareTag("Enemy")){
-                Debug.Log("Enemy found");
-                newLightning.GetComponent<GenerateLightningLine>().SetTargetPos(enemy.transform.position);
-                //Also deal damage to that enemy
-                newLightning.GetComponent<LightningDamager>().DamageTarget(enemy);
-                return;
+                //Create Lightning;
+                CreateLightningStrikeTo(enemy);
+                //Only stop generating lightning when the limit for num of lightning strike is reached
+                numOfLightningStrikes--;
+                if(numOfLightningStrikes <= 0){
+                    return;
+                }
             }
         }
         
     }
 
+    void CreateLightningStrikeTo(Collider2D target){
+        GameObject newLightning = Instantiate(lightning, GameObject.FindWithTag("Player").transform.position + new Vector3(0,0,1), Quaternion.identity);
+        newLightning.GetComponent<LightningDamager>().SetDmgMultiplier(dmgMultiplier);
+        newLightning.GetComponent<GenerateLightningLine>().SetTargetPos(target.transform.position);
+        //Also deal damage to that enemy
+        newLightning.GetComponent<LightningDamager>().DamageTarget(target);
+    }
+
     void GetLightningStats(){
         Lightning lightningStats = relicManager.GetComponent<Lightning>();
         dmgMultiplier = lightningStats.dmgMultiplier;
-        duration = lightningStats.lightningDuration;
+        
+        //Get num of lightning strikes that can be generated at a time
+        numOfLightningStrikes = lightningStats.numOfLightningStrikes;
     }
 
     public override void Upgrade()

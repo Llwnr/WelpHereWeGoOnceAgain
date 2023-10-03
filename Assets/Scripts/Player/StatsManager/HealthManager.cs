@@ -51,4 +51,9 @@ public class HealthManager : MonoBehaviour, IDamagable
         currHp = this.currHp;
         maxHp = this.maxHp;
     }
+
+    public void Heal(int amt){
+        currHp += amt;
+        if(currHp > maxHp) currHp = maxHp;
+    }
 }

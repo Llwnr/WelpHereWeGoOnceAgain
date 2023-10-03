@@ -6,6 +6,7 @@ public class Lightning : Relic
 {
     public float lightningDuration{get; private set;} = 5;
     public float dmgMultiplier{get; private set;} = 1;
+    public int numOfLightningStrikes{get; private set;} = 3;
 
     public void IncreaseDuration(float amt){
         lightningDuration += amt;
@@ -13,5 +14,9 @@ public class Lightning : Relic
 
     public void IncreaseDmgMultiplier(float amt){
         dmgMultiplier += amt;
+    }
+
+    public void IncreaseLightningStrikes(){
+        numOfLightningStrikes += 1;
     }
 }

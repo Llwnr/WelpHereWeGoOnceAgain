@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private float hDir, vDir;
+
+    private bool normalMovementActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +18,15 @@ public class PlayerMovement : MonoBehaviour
         playerStats = PlayerBasicStats.instance;
     }
 
+    public void SetMovementControl(bool value){
+        normalMovementActive = value; 
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(normalMovementActive == false) return;
+
         hDir = Input.GetAxisRaw("Horizontal");
         vDir = Input.GetAxisRaw("Vertical");
 
@@ -29,6 +37,5 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(new Vector2(hDir, vDir) * moveSpeed * playerStats.GetMovementSpeed(), ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxMoveSpeed*playerStats.GetMovementSpeed());
-        
     }
 }

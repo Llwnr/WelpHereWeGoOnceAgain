@@ -3661,6 +3661,8 @@ GameObject:
   - component: {fileID: 597148037}
   - component: {fileID: 597148028}
   - component: {fileID: 597148029}
+  - component: {fileID: 597148038}
+  - component: {fileID: 597148039}
   - component: {fileID: 597148031}
   - component: {fileID: 597148030}
   - component: {fileID: 597148033}
@@ -3865,6 +3867,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &597148038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597148025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b07a0c4039d1f47afd60884469150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashCooldown: 1
+  dashForce: 100
+  maxDashSpeed: 35
+  dashDuration: 0.125
+--- !u!114 &597148039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597148025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea6c4d7581f9c94f84cbcf6c33794a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &639741032
 GameObject:
   m_ObjectHideFlags: 0
@@ -10976,9 +11006,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c838a5384ed97ed42a0cc1809b55eccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 1
+  activateOnShot: 4
   lightning: {fileID: 967657449854925629, guid: 4859253b991275a49ba152b0e623c929,
     type: 3}
+  strikeRadius: 12
 --- !u!1 &2127866552
 GameObject:
   m_ObjectHideFlags: 0

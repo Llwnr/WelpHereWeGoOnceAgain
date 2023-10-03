@@ -7,7 +7,7 @@ public abstract class TimerBasedRelicSkill : RelicSkill, IRunUpdateFuncEvenWhenD
     [SerializeField]private float interval;//Time taken for skill to activate
     private float intervalCount;
 
-    public abstract void ActivateSkill();
+    protected abstract void ActivateSkill();
 
     public override void Upgrade(){//Works as Start() function so
         TimeManager.instance.AddTimeListener(this);

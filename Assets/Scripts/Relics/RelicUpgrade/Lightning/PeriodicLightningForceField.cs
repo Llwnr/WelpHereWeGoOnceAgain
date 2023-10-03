@@ -7,7 +7,7 @@ public class PeriodicLightningForceField : TimerBasedRelicSkill
     [SerializeField]private GameObject lightning;
     private float dmgMultiplier;
     private float duration;
-    public override void ActivateSkill()
+    protected override void ActivateSkill()
     {
         //Get info about lightning such as duration, dmg power etc
         GetLightningStats();
