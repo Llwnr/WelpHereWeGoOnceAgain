@@ -25,6 +25,7 @@ public class AddRelicSelectionOptions : MonoBehaviour
             GameObject newCard = Instantiate(relicCard, Vector2.zero, Quaternion.identity);
             newCard.transform.SetParent(relicUIHolder.transform, false);
             //Set info on those cards based on relic data
+            newCard.name = relic.relicName;
             RelicInfo relicInfo = newCard.GetComponent<RelicInfo>();
             relicInfo.SetRelicInfo(relic.relicName, relic.relicDescription, relic.icon, relic);
 

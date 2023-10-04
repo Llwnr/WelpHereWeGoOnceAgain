@@ -910,7 +910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Throw Bombs
   icon: {fileID: 21300000, guid: fec3a37421b3cb14c89a88b81b457cca, type: 3}
-  description: Throw bombs on every x shot
+  description: Throw bombs on every 12 shot
   myRequiredNodes: []
 --- !u!1 &165817932
 GameObject:
@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 197234580}
   - component: {fileID: 197234579}
   - component: {fileID: 197234582}
+  - component: {fileID: 197234583}
   m_Layer: 5
   m_Name: MultiBombSkillTree
   m_TagString: Untagged
@@ -1103,6 +1104,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfTreesToPick: 2
+--- !u!114 &197234583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197234577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc6afda04f41964bbdcc83f18be11ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &209593233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,10 +1238,11 @@ GameObject:
   m_Component:
   - component: {fileID: 240661334}
   - component: {fileID: 240661328}
+  - component: {fileID: 240661336}
+  - component: {fileID: 240661335}
   - component: {fileID: 240661333}
   - component: {fileID: 240661332}
   - component: {fileID: 240661331}
-  - component: {fileID: 240661330}
   - component: {fileID: 240661329}
   m_Layer: 5
   m_Name: Skill1-2
@@ -1249,9 +1263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Skilled User
   icon: {fileID: 0}
-  description: 
+  description: 'Increases reload speed by 10%
+
+    Increases attack speed by 15%'
   myRequiredNodes:
   - {fileID: 1138887591}
 --- !u!114 &240661329
@@ -1270,20 +1286,6 @@ MonoBehaviour:
   nameBox: {fileID: 383865818}
   descBox: {fileID: 1487203447}
   waitToDisplay: 0.25
---- !u!114 &240661330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240661327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab94d8fd4106ed84da7ad7e02d4c40af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  increaseMultiplier: 0.2
-  bombType: 0
 --- !u!114 &240661331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,6 +1400,32 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &240661335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240661327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ee419c21e96cc4185c4600eb6ba29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadSpeedBuff: 10
+--- !u!114 &240661336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240661327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fcb27c188f0cf4c81a2d5362561d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkSpeedBuff: 15
 --- !u!1 &291785068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1497,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296574754
 GameObject:
@@ -2004,7 +2032,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28faf33d3c3048f43b36ceb2d19104a5, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2068,7 +2096,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &383865819
@@ -2872,7 +2900,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3243,7 +3271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: More bullets
   icon: {fileID: 21300000, guid: 2f85352a8ee951e4a8b84be55da652a7, type: 3}
-  description: Increase max number of bullets
+  description: Increase max number of bullets by 4
   myRequiredNodes:
   - {fileID: 748486093}
 --- !u!114 &498552098
@@ -3274,7 +3302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0944d35cafe62b4182eaf87d81b17b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfExtraBullets: 5
+  numOfExtraBullets: 4
 --- !u!222 &498552100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3389,6 +3417,75 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &498563998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.408771
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.605756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298840, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849866024938298854, guid: 7b4ddfa311b453f418a64a7eadf57cbc,
+        type: 3}
+      propertyPath: m_Name
+      value: ChickenHealPivot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b4ddfa311b453f418a64a7eadf57cbc, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,9 +3496,10 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3409,14 +3507,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3507,7 +3597,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -3542,6 +3632,50 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 645908088
+      Data2: 1144615515
+      Data3: -1915649612
+      Data4: 784022559
+    Path: event:/BulletShootSfx
+  Event: 
+  PlayEvent: 20
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &559493976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,7 +3802,8 @@ GameObject:
   - component: {fileID: 597148033}
   - component: {fileID: 597148034}
   - component: {fileID: 597148035}
-  m_Layer: 0
+  - component: {fileID: 597148040}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3741,7 +3876,7 @@ Transform:
   m_Children:
   - {fileID: 1618263131}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &597148028
 Rigidbody2D:
@@ -3790,7 +3925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dd76b5e59954e4aaec4bab834d28dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedWeapon: {fileID: 11400000, guid: c8424289d50594140af371054bc11795, type: 2}
+  equippedWeapon: {fileID: 11400000, guid: 55b44958ed2533b448b5138282367fb4, type: 2}
 --- !u!114 &597148031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3895,6 +4030,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea6c4d7581f9c94f84cbcf6c33794a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &597148040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597148025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dc68a35fe18e84fb3f39df8ac99bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: 645908088
+      Data2: 1144615515
+      Data3: -1915649612
+      Data4: 784022559
+    Path: event:/BulletShootSfx
 --- !u!1 &639741032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,7 +4082,7 @@ Transform:
   - {fileID: 1115152552}
   - {fileID: 1401946877}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652291181
 GameObject:
@@ -3996,7 +4150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &664243354
 GameObject:
@@ -4274,9 +4428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Runner
+  name: Y are u running
   icon: {fileID: 21300000, guid: 2f85352a8ee951e4a8b84be55da652a7, type: 3}
-  description: Move faster
+  description: Move 5% faster
   myRequiredNodes:
   - {fileID: 143949737}
 --- !u!114 &706347165
@@ -4326,9 +4480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Throw Bombs
+  name: Slow Bomb
   icon: {fileID: 21300000, guid: fec3a37421b3cb14c89a88b81b457cca, type: 3}
-  description: Throw bombs on every x shot
+  description: Throw slow bombs on every 9th shot
   myRequiredNodes: []
 --- !u!114 &748486094
 MonoBehaviour:
@@ -4358,7 +4512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e0719239282bb47a9828d3e0ae41b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnShot: 12
+  activateOnShot: 9
   range: 4
   numOfBombs: 1
   bomb: {fileID: 4757827744473381982, guid: ce4e40994bf5d5f4895fd5f79d6fa2ac, type: 3}
@@ -6177,9 +6331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Now there's 3 of them
   icon: {fileID: 0}
-  description: 
+  description: Shoots 2 extra yellow bombs
   myRequiredNodes:
   - {fileID: 1229097668}
   - {fileID: 240661328}
@@ -6563,10 +6717,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1138887597}
   - component: {fileID: 1138887591}
+  - component: {fileID: 1138887599}
+  - component: {fileID: 1138887598}
   - component: {fileID: 1138887596}
   - component: {fileID: 1138887595}
   - component: {fileID: 1138887594}
-  - component: {fileID: 1138887598}
   - component: {fileID: 1138887592}
   m_Layer: 5
   m_Name: Skill1
@@ -6587,9 +6742,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Btbtbtbtbt
+  name: Beefier Gun
   icon: {fileID: 0}
-  description: Shoot a barrage of bullets
+  description: 'Gain 4 extra max bullets
+
+    Reduce reload speed by 10%'
   myRequiredNodes: []
 --- !u!114 &1138887592
 MonoBehaviour:
@@ -6730,12 +6887,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1138887590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1a416d115e9e549b96cc1857ca528e, type: 3}
+  m_Script: {fileID: 11500000, guid: 04ee419c21e96cc4185c4600eb6ba29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnShot: 7
-  numOfExtraShots: 5
-  bullet: {fileID: 8009271588578554507, guid: 9c57e670e4aeb70489edc51590fa7579, type: 3}
+  reloadSpeedBuff: -10
+--- !u!114 &1138887599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138887590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0944d35cafe62b4182eaf87d81b17b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfExtraBullets: 4
 --- !u!1 &1145654941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6881,10 +7049,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1211569216}
   - component: {fileID: 1211569210}
+  - component: {fileID: 1211569217}
   - component: {fileID: 1211569215}
   - component: {fileID: 1211569214}
   - component: {fileID: 1211569213}
-  - component: {fileID: 1211569212}
   - component: {fileID: 1211569211}
   m_Layer: 5
   m_Name: Skill1-2
@@ -6905,9 +7073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Faster shoot
+  name: Bigger slow
   icon: {fileID: 21300000, guid: cfd54c5563269204f89a36dad89d9618, type: 3}
-  description: Improves reload speed by 10%
+  description: Increases slow bombs radius
   myRequiredNodes:
   - {fileID: 748486093}
 --- !u!114 &1211569211
@@ -6926,19 +7094,6 @@ MonoBehaviour:
   nameBox: {fileID: 383865818}
   descBox: {fileID: 1487203447}
   waitToDisplay: 0.25
---- !u!114 &1211569212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211569209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ee419c21e96cc4185c4600eb6ba29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reloadSpeedBuff: 0
 --- !u!114 &1211569213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7053,6 +7208,20 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1211569217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211569209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9217507fcd8943aa9f44925407dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseRangeBy: 0.5
+  bombType: 1
 --- !u!1 &1229097667
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,10 +7232,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1229097674}
   - component: {fileID: 1229097668}
+  - component: {fileID: 1229097675}
   - component: {fileID: 1229097673}
   - component: {fileID: 1229097672}
   - component: {fileID: 1229097671}
-  - component: {fileID: 1229097670}
   - component: {fileID: 1229097669}
   m_Layer: 5
   m_Name: Skill1-1
@@ -7087,9 +7256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Destruction
   icon: {fileID: 0}
-  description: 
+  description: Increase yellow bombs damage by 20%
   myRequiredNodes:
   - {fileID: 1138887591}
 --- !u!114 &1229097669
@@ -7108,20 +7277,6 @@ MonoBehaviour:
   nameBox: {fileID: 383865818}
   descBox: {fileID: 1487203447}
   waitToDisplay: 0.25
---- !u!114 &1229097670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229097667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad9217507fcd8943aa9f44925407dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  increaseRangeBy: 4
-  bombType: 0
 --- !u!222 &1229097671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7236,6 +7391,20 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1229097675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229097667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab94d8fd4106ed84da7ad7e02d4c40af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseMultiplier: 0.2
+  bombType: 0
 --- !u!1 &1240201984
 GameObject:
   m_ObjectHideFlags: 0
@@ -7490,7 +7659,7 @@ Transform:
   m_Children:
   - {fileID: 92078388}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1300246440
 MonoBehaviour:
@@ -7785,7 +7954,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389946173
 GameObject:
@@ -8425,7 +8594,6 @@ GameObject:
   - component: {fileID: 1487203446}
   - component: {fileID: 1487203448}
   - component: {fileID: 1487203447}
-  - component: {fileID: 1487203449}
   m_Layer: 5
   m_Name: DescriptionBox
   m_TagString: Untagged
@@ -8475,7 +8643,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28faf33d3c3048f43b36ceb2d19104a5, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8536,10 +8704,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 50, z: 0, w: 0}
+  m_margin: {x: 10, y: 50, z: 10, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1487203448
@@ -8550,26 +8718,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487203445}
   m_CullTransparentMesh: 1
---- !u!114 &1487203449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487203445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 1
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &1544727326
 GameObject:
   m_ObjectHideFlags: 0
@@ -8751,7 +8899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8940,8 +9088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Extra bombs
-  icon: {fileID: 21300000, guid: 59355bc9d9e3a974cbcefae5ff99861f, type: 3}
+  name: Bigger Bombs
+  icon: {fileID: -339700298, guid: f863796c3e46d474091693de41c81ba7, type: 3}
   description: Increase bombs range
   myRequiredNodes:
   - {fileID: 706347164}
@@ -9471,7 +9619,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -9497,7 +9645,7 @@ RectTransform:
   - {fileID: 559493977}
   - {fileID: 1814448863}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9517,6 +9665,7 @@ GameObject:
   - component: {fileID: 1773446426}
   - component: {fileID: 1773446425}
   - component: {fileID: 1773446424}
+  - component: {fileID: 1773446428}
   m_Layer: 5
   m_Name: LightningSkillTree
   m_TagString: Untagged
@@ -9626,6 +9775,18 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1773446428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773446422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc6afda04f41964bbdcc83f18be11ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1814448862
 GameObject:
   m_ObjectHideFlags: 0
@@ -9936,7 +10097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914060237
 MonoBehaviour:
@@ -9996,11 +10157,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1953487496}
   - component: {fileID: 1953487502}
+  - component: {fileID: 1953487503}
   - component: {fileID: 1953487501}
   - component: {fileID: 1953487500}
   - component: {fileID: 1953487499}
   - component: {fileID: 1953487498}
-  - component: {fileID: 1953487497}
   m_Layer: 5
   m_Name: Skill1-Last
   m_TagString: Untagged
@@ -10028,20 +10189,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -275}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1953487497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953487495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad9217507fcd8943aa9f44925407dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  increaseRangeBy: 4
-  bombType: 1
 --- !u!114 &1953487498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10164,12 +10311,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d551b95eb848f43899587269fef4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Bigger Slow Bombs
+  name: Extra Slow Bombs
   icon: {fileID: 21300000, guid: 59355bc9d9e3a974cbcefae5ff99861f, type: 3}
-  description: Increase range of slow bombs by 4
+  description: Throw 1 more slow bomb
   myRequiredNodes:
   - {fileID: 498552097}
   - {fileID: 1211569210}
+--- !u!114 &1953487503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953487495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7135e4318c180284fa051c33e0dae24f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numofExtraBombs: 1
+  bombType: 1
 --- !u!1 &1968469012
 GameObject:
   m_ObjectHideFlags: 0
@@ -10259,6 +10420,7 @@ GameObject:
   - component: {fileID: 2058807327}
   - component: {fileID: 2058807328}
   - component: {fileID: 2058807329}
+  - component: {fileID: 2058807330}
   m_Layer: 5
   m_Name: BombSkillTree
   m_TagString: Untagged
@@ -10369,6 +10531,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfTreesToPick: 2
+--- !u!114 &2058807330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058807324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc6afda04f41964bbdcc83f18be11ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2075800691
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,12 +18,12 @@ public class PassThroughOnDash : MonoBehaviour, IOnDash
     }
 
     public void OnDashStart(){
-        //Disable myCollider
-        myCollider.enabled = false;
+        //Set player as pass through enemies
+        gameObject.layer = LayerMask.NameToLayer("PlayerPassThrough");
     }
 
     public void OnDashEnd(){
-        //Enable myCollider
-        myCollider.enabled = true;
+        //Reset to default
+        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 }

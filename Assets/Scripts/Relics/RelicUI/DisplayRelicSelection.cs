@@ -33,6 +33,18 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
     void DisplayTwoRandomRelics(){
         //Pick two random cards
         List<int> pickedCardIndex = new List<int>();
+
+        //Remove completely upgraded relics
+        for(int i=0; i<myRelicCards.Count; i++){
+            if(myRelicCards[i].GetComponent<RelicInfo>().GetRelic().allUpgradesPurchased){
+                //Permanently disable the completely unlocked relic so that it can't be selected for upgrade anymore
+                myRelicCards[i].SetActive(false);
+                myRelicCards.Remove(myRelicCards[i]);
+                i--;
+            }
+        }
+
+        //Display upto 2 relics that can be selected for upgrading
         for(int i=0; i<Mathf.Min(2, myRelicCards.Count); i++){
             int newRandomIndex = Random.Range(0, myRelicCards.Count);
             if(pickedCardIndex.Contains(newRandomIndex)){

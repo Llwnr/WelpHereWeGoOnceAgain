@@ -91,6 +91,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale == 0) return;
         //Just manage reloading and stuff
         ManageReloadTimer();
         //Set timer to be able to shoot next bullet

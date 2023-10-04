@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class LightningStrike : ShotCounterBasedRelicSkill
+public class LightningStrike : ShotCounterBasedRelicSkill, IOnReload
 {
     [SerializeField]private GameObject lightning;
     [SerializeField]private float strikeRadius;
     private float dmgMultiplier;
     private int numOfLightningStrikes;
 
+    //Only activate skill once per reload
+    private bool canActivate = true;
     
-    protected override void ActivateSkill()
-    {
+    protected override void ActivateSkill(){
+        if(!canActivate) return;
+
+        //Once activated don't let it be activated again until player reloads
+        canActivate = false;
         //Get info about lightning such as duration, dmg power etc
         GetLightningStats();
 
@@ -51,5 +56,12 @@ public class LightningStrike : ShotCounterBasedRelicSkill
     public override void Upgrade()
     {
         base.Upgrade();
+        WeaponManager.instance.AddOnReloadListener(this);
+    }
+
+    public void OnReload()
+    {
+        canActivate = true;
+        bulletShotCounter = 0;
     }
 }

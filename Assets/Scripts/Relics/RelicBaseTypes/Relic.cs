@@ -13,9 +13,16 @@ public abstract class Relic : MonoBehaviour
     protected GameObject player;
     protected WeaponManager weaponManager;
 
+    //To know if the relic's all upgrades have been purchased or not so that they're not shown on upgrades panel anymore
+    public bool allUpgradesPurchased{get; private set;} = false;
+
     private void Start(){
         player = GameObject.FindWithTag("Player");
         weaponManager = WeaponManager.instance;
+    }
+
+    public void SetAllUpgradesAsPurchased(){
+        allUpgradesPurchased = true;
     }
 
 }
