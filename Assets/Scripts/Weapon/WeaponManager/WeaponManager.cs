@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    [SerializeField]private int minimumMaxBullets = 6;
     //Singleton
     public static WeaponManager instance{get; private set;}
     private void Awake() {
@@ -84,7 +85,8 @@ public class WeaponManager : MonoBehaviour
 
     //Reset the bullet reload to max
     void ResetReloadTimer(){
-        maxReloadTime = maxReloadTime/reloadSpeed;
+        //Limit max reload time to 2x normal time
+        maxReloadTime = maxReloadTime/Mathf.Max(0.5f, reloadSpeed);
         currReloadTime = maxReloadTime;
     }
 
@@ -115,7 +117,7 @@ public class WeaponManager : MonoBehaviour
             RecordWeaponData();
             ResetReloadTimer();
             //Reset remaining bullets to max after being reloaded
-            remainingBullets = equippedWeapon.maxNumOfBullets + extraBullets;
+            ReloadBullets();
         }
         if(remainingBullets <= 0){
             if(currReloadTime == maxReloadTime){
@@ -125,6 +127,18 @@ public class WeaponManager : MonoBehaviour
             }
             currReloadTime -= Time.deltaTime;
         }
+    }
+
+    void ReloadBullets(){
+        //If extra bullets is negative and your max bullet size is minimum then set extra bullets to just the right amt
+        int maxBullets = equippedWeapon.maxNumOfBullets+extraBullets;
+        if(extraBullets < 0 && maxBullets <= minimumMaxBullets){
+            //Limit extra bullets to not go into extreme negative number i.e. allow for minimumMaxBullets
+            //Imagine if extraBullets was negative 500, if you were to increase max bullets by 5, extraBullets would still be negative 495
+            //Thus limiting extraBullets to a certain negative number(usually -2) you can take in "Reduce max bullets" debuffs a lot better
+            extraBullets = minimumMaxBullets - equippedWeapon.maxNumOfBullets;
+        }
+        remainingBullets = Mathf.Max(minimumMaxBullets, equippedWeapon.maxNumOfBullets + extraBullets);
     }
 
     bool CanShoot(){

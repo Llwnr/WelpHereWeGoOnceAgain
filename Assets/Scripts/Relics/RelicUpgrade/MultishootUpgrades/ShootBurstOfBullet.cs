@@ -38,9 +38,10 @@ public class ShootBurstOfBullet : ShotCounterBasedRelicSkill, IOnReload
     void MultiShot(int numOfShots){
         //Spread shot like shotgun
         float angle = 0;
+        float spreadAngle = multiShootInfo.spreadAngle;
         for(int i=0; i<numOfShots; i++){
             int iDivisor = numOfShots/2;
-            angle = (i-iDivisor)*15;
+            angle = (i-iDivisor)*spreadAngle;
             GameObject myBullet = WeaponManager.instance.ActivateWeapon(angle, bullet, 1+multiShootInfo.dmgMultiplier);
             //Give bullet info
             myBullet.GetComponent<BulletStats>().SetExtraPiercePower(multiShootInfo.extraPiercePower);

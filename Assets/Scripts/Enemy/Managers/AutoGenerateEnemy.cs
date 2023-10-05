@@ -9,6 +9,7 @@ public class AutoGenerateEnemy : MonoBehaviour
     [SerializeField]private List<GameObject> rarerEnemies;
     [SerializeField]private float rareEnemyProc, radius, generationTimer;
     [SerializeField]private float randomTime;
+    [SerializeField]private Transform enemyHolder;
 
     //For generating enemies inside the given boundary
     [SerializeField]private SpriteRenderer boundary;
@@ -53,10 +54,12 @@ public class AutoGenerateEnemy : MonoBehaviour
         //Higher chance to pick next array enemy as time goes on
         int enemyIndex = Mathf.Min(enemies.Count-1, Mathf.FloorToInt(Random.Range(0.5f, 1f) * time/maxTime));
 
-        Instantiate(enemies[enemyIndex], generatedPos, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemies[enemyIndex], generatedPos, Quaternion.identity);
+        newEnemy.transform.SetParent(enemyHolder, false);
         //Generate a rare monster at the given chance proc
         if(Random.Range(0f,1) < rareEnemyProc){
-            Instantiate(rarerEnemies[enemyIndex], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
+            newEnemy = Instantiate(rarerEnemies[enemyIndex], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
+            newEnemy.transform.SetParent(enemyHolder, false);
         }
     }
 

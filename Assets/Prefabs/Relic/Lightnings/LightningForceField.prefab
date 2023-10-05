@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 89718786766409899}
   - component: {fileID: 7129202479414229845}
   m_Layer: 0
-  m_Name: LightningTest
+  m_Name: LightningForceField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

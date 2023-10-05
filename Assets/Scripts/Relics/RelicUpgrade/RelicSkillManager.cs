@@ -25,6 +25,14 @@ public class RelicSkillManager : MonoBehaviour
     }
 
     private void OnEnable(){
+        //Check if required nodes are blocked. If all of them are blocked then block self too.
+        bool requiredNodesUnlockable = false;
+        foreach(RelicSkillManager parentUpgrader in myRequiredNodes){
+            if(!parentUpgrader.isBlocked) requiredNodesUnlockable = true;
+        }
+        if(!requiredNodesUnlockable && myRequiredNodes.Count > 0) isBlocked = true;
+
+
         //Make the skill selectable only when it can be unlocked
         if(CanBeUnlocked() && !isUnlocked && !isBlocked){
             GetComponent<Button>().interactable = true;
@@ -39,6 +47,7 @@ public class RelicSkillManager : MonoBehaviour
             foreach(RelicSkillManager otherPathwayUpgrader in parentUpgrader.myConnectedChildNodes){
                 if(upgrader != otherPathwayUpgrader){
                     otherPathwayUpgrader.isBlocked = true;
+                    
                     otherPathwayUpgrader.GetComponent<Button>().interactable = false;
                 }
             }
@@ -73,7 +82,7 @@ public class RelicSkillManager : MonoBehaviour
                 relicSkill.Upgrade();
             }
 
-            GetComponent<Image>().color = Color.red;
+            GetComponent<Image>().color = Color.grey;
 
             return true;
         }
@@ -91,5 +100,14 @@ public class RelicSkillManager : MonoBehaviour
         }
 
         return conditionSatisfied;
+    }
+
+    public List<Transform> GetRequiredNodesTransform(){
+        List<Transform> myTransforms = new List<Transform>();
+        foreach(RelicSkillManager relicSkillManager in myRequiredNodes){
+            myTransforms.Add(relicSkillManager.transform);
+        }
+        
+        return myTransforms;
     }
 }
