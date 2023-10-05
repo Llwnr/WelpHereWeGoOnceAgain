@@ -16,7 +16,7 @@ public class Lightning : Relic
         dmgMultiplier += amt;
     }
 
-    public void IncreaseLightningStrikes(){
-        numOfLightningStrikes += 1;
+    public void IncreaseLightningStrikes(int amt){
+        numOfLightningStrikes += amt;
     }
 }
