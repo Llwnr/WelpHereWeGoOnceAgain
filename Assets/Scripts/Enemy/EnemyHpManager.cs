@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHpManager : MonoBehaviour, IDamagable
 {
     [SerializeField]private float maxHp;
+    private float currHp;
 
     //Manage observers
     private List<IOnDeath> onDeathListeners = new List<IOnDeath>();
@@ -33,10 +34,14 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
         }
     }
 
+    private void Start() {
+        currHp = maxHp;
+    }
+
     public void DealDamage(float dmgAmt, Vector2 hitPoint){
-        maxHp -= dmgAmt;
+        currHp -= dmgAmt;
         NotifyWhenDamaged(dmgAmt, hitPoint);
-        if(maxHp <= 0){
+        if(currHp <= 0){
             Destroy(gameObject);
             NotifyDeath();
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
 {
@@ -21,8 +22,8 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
         gameObject.SetActive(true);
         Time.timeScale = 0;
 
-        
-        DisplayTwoRandomRelics();
+        //Slight delay so player knows its upgrade time
+        StartCoroutine(DisplayTwoRandomRelics());
     }
 
     public void OnDisable(){
@@ -30,7 +31,7 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
         Time.timeScale = 1;
     }
 
-    void DisplayTwoRandomRelics(){
+    IEnumerator DisplayTwoRandomRelics(){
         //Pick two random cards
         List<int> pickedCardIndex = new List<int>();
 
@@ -60,6 +61,18 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
         //Display those two cards only
         for(int i=0; i<pickedCardIndex.Count; i++){
             myRelicCards[pickedCardIndex[i]].gameObject.SetActive(true);
+        }
+
+        //Make button unclickable for a couple frames
+        SetButtonsClickable(false);
+        yield return new WaitForSecondsRealtime(0.5f);
+        SetButtonsClickable(true);
+    }
+
+    void SetButtonsClickable(bool value){
+        foreach(Button button in GetComponentsInChildren<Button>()){
+            button.interactable = value;
+            button.enabled = value;
         }
     }
 

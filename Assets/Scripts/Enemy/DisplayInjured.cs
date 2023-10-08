@@ -23,9 +23,10 @@ public class DisplayInjured : MonoBehaviour, IWhenDamaged
     }
 
     IEnumerator ReturnToNormalColor(){
-        float lerpValue = 0;
+        //So that enemy is at injuredColor for a longer time
+        float lerpValue = -0.3f;
         while(GetComponent<SpriteRenderer>().color != origColor){
-            lerpValue += Time.deltaTime;
+            lerpValue += Time.deltaTime*2f;
             //Smoothly transition to original color
             GetComponent<SpriteRenderer>().color = Color32.Lerp(injuredColor, origColor, lerpValue/switchDuration);
             yield return null;
