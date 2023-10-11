@@ -39,7 +39,8 @@ public class TelegraphManager : MonoBehaviour
 
     public void StopTelegraph(){
         foreach(GameObject telegraph in telegraphAnims){
-            telegraph.SetActive(false);
+            Destroy(telegraph);
         }
+        telegraphAnims.Clear();
     }
 }

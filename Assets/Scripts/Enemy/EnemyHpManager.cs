@@ -46,4 +46,14 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
             NotifyDeath();
         }
     }
+
+    public void Heal(float amt){
+        currHp += amt;
+        if(currHp > maxHp) currHp = maxHp;
+    }
+
+    public void GetHpData(out int currentHp, out int maxHp){
+        currentHp = (int)currHp;
+        maxHp = (int)this.maxHp;
+    }
 }
