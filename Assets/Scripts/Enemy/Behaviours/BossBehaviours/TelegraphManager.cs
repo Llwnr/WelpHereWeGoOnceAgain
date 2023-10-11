@@ -12,7 +12,7 @@ public class TelegraphManager : MonoBehaviour
         StopTelegraph();
     }
 
-    public void CreateTelegraphs(int numOfTelegraphs, GameObject telegraphAnim){
+    public void CreateTelegraphs(int numOfTelegraphs, GameObject telegraphAnim, Vector3 scale){
         //Create telegraphs based on the angles that enemy will throw
         if(telegraphAnims.Count>0){
             StartTelegraph();
@@ -23,6 +23,7 @@ public class TelegraphManager : MonoBehaviour
             GameObject newTelegraph = Instantiate(telegraphAnim, transform.position, Quaternion.identity);
             newTelegraph.transform.SetParent(transform, false);
             newTelegraph.transform.localPosition = Vector2.zero;
+            newTelegraph.transform.localScale = scale;
             newTelegraph.transform.localEulerAngles = new Vector3(0,0, i*360f/numOfTelegraphs);
             telegraphAnims.Add(newTelegraph);
         }

@@ -7,7 +7,7 @@ public class MoveTowardsPlayer : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
 
-    public Vector2 dir;
+    private Vector2 dir;
 
     [SerializeField]private float moveSpeed, maxMoveSpeed;
     private float movespeedMultiplier = 1;

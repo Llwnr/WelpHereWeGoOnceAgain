@@ -7,9 +7,10 @@ using TheKiwiCoder;
 public class A_TelegraphStart : ActionNode
 {
     public int numOfTelegraphs;
+    public Vector3 telegraphScale;
     public GameObject chargingAnimPrefab;
     protected override void OnStart() {
-        context.transform.GetComponent<TelegraphManager>().CreateTelegraphs(numOfTelegraphs, chargingAnimPrefab);
+        context.transform.GetComponent<TelegraphManager>().CreateTelegraphs(numOfTelegraphs, chargingAnimPrefab, telegraphScale);
     }
 
     protected override void OnStop() {
