@@ -7,6 +7,6 @@ public class FollowTarget : MonoBehaviour
     [SerializeField]private Transform target;
 
     private void Update() {
-        transform.position = target.position;
+        if(target != null)  transform.position = target.position;
     }
 }

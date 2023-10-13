@@ -10,6 +10,7 @@ public class UIFollowTarget : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(target == null) return;
         transform.position = Camera.main.WorldToScreenPoint(target.position+offset);
     }
 }

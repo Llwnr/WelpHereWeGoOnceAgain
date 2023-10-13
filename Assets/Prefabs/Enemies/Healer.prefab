@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df639652414d1cf4aad52f896fa27135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 300
+  maxHp: 500
 --- !u!114 &6632149926067503064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f365bb7e74cd3dd45b608d9e47c2ba70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healCooldown: 5
+  healCooldown: 10
   healAmt: 250
 --- !u!1 &6319317920773670096
 GameObject:

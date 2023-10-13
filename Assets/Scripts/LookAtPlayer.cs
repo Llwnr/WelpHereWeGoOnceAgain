@@ -15,6 +15,7 @@ public class LookAtPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player == null) return;
         dir = (player.transform.position - transform.position).normalized;
 
         //Convert vector to angle

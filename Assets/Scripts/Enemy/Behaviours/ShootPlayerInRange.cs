@@ -25,6 +25,8 @@ public class ShootPlayerInRange : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(target == null) return;
+        
         dist = Vector2.Distance(target.position, transform.position);
         //Check if player is in range & enemy can shoot
         if(dist <= shootingRange){
