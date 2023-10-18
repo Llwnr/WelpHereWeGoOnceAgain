@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
+using UnityEngine.Tilemaps;
 
 public class AutoGenerateEnemy : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class AutoGenerateEnemy : MonoBehaviour
     [SerializeField]private Transform enemyHolder;
 
     //For generating enemies inside the given boundary
-    [SerializeField]private SpriteRenderer boundary;
+    [SerializeField]private Tilemap boundary;
     private float xLeft, xRight, yLeft, yRight;
 
     private float realTimeCount = 0;//Take note of time passed since game started
@@ -25,8 +25,8 @@ public class AutoGenerateEnemy : MonoBehaviour
     }
 
     void GetBoundaryPoints(){
-        float xSize = boundary.sprite.bounds.size.x;
-        float ySize = boundary.sprite.bounds.size.y;
+        float xSize = boundary.size.x;
+        float ySize = boundary.size.y;
         xLeft = boundary.transform.position.x - xSize/2;
         xRight = boundary.transform.position.x + xSize/2;
         yLeft = boundary.transform.position.y - ySize/2;

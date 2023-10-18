@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartScreenShake : MonoBehaviour, IWhenDamaged
+public class StartScreenShake : MonoBehaviour, IWhenDamaged, IOnAttack
 {
     //THIS SCRIPT WILL SCREEN SHAKE BASED ON THE SHAKE CONDITION GIVEN
     public float intensity, frequency, duration, fadeOut;
@@ -10,13 +10,19 @@ public class StartScreenShake : MonoBehaviour, IWhenDamaged
     public enum ShakeCondition{
         OnStart,
         OnDestroy,
-        OnHit
+        OnHit,
+        OnAttack
     }
     public ShakeCondition shakeCondition;
 
     private void Start() {
-        if(shakeCondition == ShakeCondition.OnHit){
+        //When transform is got hit
+        if(CheckCondition(ShakeCondition.OnHit)){
             GetComponent<HealthManager>().AddOnDamageListener(this);
+        }
+        //When transform attacks/shoots
+        if(CheckCondition(ShakeCondition.OnAttack)){
+            WeaponManager.instance.AddOnAttackListener(this);
         }
     }
 
@@ -43,5 +49,12 @@ public class StartScreenShake : MonoBehaviour, IWhenDamaged
     bool CheckCondition(ShakeCondition shakeCondition){
         if(shakeCondition == this.shakeCondition) return true;
         else return false;
+    }
+
+    public void OnAttack()
+    {
+        if(CheckCondition(ShakeCondition.OnAttack)){
+            ShakeScreen();
+        }
     }
 }

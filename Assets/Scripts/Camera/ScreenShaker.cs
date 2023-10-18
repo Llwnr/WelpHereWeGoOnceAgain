@@ -37,10 +37,10 @@ public class ScreenShaker : MonoBehaviour
 
     void FadeoutShake(){
         camPerlin.m_AmplitudeGain *= fadeOutDurationCount/fadeOutDuration;
-        camPerlin.m_FrequencyGain *= fadeOutDurationCount/fadeOutDuration;
+        //camPerlin.m_FrequencyGain *= fadeOutDurationCount/fadeOutDuration;
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         //Stop screen shake when durations end
         if(durationCount <= 0 && fadeOutDurationCount <= 0){
             StopShake();
@@ -48,13 +48,13 @@ public class ScreenShaker : MonoBehaviour
         }
         //Reduce duration as long as screen shake is active
         if(durationCount > 0){
-            durationCount -= Time.fixedDeltaTime;
+            durationCount -= Time.deltaTime;
         }
         //When duration ends and there is fade out, slowly decrease intensity of screen shake
         if(durationCount <= 0 && fadeOutDurationCount > 0){
             //Slowly fade out screenshake
             FadeoutShake();
-            fadeOutDurationCount -= Time.fixedDeltaTime;
+            fadeOutDurationCount -= Time.deltaTime;
         }
         
 

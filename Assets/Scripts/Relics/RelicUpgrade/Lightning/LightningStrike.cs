@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class LightningStrike : ShotCounterBasedRelicSkill, IOnReload
+public class LightningStrike : ShotCounterBasedRelicSkill
 {
     [SerializeField]private GameObject lightning;
     [SerializeField]private float strikeRadius;
     private float dmgMultiplier;
     private int numOfLightningStrikes;
-
-    //Only activate skill once per reload
-    private bool canActivate = true;
     
     protected override void ActivateSkill(){
-        if(!canActivate) return;
-
-        //Once activated don't let it be activated again until player reloads
-        canActivate = false;
         //Get info about lightning such as duration, dmg power etc
         GetLightningStats();
 
@@ -37,8 +30,10 @@ public class LightningStrike : ShotCounterBasedRelicSkill, IOnReload
         
     }
 
+    //Generates lightning strike to hit the target
     void CreateLightningStrikeTo(Collider2D target){
-        GameObject newLightning = Instantiate(lightning, GameObject.FindWithTag("Player").transform.position + new Vector3(0,0,1), Quaternion.identity);
+        GameObject newLightning = Instantiate(lightning, GameObject.FindWithTag("Player").transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        newLightning.transform.eulerAngles = lightning.transform.eulerAngles;
         newLightning.GetComponent<LightningDamager>().SetDmgMultiplier(dmgMultiplier);
         newLightning.GetComponent<GenerateLightningLine>().SetTargetPos(target.transform.position);
         //Also deal damage to that enemy
@@ -56,12 +51,5 @@ public class LightningStrike : ShotCounterBasedRelicSkill, IOnReload
     public override void Upgrade()
     {
         base.Upgrade();
-        WeaponManager.instance.AddOnReloadListener(this);
-    }
-
-    public void OnReload()
-    {
-        canActivate = true;
-        bulletShotCounter = 0;
     }
 }

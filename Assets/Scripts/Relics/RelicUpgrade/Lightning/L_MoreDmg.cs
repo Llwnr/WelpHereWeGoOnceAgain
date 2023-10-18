@@ -8,6 +8,6 @@ public class L_MoreDmg : RelicSkill
     [SerializeField]private float extraMultiplier;
     public override void Upgrade()
     {
-        relicManager.GetComponent<Lightning>().IncreaseDuration(extraMultiplier/100f);
+        relicManager.GetComponent<Lightning>().IncreaseDmgMultiplier(extraMultiplier/100f);
     }
 }

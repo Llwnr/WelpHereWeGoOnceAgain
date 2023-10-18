@@ -12,6 +12,5 @@ public class BulletStats : MonoBehaviour
 
     public void SetExtraPiercePower(int amt){
         pierceAmt += amt;
-        Debug.Log("Added pierce. New amt: " + pierceAmt);
     }
 }
