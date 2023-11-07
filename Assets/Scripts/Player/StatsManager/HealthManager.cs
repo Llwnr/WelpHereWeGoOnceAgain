@@ -7,6 +7,8 @@ public class HealthManager : MonoBehaviour, IDamagable
     private PlayerBasicStats playerStats;
     private int currHp, maxHp, prevMaxHp;
 
+    private DashManager dashManager;
+
     //To notify when player has been damaged
     private List<IWhenDamaged> onDamageListeners = new List<IWhenDamaged>();
     public void AddOnDamageListener(IWhenDamaged damageListener){
@@ -22,6 +24,7 @@ public class HealthManager : MonoBehaviour, IDamagable
     }
 
     private void Start() {
+        dashManager = GetComponent<DashManager>();
         playerStats = GetComponent<PlayerBasicStats>();
         currHp = playerStats.GetMaxHp();
         maxHp = playerStats.GetMaxHp();
@@ -38,6 +41,8 @@ public class HealthManager : MonoBehaviour, IDamagable
     }
 
     public void DealDamage(float dmgAmt, Vector2 hitPoint){
+        //Make player immune to damage when dashing
+        if(dashManager.GetPlayerDashing()) return;
         currHp -= (int)dmgAmt;
         //Notify that player has been damaged
         NotifyWhenDamaged(dmgAmt, hitPoint);

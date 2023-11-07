@@ -23,11 +23,13 @@ public class LightningStrike : ShotCounterBasedRelicSkill
                 //Only stop generating lightning when the limit for num of lightning strike is reached
                 numOfLightningStrikes--;
                 if(numOfLightningStrikes <= 0){
-                    return;
+                    break;
                 }
             }
         }
         
+        //Activate all effects such as sound effect, animation, particles that should activate when the skill is activated
+        ActivateEffects();
     }
 
     //Generates lightning strike to hit the target

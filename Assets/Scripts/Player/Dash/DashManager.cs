@@ -113,6 +113,10 @@ public class DashManager : MonoBehaviour
         NotifyDashEnd();
     }
 
+    public bool GetPlayerDashing(){
+        return isDashing;
+    }
+
 
 
     //Check if player can dash

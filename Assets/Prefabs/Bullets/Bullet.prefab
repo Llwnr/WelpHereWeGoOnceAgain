@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8943052490023168154}
   - component: {fileID: -4744272639727686875}
   - component: {fileID: 3360588837350397791}
+  - component: {fileID: 390190122500251757}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1661042600, guid: e8ed85803b8c65f45b354b1c6276e0d2, type: 3}
+  m_Sprite: {fileID: 623490859, guid: 453e660db28b83143823de41aad4cc41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3fbc3604b1183449665dde2e476353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDmg: 30
+  myDmg: 12
 --- !u!114 &8943052490023168154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +190,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd1468d5d0f937478dfc3277620fb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &390190122500251757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009271588578554507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f01b29991d1684d92a598c4f40d167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: 1857011088
+      Data2: 1260785887
+      Data3: -471045973
+      Data4: 854084842
+    Path: event:/EnemyHit

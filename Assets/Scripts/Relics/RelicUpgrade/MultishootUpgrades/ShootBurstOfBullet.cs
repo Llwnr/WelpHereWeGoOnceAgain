@@ -6,6 +6,7 @@ public class ShootBurstOfBullet : ShotCounterBasedRelicSkill, IOnReload
 {
     [SerializeField]private int numOfExtraShots;
     [SerializeField]private GameObject bullet;
+    [SerializeField]private float shotSpeed;
 
     private MultiShoot multiShootInfo;
 
@@ -42,7 +43,7 @@ public class ShootBurstOfBullet : ShotCounterBasedRelicSkill, IOnReload
         for(int i=0; i<numOfShots; i++){
             int iDivisor = numOfShots/2;
             angle = (i-iDivisor)*spreadAngle;
-            GameObject myBullet = WeaponManager.instance.ActivateWeapon(angle, bullet, 1+multiShootInfo.dmgMultiplier);
+            GameObject myBullet = WeaponManager.instance.ActivateWeapon(angle, bullet, 1+multiShootInfo.dmgMultiplier, shotSpeed);
             //Give bullet info
             myBullet.GetComponent<BulletStats>().SetExtraPiercePower(multiShootInfo.extraPiercePower);
         }

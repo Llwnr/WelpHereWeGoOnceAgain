@@ -33,5 +33,13 @@ public abstract class ShotCounterBasedRelicSkill : RelicSkill, IOnAttack
         }
     }
 
+    //Activate sfx, animation and other visual effects when this skill activates
+    protected void ActivateEffects(){
+        foreach(IOnAttack listener in GetComponents<IOnAttack>()){
+            if(listener.GetType() == GetType()) continue;
+            listener.OnAttack();
+        }
+    }
+
     protected abstract void ActivateSkill();
 }

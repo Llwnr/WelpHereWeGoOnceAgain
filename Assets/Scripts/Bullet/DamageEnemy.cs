@@ -41,7 +41,8 @@ public class DamageEnemy : MonoBehaviour
 
     float CalculateDamage(){
         float finalDmg;
-        finalDmg = (myDmg+myDmg*0.01f*playerAtkStat)*dmgMultiplier;
+        Debug.Log("Player atk: " + playerAtkStat);
+        finalDmg = (myDmg+myDmg*0.1f*playerAtkStat)*dmgMultiplier;
         return finalDmg;
     }
 }

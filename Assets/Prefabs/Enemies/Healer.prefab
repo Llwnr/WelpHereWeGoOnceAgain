@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 5412813265501462327}
   - component: {fileID: 6632149926067503064}
   - component: {fileID: 1215070343853153434}
-  - component: {fileID: 7685172276027955988}
   - component: {fileID: -8330054138166999570}
   m_Layer: 3
   m_Name: Healer
@@ -353,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df639652414d1cf4aad52f896fa27135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 500
+  maxHp: 250
 --- !u!114 &6632149926067503064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,25 +383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgPopup: {fileID: -4412041119683429460, guid: 0406b91694103084aa29d426cea240ae,
     type: 3}
---- !u!114 &7685172276027955988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5412813265501462477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb559a89a01faa478673691d88319ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sfx:
-    Guid:
-      Data1: 1857011088
-      Data2: 1260785887
-      Data3: -471045973
-      Data4: 854084842
-    Path: event:/EnemyHit
 --- !u!114 &-8330054138166999570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,8 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f365bb7e74cd3dd45b608d9e47c2ba70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healCooldown: 10
-  healAmt: 250
+  healCooldown: 2
+  healAmt: 120
 --- !u!1 &6319317920773670096
 GameObject:
   m_ObjectHideFlags: 0

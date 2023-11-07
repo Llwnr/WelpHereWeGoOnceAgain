@@ -23,7 +23,7 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
         Time.timeScale = 0;
 
         //Slight delay so player knows its upgrade time
-        StartCoroutine(DisplayTwoRandomRelics());
+        DisplayTwoRandomRelics();
     }
 
     public void OnDisable(){
@@ -31,7 +31,7 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
         Time.timeScale = 1;
     }
 
-    IEnumerator DisplayTwoRandomRelics(){
+    void DisplayTwoRandomRelics(){
         //Pick two random cards
         List<int> pickedCardIndex = new List<int>();
 
@@ -61,18 +61,6 @@ public class DisplayRelicSelection : MonoBehaviour, IOnLevelUp
         //Display those two cards only
         for(int i=0; i<pickedCardIndex.Count; i++){
             myRelicCards[pickedCardIndex[i]].gameObject.SetActive(true);
-        }
-
-        //Make button unclickable for a couple frames
-        SetButtonsClickable(false);
-        yield return new WaitForSecondsRealtime(0.5f);
-        SetButtonsClickable(true);
-    }
-
-    void SetButtonsClickable(bool value){
-        foreach(Button button in GetComponentsInChildren<Button>()){
-            button.interactable = value;
-            button.enabled = value;
         }
     }
 

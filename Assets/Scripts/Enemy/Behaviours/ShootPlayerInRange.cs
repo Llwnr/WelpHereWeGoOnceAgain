@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class ShootPlayerInRange : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ShootPlayerInRange : MonoBehaviour
     [SerializeField]private GameObject bullet;
     [SerializeField]private float shootForce, atkInterval;
     private float intervalCount;
+
+    public EventReference sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,8 @@ public class ShootPlayerInRange : MonoBehaviour
 
         //Reset atk interval
         intervalCount = atkInterval;
+
+        RuntimeManager.PlayOneShot(sfx, transform.position);
     }
 
     void HaltMovement(bool value){
@@ -55,5 +60,9 @@ public class ShootPlayerInRange : MonoBehaviour
     bool CanEnemyShoot(){
         if(intervalCount <= 0) return true;
         else return false;
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(transform.position, shootingRange);
     }
 }
