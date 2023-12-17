@@ -19,7 +19,7 @@ public class MoveTowardsPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        target = FindPlayer.GetPlayer();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -44,7 +44,7 @@ public class MoveTowardsPlayer : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    {   if (target == null) return;
         if(haltMovement){
             return;
         }
@@ -66,6 +66,10 @@ public class MoveTowardsPlayer : MonoBehaviour
     public void SetExternalForceToActive(float duration){
         externalForceApplied = true;
         StartCoroutine(ResetExternalForce(duration));
+    }
+
+    public bool GetExternalForceStatus() {
+        return externalForceApplied;
     }
 
     public void SetHaltState(bool value){

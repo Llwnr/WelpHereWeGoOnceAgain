@@ -18,5 +18,5 @@ MonoBehaviour:
   maxNumOfBullets: 40
   atkSpeed: 10
   atkPower: 10
-  reloadTime: 1.5
+  reloadTime: 2.5
   shootForce: 30

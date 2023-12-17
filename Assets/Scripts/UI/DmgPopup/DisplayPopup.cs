@@ -10,7 +10,7 @@ public class DisplayPopup : MonoBehaviour, IWhenDamaged
     private void Start() {
         GetComponent<EnemyHpManager>().AddOnDamageListener(this);
         popupContainer = GameObject.FindWithTag("PopupContainer").transform;
-        player = GameObject.FindWithTag("Player").transform;
+        player = FindPlayer.GetPlayer();
     }
 
     //Create damage popup

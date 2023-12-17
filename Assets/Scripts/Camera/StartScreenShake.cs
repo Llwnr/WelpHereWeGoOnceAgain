@@ -16,6 +16,7 @@ public class StartScreenShake : MonoBehaviour, IWhenDamaged, IOnAttack
     public ShakeCondition shakeCondition;
 
     private void Start() {
+      Debug.Log(GetType().Name.ToString());
         //When transform is got hit
         if(CheckCondition(ShakeCondition.OnHit)){
             GetComponent<HealthManager>().AddOnDamageListener(this);

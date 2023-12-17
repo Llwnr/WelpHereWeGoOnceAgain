@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1743940201770618972}
   - component: {fileID: 8614435214520551303}
   - component: {fileID: 5751244478272055899}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: TurnWhiteOnHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 8413759426539004203}
   - component: {fileID: 258032401018387813}
   - component: {fileID: 8837895911673400234}
+  - component: {fileID: -8775853199219651674}
   m_Layer: 3
   m_Name: E1
   m_TagString: Enemy
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  maxMoveSpeed: 1.5
+  maxMoveSpeed: 2
 --- !u!114 &5412813265501462327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +438,20 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-8775853199219651674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5412813265501462477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f13f1f7a2a377848b01eaefb43cbef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathParticle: {fileID: 5412813265501462477, guid: ce217ccfa1b90ff40a89430dee3698fd,
+    type: 3}
 --- !u!1 &6319317920773670096
 GameObject:
   m_ObjectHideFlags: 0

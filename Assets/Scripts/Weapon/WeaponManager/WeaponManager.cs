@@ -175,6 +175,10 @@ public class WeaponManager : MonoBehaviour
         return bulletRb.gameObject;
     }
 
+    public float GetPlayerAndWeaponAtk() {
+        return atkPower;
+    }
+
     //FOR UPGRADES
     public WeaponBase GetWeaponData(){
         return equippedWeapon;

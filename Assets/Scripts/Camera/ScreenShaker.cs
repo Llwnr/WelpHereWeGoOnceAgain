@@ -22,6 +22,8 @@ public class ScreenShaker : MonoBehaviour
     private float durationCount, fadeOutDurationCount, fadeOutDuration;
     //Shake screen based on attributes given
     public void ShakeScreenOnce(float intensity, float frequency, float duration, float fadeOutDuration){
+        //Don't remove stronger shake for weaker shakes
+        if (camPerlin.m_AmplitudeGain > intensity) return;
         camPerlin.m_AmplitudeGain = intensity;
         camPerlin.m_FrequencyGain = frequency;
         durationCount = duration;

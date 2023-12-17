@@ -7,6 +7,7 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
     [SerializeField]private float maxHp;
     private float currHp;
 
+    private Collider2D col;
     //Manage observers
     private List<IOnDeath> onDeathListeners = new List<IOnDeath>();
     public void AddDeathListener(IOnDeath listener){
@@ -36,15 +37,23 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
 
     private void Start() {
         currHp = maxHp;
+        col = GetComponent<Collider2D>();
     }
 
     public void DealDamage(float dmgAmt, Vector2 hitPoint){
         currHp -= dmgAmt;
         NotifyWhenDamaged(dmgAmt, hitPoint);
         if(currHp <= 0){
-            Destroy(gameObject);
-            NotifyDeath();
+            //Wait for knockback then die
+            GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(DestroyAfterKnockback());
         }
+    }
+
+    IEnumerator DestroyAfterKnockback() {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
+        NotifyDeath();
     }
 
     public void Heal(float amt){

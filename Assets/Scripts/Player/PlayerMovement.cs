@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         hDir = Input.GetAxisRaw("Horizontal");
         vDir = Input.GetAxisRaw("Vertical");
 
+
         if(hDir == 0 && vDir == 0){
             //Gradually slow down player
             rb.velocity *= 0.75f;

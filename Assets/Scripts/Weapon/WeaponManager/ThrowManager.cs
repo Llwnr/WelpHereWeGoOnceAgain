@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ThrowManager : MonoBehaviour
 {
-    private Vector2 destinationPos, startingPos, shadowLocalOffset;
+    private Vector2 destinationPos, startingPos, shadowLocalOffset, shadowOrigLocalScale;
     [SerializeField]private Transform shadow;
-    [SerializeField]private float throwHeight;
+    [SerializeField]private float throwHeight, shadowIncrease;
 
     //For bezier curve
-    private Vector2 pointA, midAB, pointB, resultPoint;
+    private Vector2 pointA, pointB, resultPoint;
     [SerializeField]private float smoothness = 1;
     private int lerpIndex;
     // Start is called before the first frame update
@@ -18,6 +18,7 @@ public class ThrowManager : MonoBehaviour
     {
         startingPos = transform.position;
         shadowLocalOffset = shadow.localPosition;
+        shadowOrigLocalScale = shadow.localScale;
         lerpIndex = 0;
     }
 
@@ -38,13 +39,18 @@ public class ThrowManager : MonoBehaviour
         //Make shadow be behind player
         shadow.localPosition += new Vector3(0,0,1);
         lerpIndex++;
+        //Make shadow size bigger/smaller based on height of bomb
+        if (lerpIndex / smoothness < 0.5f) {
+            shadow.localScale += (Vector3)shadowOrigLocalScale * shadowIncrease * (transform.position.y-shadow.position.y) * 0.1f;
+        }
+        else {
+            shadow.localScale -= (Vector3)shadowOrigLocalScale * shadowIncrease * (transform.position.y - shadow.position.y) * 0.1f;
+        }
     }
 
     Vector2 GetBezierCurvedPoint(int lerpIndex){
         float lerpValue = lerpIndex/smoothness;
         Vector2 heightA, heightB;
-
-        Vector2 calculatedPos = Vector2.zero;
         //Make 4 points... mid point having height
         // pointA = startingPos;
         // pointB = destinationPos;
@@ -67,6 +73,7 @@ public class ThrowManager : MonoBehaviour
         midToB = Vector2.Lerp(heightAtoHeightB, heightBtoB, lerpValue);
 
         //Create bezier curve for smooth curve
+        Vector2 calculatedPos;
         calculatedPos = Vector2.Lerp(aToMid, midToB, lerpValue);
         return calculatedPos;
     }

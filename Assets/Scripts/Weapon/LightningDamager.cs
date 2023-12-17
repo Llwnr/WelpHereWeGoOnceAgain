@@ -6,6 +6,7 @@ public class LightningDamager : MonoBehaviour
 {
     [SerializeField]private float dmgAmt;
     private float dmgMultiplier = 1;
+    private float playerAtkStats = 1;
 
     public void SetDmgMultiplier(float amt){
         dmgMultiplier = amt;
@@ -18,6 +19,8 @@ public class LightningDamager : MonoBehaviour
     }
 
     public void DamageTarget(Collider2D target){
-        target.GetComponent<IDamagable>().DealDamage(dmgAmt*dmgMultiplier, target.ClosestPoint(transform.position));
+        //Get atk power of player+gun power
+        playerAtkStats = (WeaponManager.instance.GetPlayerAndWeaponAtk()*0.1f);
+        target.GetComponent<IDamagable>().DealDamage(dmgAmt*dmgMultiplier + playerAtkStats*dmgAmt, target.ClosestPoint(transform.position));
     }
 }

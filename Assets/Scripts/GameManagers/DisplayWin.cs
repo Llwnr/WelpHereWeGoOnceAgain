@@ -16,7 +16,7 @@ public class DisplayWin : MonoBehaviour
         int min, sec;
         TimeManager.GetTimeInMinutes(out min, out sec);
 
-        if(min >= 5 && !bossCreated){
+        if(min >= 1 && !bossCreated){
             //Create boss after 5 mins of gameplay
             boss = Instantiate(bossPrefab, Vector2.zero, Quaternion.identity);
             bossCreated = true;

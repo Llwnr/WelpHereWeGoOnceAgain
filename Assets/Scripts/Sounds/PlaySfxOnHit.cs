@@ -9,7 +9,8 @@ public class PlaySfxOnHit : MonoBehaviour, IWhenDamaged
     public EventReference sfx;
 
     private void Start() {
-        GetComponent<EnemyHpManager>().AddOnDamageListener(this);
+        if(GetComponent<EnemyHpManager>()) GetComponent<EnemyHpManager>().AddOnDamageListener(this);
+        else GetComponent<HealthManager>().AddOnDamageListener(this);
     }
 
     public void WhenDamaged(float dmgAmt, Vector2 dir)

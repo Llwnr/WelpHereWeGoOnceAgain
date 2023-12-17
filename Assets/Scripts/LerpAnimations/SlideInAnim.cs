@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class SlideInAnim : MonoBehaviour
 {
-    [SerializeField]private Vector2 origPos, targetPos;
-    [SerializeField]private float duration = 1f, delayDuration = 0f;
+    [SerializeField]private Vector2 hiddenPos, targetPos;
+    [SerializeField]private float duration, delayDuration;
+    
+    [SerializeField]private bool playOnEnable;
     
     private void OnEnable() {
-        transform.localPosition = origPos;
+        if(playOnEnable) StartSlide();
+    }
 
+    void StartSlide(){
+        transform.localPosition = hiddenPos;
         StartCoroutine(SlideToTargetPos());
     }
 

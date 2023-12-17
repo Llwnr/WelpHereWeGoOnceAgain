@@ -12,7 +12,7 @@ public class A_LookAtPlayer : ActionNode
     private float durationCounter;
 
     protected override void OnStart() {
-        player = GameObject.FindWithTag("Player").transform;
+        player = FindPlayer.GetPlayer();
         ResetDuration();
     }
 

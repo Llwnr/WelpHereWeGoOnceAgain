@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2782517671131991289}
   - component: {fileID: 7310985580355526275}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3679978783715804972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
+  m_LocalScale: {x: 1.2, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4757827744473381980}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6392157}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78039217}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,8 +98,9 @@ GameObject:
   - component: {fileID: 5270800750950504178}
   - component: {fileID: 1668162098894274900}
   - component: {fileID: 2100710734612428241}
-  m_Layer: 0
-  m_Name: YellowBomb
+  - component: {fileID: -7604220694660690975}
+  m_Layer: 9
+  m_Name: RedBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 54805e28d486972418af9e9937791d65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,7 +165,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 1, g: 0.98393744, b: 0, a: 1}
+  m_Color: {r: 0.6037736, g: 0.30416518, b: 0.30416518, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadow: {fileID: 2782517671131991289}
   throwHeight: 5
+  shadowIncrease: 0.02
   smoothness: 45
 --- !u!114 &1668162098894274900
 MonoBehaviour:
@@ -217,8 +219,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99b2a1f3c422334986c5262918e1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 7
+  intensity: 10
   frequency: 3
-  duration: 0.2
+  duration: 0.3
   fadeOut: 0.2
   shakeCondition: 1
+--- !u!114 &-7604220694660690975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757827744473381982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e397c05c0df7746bedaed7c4874dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: -998226259
+      Data2: 1301819943
+      Data3: 1430631815
+      Data4: 1096378155
+    Path: event:/SonicBoom
+  scaleWithDistance: 1

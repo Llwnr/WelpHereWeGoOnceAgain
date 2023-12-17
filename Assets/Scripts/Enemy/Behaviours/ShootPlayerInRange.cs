@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
+[RequireComponent(typeof(MoveTowardsPlayer))]
 public class ShootPlayerInRange : MonoBehaviour
 {
     private Transform target;
@@ -17,7 +18,7 @@ public class ShootPlayerInRange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        target = FindPlayer.GetPlayer();
         intervalCount = atkInterval;
     }
 
@@ -31,8 +32,8 @@ public class ShootPlayerInRange : MonoBehaviour
         if(target == null) return;
         
         dist = Vector2.Distance(target.position, transform.position);
-        //Check if player is in range & enemy can shoot
-        if(dist <= shootingRange){
+        //Stop and shoot if player is in range. But enable movement when external force like knockback is applied
+        if(dist <= shootingRange && !GetComponent<MoveTowardsPlayer>().GetExternalForceStatus()){
             HaltMovement(true);//Stop moving and shoot
             GetComponent<Rigidbody2D>().velocity *= 0;
             if(CanEnemyShoot()){
