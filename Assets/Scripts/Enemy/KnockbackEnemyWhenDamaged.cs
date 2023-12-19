@@ -11,7 +11,7 @@ public class KnockbackEnemyWhenDamaged : MonoBehaviour, IWhenDamaged
     
     public void WhenDamaged(float dmgAmt, Vector2 hitPoint)
     {
-        Vector2 knockbackDir = (Vector2)transform.position - hitPoint;
+        Vector2 knockbackDir = ((Vector2)transform.position - (Vector2)GameObject.FindWithTag("Player").transform.position).normalized;
         GetComponent<MoveTowardsPlayer>().SetExternalForceToActive(knockbackDuration);
         GetComponent<Rigidbody2D>().AddForce(knockbackDir*force, ForceMode2D.Impulse);
     }

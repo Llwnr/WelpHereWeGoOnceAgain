@@ -41,7 +41,7 @@ public class SelectUpgrade : MonoBehaviour
             //Hide the UI panel: 
             gameObject.SetActive(false);
         }else{
-            Debug.LogError("Skill is not unlockable yet");
+            Debug.Log("Skill is not unlockable yet");
         }
     }
 }

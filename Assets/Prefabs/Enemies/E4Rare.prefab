@@ -100,7 +100,7 @@ MonoBehaviour:
   injuredColor:
     serializedVersion: 2
     rgba: 4294967295
-  switchDuration: 0.2
+  switchDuration: 0.04
   enemyHpManager: {fileID: 5412813265501462327}
 --- !u!1 &5060152765576111420
 GameObject:

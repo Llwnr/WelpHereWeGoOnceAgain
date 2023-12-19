@@ -474,5 +474,5 @@ MonoBehaviour:
   injuredColor:
     serializedVersion: 2
     rgba: 4294967295
-  switchDuration: 0.2
+  switchDuration: 0.04
   enemyHpManager: {fileID: 5412813265501462327}

@@ -47,7 +47,7 @@ public class WeaponManager : MonoBehaviour
     private WeaponBase equippedWeapon;
     private PlayerBasicStats playerStats;
 
-    private float shootForce, currReloadTime, maxReloadTime;
+    [SerializeField]private float shootForce, currReloadTime, maxReloadTime;
     private float atkPower, atkSpeed, atkInterval = 0; //How quickly the bullets are shot. 1 bullet per second or more
     private int remainingBullets;
 
@@ -93,25 +93,32 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale == 0) return;
+        
         //Just manage reloading and stuff
         ManageReloadTimer();
+        RecordWeaponData();
+
+        //Don't shoot when game is paused
+        if(Time.timeScale == 0) return;
         //Set timer to be able to shoot next bullet
         atkInterval -= Time.deltaTime*atkSpeed;//Faster atk speed means more bullets shot per min
         //When trying to shoot
-        if((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && remainingBullets > 0){
+        if(Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)){
             if(CanShoot()){
                 //Activate the effects of the weapon
                 ActivateWeapon();
                 NotifyWhenPlayerAttacks();
+                
                 //Things to do after weapon is activated... such as reset atk interval, reload maybe etc
                 atkInterval = 1;
                 remainingBullets--;//Consume a bullet
+                ReloadIfRequired();
             }
         }
     }
 
     void ManageReloadTimer(){
+        //To reload bullets at the end of reload time
         if(currReloadTime <= 0){
             //If weapon is upgraded/changed then set the latest data's values
             RecordWeaponData();
@@ -119,13 +126,16 @@ public class WeaponManager : MonoBehaviour
             //Reset remaining bullets to max after being reloaded
             ReloadBullets();
         }
+        //For reloading timer(duration taken to reload)
         if(remainingBullets <= 0){
-            if(currReloadTime == maxReloadTime){
-                //Display the weapon being reloaded to the user
-                reloadDisplay.Reloaded(currReloadTime);
-                NotifyReload();
-            }
             currReloadTime -= Time.deltaTime;
+        }
+    }
+
+    //Reload bullets if its ended
+    void ReloadIfRequired(){
+        if(remainingBullets <= 0){
+            NotifyReload();
         }
     }
 
@@ -142,7 +152,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     bool CanShoot(){
-        if(atkInterval <= 0) return true;
+        if(atkInterval <= 0 && remainingBullets > 0) return true;
         else return false;
     }
 
@@ -186,6 +196,10 @@ public class WeaponManager : MonoBehaviour
 
     public int GetRemainingBullets(){
         return remainingBullets;
+    }
+
+    public float GetReloadTime() {
+        return currReloadTime;
     }
 
     public void IncreaseBulletAmtBy(int amt){

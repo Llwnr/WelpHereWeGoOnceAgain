@@ -20,7 +20,7 @@ public class LightningDamager : MonoBehaviour
 
     public void DamageTarget(Collider2D target){
         //Get atk power of player+gun power
-        playerAtkStats = (WeaponManager.instance.GetPlayerAndWeaponAtk()*0.1f);
-        target.GetComponent<IDamagable>().DealDamage(dmgAmt*dmgMultiplier + playerAtkStats*dmgAmt, target.ClosestPoint(transform.position));
+        playerAtkStats = WeaponManager.instance.GetPlayerAndWeaponAtk();
+        target.GetComponent<IDamagable>().DealDamage((dmgAmt+playerAtkStats)*dmgMultiplier, target.ClosestPoint(transform.position));
     }
 }

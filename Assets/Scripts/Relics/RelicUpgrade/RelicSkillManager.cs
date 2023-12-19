@@ -86,6 +86,9 @@ public class RelicSkillManager : MonoBehaviour
 
             return true;
         }
+        else {
+            Debug.Log("Skill already unlocked");
+        }
 
         return false;
     }
