@@ -5,7 +5,7 @@ using FMODUnity;
 
 public class PlaySfxOnReload : MonoBehaviour, IOnReload
 {
-    public EventReference sfx;
+    public EventReference reloadStartSfx, reloadCompleteSfx;
 
     private void Start() {
         WeaponManager.instance.AddOnReloadListener(this);
@@ -15,8 +15,12 @@ public class PlaySfxOnReload : MonoBehaviour, IOnReload
         if(WeaponManager.instance) WeaponManager.instance.RemoveOnReloadListener(this);
     }
 
-    public void OnReload()
+    public void OnReloadStart()
     {
-        RuntimeManager.PlayOneShot(sfx);
+        RuntimeManager.PlayOneShot(reloadStartSfx);
+    }
+
+    public void OnReloadComplete(){
+        RuntimeManager.PlayOneShot(reloadCompleteSfx);
     }
 }

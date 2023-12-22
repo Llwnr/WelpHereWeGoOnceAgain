@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IOnReload
 {
-    void OnReload();
+    void OnReloadStart();
+    void OnReloadComplete();
 }

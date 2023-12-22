@@ -37,9 +37,14 @@ public class WeaponManager : MonoBehaviour
     public void RemoveOnReloadListener(IOnReload listener){
         onReloadListeners.Remove(listener);
     }
-    void NotifyReload(){
+    void NotifyReloadStart(){
         foreach(IOnReload listener in onReloadListeners){
-            listener.OnReload();
+            listener.OnReloadStart();
+        }
+    }
+    void NotifyReloadComplete(){
+        foreach(IOnReload listener in onReloadListeners){
+            listener.OnReloadComplete();
         }
     }
 
@@ -135,7 +140,7 @@ public class WeaponManager : MonoBehaviour
     //Reload bullets if its ended
     void ReloadIfRequired(){
         if(remainingBullets <= 0){
-            NotifyReload();
+            NotifyReloadStart();
         }
     }
 
@@ -149,6 +154,8 @@ public class WeaponManager : MonoBehaviour
             extraBullets = minimumMaxBullets - equippedWeapon.maxNumOfBullets;
         }
         remainingBullets = Mathf.Max(minimumMaxBullets, equippedWeapon.maxNumOfBullets + extraBullets);
+        //Notify that bullets have been fully reloaded
+        NotifyReloadComplete();
     }
 
     bool CanShoot(){

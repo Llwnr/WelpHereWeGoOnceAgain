@@ -23,9 +23,13 @@ public class ShootBurstOfBullet : ShotCounterBasedRelicSkill, IOnReload
         WeaponManager.instance.AddOnAttackListener(this);
     }
 
-    public void OnReload(){
+    public void OnReloadStart(){
         canActivate = true;
         bulletShotCounter = 0;
+    }
+
+    public void OnReloadComplete(){
+        
     }
 
     protected override void ActivateSkill()
