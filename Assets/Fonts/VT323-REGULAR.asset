@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: VT323-REGULAR
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -477891449
   material: {fileID: 5727452063014541602}
-  materialHashCode: 0
+  materialHashCode: -1134494521
   m_Version: 1.1.0
   m_SourceFontFileGUID: 6bed527ed3417fe448974905036e6032
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 6bed527ed3417fe448974905036e6032,

@@ -35,7 +35,8 @@ public class RelicSkillDataDisplay : MonoBehaviour, IPointerEnterHandler, IPoint
     void DisplayUpgradeInfo(){
         infoBox.gameObject.SetActive(true);
         //Set data of the skill/relic upgrader
-        infoBox.transform.position = transform.position + new Vector3(50 + infoBox.GetComponent<RectTransform>().rect.width*0.5f,0);
+        float resolutionRelative = Screen.width/1920f;
+        infoBox.transform.position = transform.position + new Vector3((GetComponent<RectTransform>().rect.width*0.5f+infoBox.GetComponent<RectTransform>().rect.width*0.5f)*resolutionRelative, 0);
         nameBox.text = myRelicSkill.name;
         descBox.text = myRelicSkill.description;
     }

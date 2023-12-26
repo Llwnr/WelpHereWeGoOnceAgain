@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5270800750950504178}
   - component: {fileID: 1668162098894274900}
   - component: {fileID: -3564995588305317367}
+  - component: {fileID: -8490391881570148102}
   m_Layer: 9
   m_Name: SlowBomb
   m_TagString: Untagged
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadow: {fileID: 2782517671131991289}
   throwHeight: 5
-  shadowIncrease: 0
+  shadowIncrease: 0.02
   smoothness: 45
 --- !u!114 &1668162098894274900
 MonoBehaviour:
@@ -223,3 +224,23 @@ MonoBehaviour:
   duration: 0.2
   fadeOut: 0.2
   shakeCondition: 1
+--- !u!114 &-8490391881570148102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757827744473381982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e397c05c0df7746bedaed7c4874dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: -998226259
+      Data2: 1301819943
+      Data3: 1430631815
+      Data4: 1096378155
+    Path: event:/SonicBoom
+  scaleWithDistance: 1

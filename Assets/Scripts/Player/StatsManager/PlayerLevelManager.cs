@@ -33,19 +33,21 @@ public static class PlayerLevelManager
 
         //After gaining exp see if you can level up. If so, level up
         UpdateLevelBasedOnExp();
+        
 
         void UpdateLevelBasedOnExp(){
             if(expAmt >= expForNextLevel){
                 expAmt = 0;
                 //Increase exp required to reach next level
                 expForNextLevel += expThresholdIncrease + expForNextLevel*0.05f;
+                expThresholdIncrease = Mathf.Max(0, expThresholdIncrease*0.95f);
 
                 //Also increase level
                 level++;
                 Debug.Log("Level increased. Stats are slightly buffed and you can pick an upgrade");
 
                 //Notify that player has leveled up only if player isn't max level
-                if(level < 20){
+                if(level < 23){
                     NotifyLevelUp();
                 }
             }

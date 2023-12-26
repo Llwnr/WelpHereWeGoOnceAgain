@@ -14,7 +14,7 @@ public class ThrowBombs : ShotCounterBasedRelicSkill
 
     //Manage upgrades
     private float dmgMultiplier = 1;
-    private float explosionRange = 8;
+    [SerializeField]private float explosionRange = 8;
 
     private int finalNumOfBombs;
     private float finalDmgMultiplier, finalExplosionRange;

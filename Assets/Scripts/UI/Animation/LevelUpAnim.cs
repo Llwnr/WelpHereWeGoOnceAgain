@@ -14,6 +14,10 @@ public class LevelUpAnim : MonoBehaviour, IOnLevelUp
         myParticle.Stop();
     }
 
+    private void OnDestroy() {
+        PlayerLevelManager.RemoveLevelupListener(this);
+    }
+
     public void OnLevelUp() {
         myParticle.Play();
     }

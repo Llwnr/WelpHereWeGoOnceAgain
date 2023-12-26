@@ -9,7 +9,7 @@ public class DeathFadeAnim : MonoBehaviour
 
     private void Start() {
         //Slowly fade & change the sprite color for a death effect
-        LeanTween.color(gameObject, Color.black, durationToDie * 0.4f);
+        LeanTween.color(gameObject, Color.red, durationToDie * 0.4f);
         LeanTween.alpha(gameObject, 0.25f, durationToDie * 0.7f);
     }
 
