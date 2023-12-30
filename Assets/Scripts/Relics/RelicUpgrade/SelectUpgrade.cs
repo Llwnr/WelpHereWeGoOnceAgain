@@ -43,5 +43,7 @@ public class SelectUpgrade : MonoBehaviour
         }else{
             Debug.Log("Skill is not unlockable yet");
         }
+
+        Destroy(createdHighlightBorder.gameObject);
     }
 }

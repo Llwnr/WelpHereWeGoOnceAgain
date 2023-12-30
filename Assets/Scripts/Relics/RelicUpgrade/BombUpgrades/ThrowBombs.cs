@@ -7,7 +7,6 @@ public class ThrowBombs : ShotCounterBasedRelicSkill
 {
     private Bomber myBomberRelic;
     [SerializeField]private float range;
-    [SerializeField]private int numOfBombs;
     [SerializeField]private GameObject bomb;
 
     [SerializeField]private Bomber.BombType bombType;
@@ -44,8 +43,8 @@ public class ThrowBombs : ShotCounterBasedRelicSkill
 
     private void GetBombStats(){
         //Update the stats such as 
-        finalNumOfBombs = numOfBombs+myBomberRelic.GetNumOfBombs(bombType);
-        finalDmgMultiplier = dmgMultiplier+myBomberRelic.GetDmgMultiplier(bombType);
-        finalExplosionRange = explosionRange+myBomberRelic.GetExplosionRange(bombType);
+        finalNumOfBombs = myBomberRelic.GetNumOfBombs(bombType);
+        finalDmgMultiplier = dmgMultiplier*myBomberRelic.GetDmgMultiplier(bombType);
+        finalExplosionRange = explosionRange*myBomberRelic.GetExplosionRange(bombType);
     }
 }

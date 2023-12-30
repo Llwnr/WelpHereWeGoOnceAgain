@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7039434149039349464}
   - component: {fileID: 7039434149039349465}
   - component: {fileID: 7039434149039349462}
+  - component: {fileID: 8420677758245210930}
   m_Layer: 5
   m_Name: SkillBase
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.48299998, g: 0.48299998, b: 0.48299998, a: 1}
+    m_DisabledColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -157,7 +158,7 @@ MonoBehaviour:
   infoBox: {fileID: 0}
   nameBox: {fileID: 0}
   descBox: {fileID: 0}
-  waitToDisplay: 0.25
+  waitToDisplay: 0.12
 --- !u!222 &7039434149039349465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -182,3 +183,50 @@ MonoBehaviour:
   icon: {fileID: -1669344041, guid: ca912b47f4875bd4ebcc4f34de152a72, type: 3}
   description: Throw bombs on every 12 shot
   myRequiredNodes: []
+--- !u!114 &8420677758245210930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039434149039349470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea23ed864047e2499db3eb28fe7f4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleMax: {x: 1.2, y: 1.2}
+  duration: 0.4
+  easing:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.53824276
+      value: 1.2273517
+      inSlope: -0.103355385
+      outSlope: -0.103355385
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6547246
+      outWeight: 0.25970462
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -10,12 +10,12 @@ public class Bomber : Relic
     }
     
     //Bomb stats
-    public int NumOfYellowBombs{get; private set;}
-    public float YellowBombDmgMultiplier{get; private set;}
-    public float YBombExplosionRange{get; private set;}
-    public int NumOfSlowBombs{get; private set;}
-    public float SlowBombDmgMultiplier{get; private set;}
-    public float SlowBombExplosionRange{get; private set;}
+    public int NumOfYellowBombs{get; private set;} = 1;
+    public float YellowBombDmgMultiplier{get; private set;} = 1;
+    public float YBombExplosionRange{get; private set;} = 1;
+    public int NumOfSlowBombs{get; private set;} = 1;
+    public float SlowBombDmgMultiplier{get; private set;} = 1;
+    public float SlowBombExplosionRange{get; private set;} = 1;
 
     //FOR UPGRADES
     public void IncreaseNumberOfBombs(BombType bombType, int increaseBy){

@@ -203,10 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e7b87f745466449aa0142b465cef6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeDuration: 2
+  explodeDuration: 1.2
   explosion: {fileID: 2045712344398561794, guid: 3761fa3fff3d1844db8a72312d9a44de,
     type: 3}
-  explosionSize: 4
+  baseExplosionSize: 1
 --- !u!114 &2100710734612428241
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,8 @@ public class BombExplosionManager : MonoBehaviour
 {
     [SerializeField]private float explodeDuration;
     [SerializeField]private GameObject explosion;
-    [SerializeField]private float explosionSize = 4;
+    [SerializeField]private float baseExplosionSize;
+    private float explosionSize;
 
     //When you upgrade bombs damage
     private float dmgMultiplier = 1;
@@ -26,7 +27,7 @@ public class BombExplosionManager : MonoBehaviour
             ISetDamageMultiplier setDamageMultiplier = bombExplosion.GetComponent<ISetDamageMultiplier>();
             setDamageMultiplier.SetDamageMultiplier(dmgMultiplier);
 
-            bombExplosion.transform.localScale = new Vector3(1,1,0) * explosionSize;
+            bombExplosion.transform.localScale = new Vector3(1,1,0) * baseExplosionSize * explosionSize;
 
             Destroy(gameObject);
         }

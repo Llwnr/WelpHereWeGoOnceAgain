@@ -56,6 +56,10 @@ public class RelicSkillManager : MonoBehaviour
 
     public void SetAsUsed(){
         isUnlocked = true;
+        //To change disabled buttons color
+        var buttonColors = GetComponent<Button>().colors;
+        buttonColors.disabledColor = Color.white;
+        GetComponent<Button>().colors = buttonColors;
     }
     public bool HasBeenUnlocked(){
         return isUnlocked;
@@ -82,7 +86,7 @@ public class RelicSkillManager : MonoBehaviour
                 relicSkill.Upgrade();
             }
 
-            GetComponent<Image>().color = Color.grey;
+            GetComponent<Image>().color = Color.yellow;
 
             return true;
         }
