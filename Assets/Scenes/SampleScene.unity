@@ -454,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 1968469014}
   textbox: {fileID: 929852778}
+  lerpDuration: 0.5
 --- !u!1 &157967730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7039434149039349470, guid: 830ccb2a9c8f6704fa72cd1d59670b4e,
@@ -1196,8 +1197,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209593233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7127, y: 14.5, z: 10.067043}
-  m_LocalScale: {x: 53.41545, y: 1, z: 1}
+  m_LocalPosition: {x: -3.3, y: 16.5, z: 10.067043}
+  m_LocalScale: {x: 60, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 639741033}
@@ -1355,8 +1356,8 @@ MonoBehaviour:
   - {fileID: 5412813265501462477, guid: dd708bf23491ca949985b86d831323e5, type: 3}
   - {fileID: 5412813265501462477, guid: a43ec63df9de9654cbb613a4a0041c99, type: 3}
   rareEnemyProc: 0.05
-  radius: 16
-  generationTimer: 0.55
+  radius: 20
+  generationTimer: 0.7
   randomTime: 0.5
   enemyHolder: {fileID: 1359293125}
   boundary: {fileID: 1127610755}
@@ -2364,9 +2365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumMaxBullets: 6
-  shootForce: 0
-  currReloadTime: 0
-  maxReloadTime: 0
   reloadDisplay: {fileID: 1896180227}
 --- !u!212 &455919278
 SpriteRenderer:
@@ -3117,7 +3115,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.24179785, g: 0.2627451, b: 0.16862746, a: 0}
+  m_BackGroundColor: {r: 0.13328587, g: 0.14175215, b: 0.2264151, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3759,7 +3757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dd76b5e59954e4aaec4bab834d28dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedWeapon: {fileID: 11400000, guid: c8424289d50594140af371054bc11795, type: 2}
+  equippedWeapon: {fileID: 11400000, guid: 55b44958ed2533b448b5138282367fb4, type: 2}
 --- !u!114 &597148031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3775,7 +3773,7 @@ MonoBehaviour:
   maxHp: 100
   atkSpeedMultiplier: 1
   atkPowerMultiplier: 0.75
-  reloadSpeedMultiplier: 1
+  reloadSpeedMultiplier: 50
   critChance: 0
   critDamage: 0
   movementSpeedMultiplier: 1
@@ -3910,7 +3908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99b2a1f3c422334986c5262918e1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0.8
+  intensity: 0.4
   frequency: 1
   duration: 0.05
   fadeOut: 0
@@ -4003,7 +4001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleMin: {x: 0.98, y: 0.95}
   scaleMax: {x: 1.02, y: 1.05}
-  duration: 1
+  duration: 0.75
 --- !u!1 &636004118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,8 +4266,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664243354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7127, y: -21.71, z: 10.067043}
-  m_LocalScale: {x: 53.41545, y: 1, z: 1}
+  m_LocalPosition: {x: -2.7127, y: -23.17, z: 10.067043}
+  m_LocalScale: {x: 60, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 639741033}
@@ -5803,8 +5801,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294935552
-  m_fontColor: {r: 0, g: 0.51575613, b: 1, a: 1}
+    rgba: 4278193919
+  m_fontColor: {r: 1, g: 0.05446383, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6975,7 +6973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115152551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.56, y: -3.43, z: 10.067043}
+  m_LocalPosition: {x: -32.6, y: -3.43, z: 10.067043}
   m_LocalScale: {x: 1, y: 40, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29095,7 +29093,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.12433247, g: 0.5188679, b: 0.15426278, a: 1}
+  m_Color: {r: 0.39398363, g: 0.48337904, b: 0.9622642, a: 1}
   m_Origin: {x: -29, y: -19, z: 0}
   m_Size: {x: 57, y: 38, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -29658,8 +29656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
-  maxIntensity: 0.75
-  minIntensity: 0.35
+  maxIntensity: 0.7
+  minIntensity: 0.2
 --- !u!4 &1289548298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6107038494660136071, guid: d0a0aef643130d8498bdef9e3117aa85,
@@ -30375,8 +30373,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401946876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.41, y: -3.43, z: 10.067043}
-  m_LocalScale: {x: 1, y: 40, z: 1}
+  m_LocalPosition: {x: 26.3, y: -3.43, z: 10.067043}
+  m_LocalScale: {x: 1, y: 45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 639741033}
@@ -31089,8 +31087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.89982086, b: 0, a: 1}
+  m_Material: {fileID: 2100000, guid: 54805e28d486972418af9e9937791d65, type: 2}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31106,7 +31104,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.5
 --- !u!222 &1476209540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31181,7 +31179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.97389877, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.6226415, b: 0.113500625, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31248,7 +31246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &1510946189
 Grid:
   m_ObjectHideFlags: 0
@@ -31270,7 +31268,7 @@ Transform:
   m_GameObject: {fileID: 1510946188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1127610753}
@@ -35845,6 +35843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SkillInfoBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324085362254392129, guid: 3b3f01c5b0555084cad0dfeb537b31bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324085362254392130, guid: 3b3f01c5b0555084cad0dfeb537b31bc,
         type: 3}

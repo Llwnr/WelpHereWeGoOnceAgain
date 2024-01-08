@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DeathFadeAnim : MonoBehaviour
 {
-    private Color32 color;
-    [SerializeField]private float durationToDie = 0.5f;
+    [SerializeField]private Color32 color;
+    [SerializeField]private float durationToDie = 0.5f, finalAlpha, alphaDuration;
 
     private void Start() {
         //Slowly fade & change the sprite color for a death effect
-        LeanTween.color(gameObject, Color.red, durationToDie * 0.4f);
-        LeanTween.alpha(gameObject, 0.25f, durationToDie * 0.7f);
+        LeanTween.color(gameObject, color, alphaDuration);
+        LeanTween.alpha(gameObject, finalAlpha, alphaDuration);
     }
 
     private void Update() {

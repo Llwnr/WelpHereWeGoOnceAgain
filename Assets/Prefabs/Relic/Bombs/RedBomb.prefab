@@ -206,7 +206,7 @@ MonoBehaviour:
   explodeDuration: 1.2
   explosion: {fileID: 2045712344398561794, guid: 3761fa3fff3d1844db8a72312d9a44de,
     type: 3}
-  baseExplosionSize: 1
+  baseExplosionSize: 1.2
 --- !u!114 &2100710734612428241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,5 +242,5 @@ MonoBehaviour:
       Data2: 1301819943
       Data3: 1430631815
       Data4: 1096378155
-    Path: event:/SonicBoom
+    Path: event:/ExplosionSfx
   scaleWithDistance: 1

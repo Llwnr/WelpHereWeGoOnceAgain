@@ -68,7 +68,7 @@ public class AutoGenerateEnemy : MonoBehaviour
         Vector2 finalPoint;
         do{
             Ray2D ray = new Ray2D(transform.position, Random.onUnitSphere);
-            finalPoint = ray.GetPoint(radius)*Random.Range(0.75f,1.5f);
+            finalPoint = ray.GetPoint(radius)*Random.Range(0.6f,1f);
         }while(finalPoint.x < xLeft || finalPoint.x > xRight || finalPoint.y < yLeft || finalPoint.y > yRight);
         return finalPoint;
     }

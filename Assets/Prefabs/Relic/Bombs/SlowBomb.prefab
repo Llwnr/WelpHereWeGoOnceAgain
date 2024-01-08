@@ -242,5 +242,5 @@ MonoBehaviour:
       Data2: 1301819943
       Data3: 1430631815
       Data4: 1096378155
-    Path: event:/SonicBoom
+    Path: event:/ExplosionSfx
   scaleWithDistance: 1

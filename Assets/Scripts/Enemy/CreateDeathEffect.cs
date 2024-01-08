@@ -15,5 +15,6 @@ public class CreateDeathEffect : MonoBehaviour, IOnDeath
         //Create death particle effect
         GameObject deathEffect = Instantiate(deathParticle, transform.position, Quaternion.identity);
         deathEffect.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
+        deathEffect.GetComponent<SpriteRenderer>().material = GetComponent<SpriteRenderer>().material;
     }
 }

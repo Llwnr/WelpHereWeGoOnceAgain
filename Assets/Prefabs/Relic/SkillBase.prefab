@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7039434149039349465}
   - component: {fileID: 7039434149039349462}
   - component: {fileID: 8420677758245210930}
+  - component: {fileID: 3521257018779189090}
   m_Layer: 5
   m_Name: SkillBase
   m_TagString: Untagged
@@ -100,7 +101,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.08
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -158,7 +159,7 @@ MonoBehaviour:
   infoBox: {fileID: 0}
   nameBox: {fileID: 0}
   descBox: {fileID: 0}
-  waitToDisplay: 0.12
+  waitToDisplay: 0.1
 --- !u!222 &7039434149039349465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -230,3 +231,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3521257018779189090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039434149039349470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a672c4c68d5e979468649af436c6fdc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: 1166658241
+      Data2: 1152364334
+      Data3: 982580923
+      Data4: 1448497907
+    Path: event:/Pop

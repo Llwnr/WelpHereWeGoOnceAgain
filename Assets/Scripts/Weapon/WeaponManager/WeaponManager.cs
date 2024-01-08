@@ -52,7 +52,7 @@ public class WeaponManager : MonoBehaviour
     private WeaponBase equippedWeapon;
     private PlayerBasicStats playerStats;
 
-    [SerializeField]private float shootForce, currReloadTime, maxReloadTime;
+    private float shootForce, currReloadTime, maxReloadTime;
     private float atkPower, atkSpeed, atkInterval = 0; //How quickly the bullets are shot. 1 bullet per second or more
     private int remainingBullets;
 
