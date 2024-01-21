@@ -8,6 +8,9 @@ public class GenerateLightningLine : MonoBehaviour
     private Vector2 currPos;
     private Vector2 finalPos;
 
+    [SerializeField]private float randomizeLightningInterval;
+    private float timer;
+
     public void SetTargetPos(Vector2 finalPos){
         currPos = transform.position;
         this.finalPos = finalPos;
@@ -41,5 +44,17 @@ public class GenerateLightningLine : MonoBehaviour
     //Generate different wavelength/frequency of lightning
     void RandomizeLightningAnim(){
         GetComponent<MeshRenderer>().material.SetFloat(Shader.PropertyToID("_RandomizedLightning"), Random.Range(0f,1f));
+    }
+
+    private void Start() {
+        timer = randomizeLightningInterval;
+    }
+
+    private void Update() {
+        timer -= Time.deltaTime;
+        if(timer <= 0){
+            RandomizeLightningAnim();
+            timer = randomizeLightningInterval;
+        }
     }
 }

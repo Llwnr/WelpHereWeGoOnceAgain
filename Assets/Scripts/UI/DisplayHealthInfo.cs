@@ -9,7 +9,7 @@ public class DisplayHealthInfo : MonoBehaviour
     [SerializeField]private Image hpBar;
     [SerializeField]private TextMeshProUGUI textbox;
     private HealthManager playerHealthManager;
-    private int currHp, maxHp, recentHp;
+    [SerializeField]private int currHp, maxHp, recentHp;
     [SerializeField]private float lerpDuration;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,6 @@ public class DisplayHealthInfo : MonoBehaviour
 
     void SetHpBarSmoothly(float amt){
         hpBar.fillAmount = amt/maxHp;
-        textbox.text = (amt/maxHp*100f).ToString("F0") + " | " + maxHp.ToString();
+        textbox.text = amt.ToString("F0") + " | " + maxHp.ToString();
     }
 }
