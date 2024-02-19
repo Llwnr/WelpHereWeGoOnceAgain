@@ -6,9 +6,8 @@ using TMPro;
 public class DmgPopup : MonoBehaviour
 {
     private TextMeshProUGUI textBox;
-    [SerializeField]private float lifeDuration;
-    private float lifeDurationCounter;
-    private Vector2 slideDir;
+    [SerializeField]private float lifeDuration, xMul, yMul, yFlat, xScale, yScale;
+    private Vector2 slidePos;
 
     public void SetDmgAmt(float dmgAmt){
         textBox = GetComponent<TextMeshProUGUI>();
@@ -17,21 +16,29 @@ public class DmgPopup : MonoBehaviour
 
     public void SetSlideDir(Vector2 dir){
         dir = dir.normalized;
+        float yFlatNew = yFlat;
+        if(dir.y < 0) yFlatNew = -yFlat;
         //Only for x axis... the popup will always go up in y axis so
-        slideDir = new Vector2(dir.x, 1f)+(Vector2)transform.position;
-    }
-
-    private void Start() {
-        lifeDurationCounter = lifeDuration;
-    }
-
-    private void FixedUpdate() {
-        lifeDurationCounter -= Time.fixedDeltaTime;
-        if(lifeDurationCounter <= 0){
-            Destroy(gameObject);
-        }
+        slidePos = new Vector2(dir.x*xMul, dir.y*yMul +yFlatNew) + (Vector2)transform.position;
 
         //Animate popup
-        transform.position = Vector2.Lerp(transform.position, slideDir, 1-lifeDurationCounter/lifeDuration);
+        LeanTween.move(gameObject, slidePos, lifeDuration).setEaseOutBack();
+        GetBigger();
+    }
+
+    void GetBigger(){
+        LeanTween.scale(gameObject, new Vector3(xScale, yScale), lifeDuration*0.3f).setEaseOutCubic().setOnComplete(GetSmaller);
+    }
+
+    void GetSmaller(){
+        LeanTween.scale(gameObject, new Vector3(1, 1), lifeDuration*0.7f).setEaseOutCubic();
+    }
+
+
+    private void FixedUpdate() {
+        lifeDuration -= Time.fixedDeltaTime;
+        if(lifeDuration <= 0){
+            Destroy(gameObject);
+        }
     }
 }

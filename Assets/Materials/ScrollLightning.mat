@@ -42,6 +42,6 @@ Material:
     - _RandomizedLightning: 0
     - _ScrollSpeed: 0
     m_Colors:
-    - _MainColor: {r: 16.94838, g: 0.17746994, b: 0, a: 1}
-    - _SecondaryColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
+    - _MainColor: {r: 0, g: 1.0889977, b: 21.112127, a: 1}
+    - _SecondaryColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -15,8 +15,8 @@ MonoBehaviour:
   name: GattlingGun
   description: Shoots rapidly
   bullet: {fileID: 8009271588578554507, guid: 054e06f35a84b814ea5912953dfd75c7, type: 3}
-  maxNumOfBullets: 40
-  atkSpeed: 7.5
-  atkPower: 15
+  maxNumOfBullets: 30
+  atkSpeed: 6
+  atkPower: 16
   reloadTime: 2.5
   shootForce: 32

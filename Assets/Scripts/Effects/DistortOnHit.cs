@@ -17,5 +17,7 @@ public class DistortOnHit : MonoBehaviour, IWhenDamaged
         foreach(MonoBehaviour scripts in distortEffect.GetComponents<MonoBehaviour>()) {
             scripts.enabled = true;
         }
+
+        //Also shake player violently
     }
 }

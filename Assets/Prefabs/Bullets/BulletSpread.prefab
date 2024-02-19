@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3360588837350397791}
   - component: {fileID: 8943052490023168154}
   - component: {fileID: -4744272639727686875}
+  - component: {fileID: 3071789639264941749}
   m_Layer: 0
   m_Name: BulletSpread
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 8009271588578554507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1861655800, guid: 453e660db28b83143823de41aad4cc41, type: 3}
-  m_Color: {r: 0.60140646, g: 0.58668566, b: 0.754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,3 +180,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeAnim: {fileID: 2480871919093530077, guid: dca9452598bad3b45918ab855ce72acf,
     type: 3}
+--- !u!114 &3071789639264941749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009271588578554507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f01b29991d1684d92a598c4f40d167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: 1857011088
+      Data2: 1260785887
+      Data3: -471045973
+      Data4: 854084842
+    Path: event:/EnemyHit

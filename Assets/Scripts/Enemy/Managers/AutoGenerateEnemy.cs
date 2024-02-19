@@ -8,6 +8,7 @@ public class AutoGenerateEnemy : MonoBehaviour
     [SerializeField]private List<GameObject> enemies;
     [SerializeField]private List<GameObject> rarerEnemies;
     [SerializeField]private float rareEnemyProc, radius, generationTimer;
+    public float extraRareProcChance = 0;//To increase the chance of generating rare enemies if no rare enemy is generated
     [SerializeField]private float randomTime;
     [SerializeField]private Transform enemyHolder;
 
@@ -57,9 +58,13 @@ public class AutoGenerateEnemy : MonoBehaviour
         GameObject newEnemy = Instantiate(enemies[enemyIndex], generatedPos, Quaternion.identity);
         newEnemy.transform.SetParent(enemyHolder, false);
         //Generate a rare monster at the given chance proc
-        if(Random.Range(0f,1) < rareEnemyProc){
+        if(Random.Range(0f,1) < (rareEnemyProc+extraRareProcChance)){
             newEnemy = Instantiate(rarerEnemies[enemyIndex], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
             newEnemy.transform.SetParent(enemyHolder, false);
+            extraRareProcChance = 0;
+        }else{
+            //If no rare enemy generated, increase the chance by 1%
+            extraRareProcChance += 0.015f;
         }
     }
 

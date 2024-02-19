@@ -225,8 +225,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../FMOD Studio/TopDownShooting/TopDownShooting.fspro
-  sourceBankPath: ../../FMOD Studio/TopDownShooting/Build
+  sourceProjectPath: C:/Users/Dell/Documents/FMOD Studio/TopDownShooting/TopDownShooting.fspro
+  sourceBankPath: C:/Users/Dell/Documents/FMOD Studio/TopDownShooting/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 0

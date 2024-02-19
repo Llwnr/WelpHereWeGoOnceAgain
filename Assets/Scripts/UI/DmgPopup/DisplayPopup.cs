@@ -20,7 +20,7 @@ public class DisplayPopup : MonoBehaviour, IWhenDamaged
         DmgPopup newDmgPopup = Instantiate(dmgPopup, transform.position, Quaternion.identity);
         newDmgPopup.SetDmgAmt(dmgAmt);
         //Make popup slide slightly near player
-        newDmgPopup.SetSlideDir(player.position-transform.position);
+        newDmgPopup.SetSlideDir(transform.position-player.transform.position);
         //Set its position to popupContainer in canvas
         newDmgPopup.transform.SetParent(popupContainer, false);
     }

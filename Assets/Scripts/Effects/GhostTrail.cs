@@ -39,10 +39,12 @@ public class GhostTrail : MonoBehaviour, IOnDash
     {
         activateTrail = true;
         startingDist = transform.position;
+        CreateTrail(transform.position);
     }
 
     public void OnDashEnd()
     {
         activateTrail = false;
+        CreateTrail(transform.position);
     }
 }

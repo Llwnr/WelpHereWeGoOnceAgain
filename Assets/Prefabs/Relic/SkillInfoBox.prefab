@@ -404,9 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   functionType: 2
-  startAlpha: 0.5
+  startAlpha: 0.8
   endAlpha: 1
-  duration: 0.3
+  duration: 0.2
   easing:
     serializedVersion: 2
     m_Curve:
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   functionType: 2
-  startScale: {x: 0.75, y: 0.75, z: 1}
+  startScale: {x: 0.9, y: 0.9, z: 1}
   endScale: {x: 1, y: 1, z: 1}
   duration: 0.1
   easing:

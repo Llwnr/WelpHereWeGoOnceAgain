@@ -34,8 +34,6 @@ public class DashNearPlayer : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach(Collider2D collider in colliders){
             if(collider.CompareTag("Player")){
-                //Stop player from moving
-                GetComponent<MoveTowardsPlayer>().SetHaltState(true);
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 StartCoroutine(ChargeDash(collider.transform));
                 isCharging = true;
@@ -49,29 +47,31 @@ public class DashNearPlayer : MonoBehaviour
         newAnticipationInfo.transform.SetParent(pivot, false);
 
         float waitDurationCounter = waitDuration;
-        while(waitDurationCounter > waitDuration/2f){
+        while(waitDurationCounter > waitDuration*0.1f){
             //Look at player as if fixing target
             dashDir = (player.position - transform.position).normalized;
             float angle = Mathf.Atan2(dashDir.y, dashDir.x) * Mathf.Rad2Deg + 90;
             pivot.transform.eulerAngles = new Vector3(0,0, angle);
             waitDurationCounter -= Time.deltaTime;
 
-            
             yield return null;
         }
         while(waitDurationCounter > 0){
+            //Destroy anticipation as now the enemy will not change its anticipated location
+            Destroy(newAnticipationInfo);
+
             //Do nothing so player can react
             waitDurationCounter -= Time.deltaTime;
             yield return null;  
         }
-        //Destroy anticipation as now the enemy will attack
-        Destroy(newAnticipationInfo);
+        
         //Dash
         Dash();
     }
 
     void Dash(){
-        Debug.Log("Dashing hm");
+        //Stop object from using default moving speed limiter
+        GetComponent<MoveTowardsPlayer>().SetHaltState(true);
         rb.AddForce(dashDir*dashForce, ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxDashSpeed);
 
@@ -85,6 +85,7 @@ public class DashNearPlayer : MonoBehaviour
     IEnumerator StopDash(){
         //Make enemy follor player again instead of dashing
         yield return new WaitForSeconds(dashDuration);
+        //Make object move at normal speed limit
         GetComponent<MoveTowardsPlayer>().SetHaltState(false);
         //Enable colliders again
         transform.GetComponent<Collider2D>().enabled = true;

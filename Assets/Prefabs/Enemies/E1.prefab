@@ -159,7 +159,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 54805e28d486972418af9e9937791d65, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0, g: 0.048363253, b: 0.3773585, a: 1}
+  m_Color: {r: 0.8584906, g: 0.6163522, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -297,7 +297,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3433c72eb94ea74ab0c817ecd6b1db6, type: 2}
+  - {fileID: 2100000, guid: 54805e28d486972418af9e9937791d65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -319,7 +319,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0d6d818ac0166ec4f9323e2f79fa1352, type: 3}
-  m_Color: {r: 0, g: 0.2029925, b: 0.48235294, a: 1}
+  m_Color: {r: 0.3490566, g: 0, b: 0.11351424, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -627,7 +627,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c3433c72eb94ea74ab0c817ecd6b1db6, type: 2}
+      objectReference: {fileID: 2100000, guid: 54805e28d486972418af9e9937791d65, type: 2}
     - target: {fileID: 7146425429705541470, guid: 3a7f5af7281104742890300b2a6f356e,
         type: 3}
       propertyPath: m_Name

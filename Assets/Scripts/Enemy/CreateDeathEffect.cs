@@ -16,5 +16,6 @@ public class CreateDeathEffect : MonoBehaviour, IOnDeath
         GameObject deathEffect = Instantiate(deathParticle, transform.position, Quaternion.identity);
         deathEffect.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
         deathEffect.GetComponent<SpriteRenderer>().material = GetComponent<SpriteRenderer>().material;
+        deathEffect.transform.eulerAngles = transform.localEulerAngles;
     }
 }
