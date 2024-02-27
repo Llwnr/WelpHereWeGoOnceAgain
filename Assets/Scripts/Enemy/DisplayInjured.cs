@@ -19,6 +19,7 @@ public class DisplayInjured : MonoBehaviour, IWhenDamaged
     public void WhenDamaged(float dmgAmt, Vector2 hitPoint)
     {
         GetComponent<SpriteRenderer>().color = injuredColor;
+        StopAllCoroutines();
         StartCoroutine(ReturnToNormalColor());
     }
 

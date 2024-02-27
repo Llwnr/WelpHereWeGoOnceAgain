@@ -25,7 +25,6 @@ MonoBehaviour:
   - rid: 5011283984636706817
   - rid: 5011283984636706818
   - rid: 5011283984636706819
-  - rid: 5011283984636706820
   - rid: 5011283984636706821
   - rid: 5011283984636706822
   - rid: 5011283986314428416
@@ -35,8 +34,8 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  viewPosition: {x: 671.2, y: 111.2, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 203.2, y: 232.8, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -96,7 +95,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         rotateSpeed: 4
-        duration: 3
+        duration: 2
     - rid: 5011283914027433998
       type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -146,7 +145,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 638ebb60f8b4dc64eb74bfd0472efe68
-        position: {x: 554.9956, y: 355.15955}
+        position: {x: 298.14517, y: 355.19998}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: Dash
@@ -154,7 +153,6 @@ MonoBehaviour:
         children:
         - rid: 5011283984636706818
         - rid: 5011283984636706819
-        - rid: 5011283984636706820
         - rid: 5011283984636706821
         - rid: 5011283984636706822
     - rid: 5011283984636706818
@@ -163,47 +161,36 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: effff13865adc6b408f67ab696043ff9
-        position: {x: 204.5956, y: 492.75955}
+        position: {x: -48.232147, y: 495.99994}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        rotateSpeed: 10
-        duration: 3
+        rotateSpeed: 5
+        duration: 2
     - rid: 5011283984636706819
       type: {class: A_TelegraphStart, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: e46b0d3478f8abd419eb5fe97d0cdeff
-        position: {x: 379.79556, y: 491.95956}
+        position: {x: 167.42722, y: 495.99994}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
         numOfTelegraphs: 1
-        telegraphScale: {x: 5, y: 20, z: 0}
-        chargingAnimPrefab: {fileID: 5867010640399957583, guid: 1b2a6e7416bccae49b1d409bfd061535,
+        telegraphScale: {x: 2, y: 18, z: 0}
+        chargingAnimPrefab: {fileID: 9178387897948749203, guid: 9699b476c5366934a81e28dd9b38fdca,
           type: 3}
-    - rid: 5011283984636706820
-      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 171bff130686ccc48afbcd4d3a18b5bd
-        position: {x: 554.9956, y: 492.75955}
-        blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
-        description: 
-        drawGizmos: 0
-        duration: 0.3
+        duration: 0.36
     - rid: 5011283984636706821
       type: {class: A_TelegraphStop, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 5076eeb09ab87cc4aad42826b0cbe313
-        position: {x: 728.59576, y: 493.55954}
+        position: {x: 411.5407, y: 497.59998}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
@@ -214,14 +201,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7dc7eba201d13ac4f9fd4db7df5e01be
-        position: {x: 904.59564, y: 494.35953}
+        position: {x: 635.9294, y: 493.59998}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        dashForce: 200
-        maxSpeed: 24
-        duration: 0.7
+        dashForce: 500
+        maxSpeed: 60
+        duration: 0.25
+        slowdownDuration: 0.25
+        slowFactor: 0.15
     - rid: 5011283986314428416
       type: {class: RandomSelector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -244,7 +233,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 36e51f946253f464f8583055e29a5c22
-        position: {x: 1715.8585, y: 354.39996}
+        position: {x: 1362.0007, y: 358.42255}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
@@ -258,24 +247,24 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2a6f8b2da05d97246920b718e155773a
-        position: {x: 1382.5145, y: 493.6}
+        position: {x: 1361.6, y: 489.59998}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
         rotateSpeed: 2
-        duration: 5
+        duration: 3.5
     - rid: 5011283992089460738
       type: {class: A_CreateHealers, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: d592d27bdedbe3848a95d05cf03d437c
-        position: {x: 1565.6, y: 493.6}
+        position: {x: 1657.3785, y: 489.59995}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
         healerPrefab: {fileID: 5412813265501462477, guid: 578e63f01273d814ca755a743a3f83dd,
           type: 3}
-        generationRadius: 4
+        generationRadius: 5

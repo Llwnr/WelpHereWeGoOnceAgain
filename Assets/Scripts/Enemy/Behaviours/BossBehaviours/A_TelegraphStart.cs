@@ -9,8 +9,11 @@ public class A_TelegraphStart : ActionNode
     public int numOfTelegraphs;
     public Vector3 telegraphScale;
     public GameObject chargingAnimPrefab;
+    public float duration;
+    private float durationCounter;
     protected override void OnStart() {
-        context.transform.GetComponent<TelegraphManager>().CreateTelegraphs(numOfTelegraphs, chargingAnimPrefab, telegraphScale);
+        durationCounter = duration;
+        context.transform.GetComponent<TelegraphManager>().CreateTelegraphs(numOfTelegraphs, chargingAnimPrefab, telegraphScale, duration);
     }
 
     protected override void OnStop() {
@@ -18,6 +21,9 @@ public class A_TelegraphStart : ActionNode
     }
 
     protected override State OnUpdate() {
+        durationCounter -= Time.deltaTime;
+        if(durationCounter > 0) return State.Running;
+        
         return State.Success;
     }
 }

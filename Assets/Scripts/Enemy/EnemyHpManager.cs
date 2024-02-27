@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHpManager : MonoBehaviour, IDamagable
 {
     [SerializeField]private float maxHp;
+
     private float currHp;
 
     private Collider2D col;
@@ -35,6 +36,19 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
         }
     }
 
+    private List<E_HealEffect> healEffects = new List<E_HealEffect>();
+    public void AddHealEffect(E_HealEffect healEffect){
+        healEffects.Add(healEffect);
+    }
+    public void RemoveHealEffect(E_HealEffect healEffect){
+        healEffects.Remove(healEffect);
+    }
+    void StartHealEffect(){
+        foreach(E_HealEffect healEffect in healEffects){
+            healEffect.StartHeal();
+        }
+    }
+
     private void Start() {
         currHp = maxHp;
         col = GetComponent<Collider2D>();
@@ -59,6 +73,7 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
     public void Heal(float amt){
         currHp += amt;
         if(currHp > maxHp) currHp = maxHp;
+        StartHealEffect();
     }
 
     public void GetHpData(out int currentHp, out int maxHp){

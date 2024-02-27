@@ -9,6 +9,9 @@ public class DisplayWin : MonoBehaviour
     [SerializeField]private GameObject bossPrefab;
     private GameObject boss;
 
+    [Header("Boss Summon Time")]
+    [SerializeField]private float maxMin, maxSec;
+
     private bool bossCreated = false;
     // Update is called once per frame
     void Update()
@@ -16,7 +19,7 @@ public class DisplayWin : MonoBehaviour
         int min, sec;
         TimeManager.GetTimeInMinutes(out min, out sec);
 
-        if(min >= 5 && !bossCreated){
+        if(min >= maxMin && sec >= maxSec && !bossCreated){
             //Create boss after 5 mins of gameplay
             boss = Instantiate(bossPrefab, Vector2.zero, Quaternion.identity);
             bossCreated = true;

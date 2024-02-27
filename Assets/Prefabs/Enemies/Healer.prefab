@@ -395,8 +395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f365bb7e74cd3dd45b608d9e47c2ba70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healCooldown: 2
-  healAmt: 120
+  healPotion: {fileID: 1303331047483015488, guid: 2afee4ead474e034f8a893ca3874c4ad,
+    type: 3}
+  healCooldown: 8
+  healAmt: 400
 --- !u!1 &6319317920773670096
 GameObject:
   m_ObjectHideFlags: 0

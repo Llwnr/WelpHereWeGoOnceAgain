@@ -7,6 +7,8 @@ public class HealBoss : MonoBehaviour
     private Transform boss;
     private EnemyHpManager hpManager;
 
+    public GameObject healPotion;
+
     [SerializeField]private float healCooldown;
     [SerializeField]private float healAmt;
     private float cooldownCounter;
@@ -23,13 +25,18 @@ public class HealBoss : MonoBehaviour
         cooldownCounter -= Time.deltaTime;
         if(cooldownCounter <= 0){
             ResetCooldown();
-            Heal();
+            SendHeal();
         }
     }
 
-    void Heal(){
-        //Play heal animation
-        hpManager.Heal(healAmt);
+    void SendHeal(){
+        //Specify the target to provide the heals
+        GameObject myHealPotion = Instantiate(healPotion, transform.position, Quaternion.identity);
+        MoveToTarget healPotionMovement = myHealPotion.GetComponent<MoveToTarget>();
+        HealTarget potionTarget = myHealPotion.GetComponent<HealTarget>();
+        //Set the target to follow and heal
+        healPotionMovement.SetTarget(boss);
+        potionTarget.SetTarget(boss, healAmt);
     }
 
 

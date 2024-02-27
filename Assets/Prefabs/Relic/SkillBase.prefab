@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7039434149039349462}
   - component: {fileID: 8420677758245210930}
   - component: {fileID: 3521257018779189090}
+  - component: {fileID: 6222903108677266553}
   m_Layer: 5
   m_Name: SkillBase
   m_TagString: Untagged
@@ -119,8 +120,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectUpgrade, Assembly-CSharp
-        m_MethodName: SetSelectedRelic
+        m_TargetAssemblyTypeName: SfxOnClick, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6222903108677266553}
+        m_TargetAssemblyTypeName: SfxOnClick, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -250,3 +263,22 @@ MonoBehaviour:
       Data3: 982580923
       Data4: 1448497907
     Path: event:/Pop
+--- !u!114 &6222903108677266553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039434149039349470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741c7998d8523b540b28abb64447adb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: 701411341
+      Data2: 1095980625
+      Data3: 665316280
+      Data4: 1928183948
+    Path: event:/ClickSfx

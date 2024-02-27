@@ -27,7 +27,7 @@ public class A_CreateHealers : ActionNode
         //Make sure the point is within boundary
         Vector2 finalPoint;
             Ray2D ray = new Ray2D(transform.position, Random.onUnitSphere);
-            finalPoint = ray.GetPoint(generationRadius)*Random.Range(0.75f,1.5f);
+            finalPoint = ray.GetPoint(generationRadius)*Random.Range(0.8f,1.1f);
         return finalPoint;
     }
 }

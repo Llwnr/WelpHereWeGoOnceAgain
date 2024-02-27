@@ -9,6 +9,8 @@ public class A_ChargeDash : ActionNode
     public float dashForce, maxSpeed;
     public float duration;
     private float durationCounter;
+    public float slowdownDuration, slowFactor;
+    private float slowdownDurationCounter;
     private Rigidbody2D rb;
     private Vector2 dashDir;
     protected override void OnStart() {
@@ -19,6 +21,7 @@ public class A_ChargeDash : ActionNode
         dashDir = ConvertAngleToDir(rb.transform.eulerAngles.z+90);
 
         ResetDuration();
+        ResetSlowdownDuration();
     }
 
     protected override void OnStop() {
@@ -26,14 +29,23 @@ public class A_ChargeDash : ActionNode
     }
 
     protected override State OnUpdate() {
-        //Move transform
-        rb.AddForce(dashDir*dashForce, ForceMode2D.Impulse);
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
-
         //Duration manager
         durationCounter -= Time.deltaTime;
-        if(durationCounter <= 0) return State.Success;
-        else return State.Running;
+        if(durationCounter <= 0){
+            slowdownDurationCounter -= Time.deltaTime;
+            rb.velocity *= 1-slowFactor;
+        }
+        else{
+             //Move transform
+            rb.AddForce(dashDir*dashForce, ForceMode2D.Impulse);
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+        }
+
+        if(slowdownDurationCounter <= 0){
+            return State.Success;
+        }
+
+        return State.Running;
     }
 
     Vector2 ConvertAngleToDir(float angle){
@@ -45,5 +57,9 @@ public class A_ChargeDash : ActionNode
 
     void ResetDuration(){
         durationCounter = duration;
+    }
+
+    void ResetSlowdownDuration(){
+        slowdownDurationCounter = slowdownDuration;
     }
 }

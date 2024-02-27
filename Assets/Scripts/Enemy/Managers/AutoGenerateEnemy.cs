@@ -8,9 +8,12 @@ public class AutoGenerateEnemy : MonoBehaviour
     [SerializeField]private List<GameObject> enemies;
     [SerializeField]private List<GameObject> rarerEnemies;
     [SerializeField]private float rareEnemyProc, radius, generationTimer;
-    public float extraRareProcChance = 0;//To increase the chance of generating rare enemies if no rare enemy is generated
+    private float extraRareProcChance = 0;//To increase the chance of generating rare enemies if no rare enemy is generated
+    [SerializeField]private float rareChanceInc;
     [SerializeField]private float randomTime;
     [SerializeField]private Transform enemyHolder;
+
+    public float maxGameTime;
 
     //For generating enemies inside the given boundary
     [SerializeField]private Tilemap boundary;
@@ -49,22 +52,24 @@ public class AutoGenerateEnemy : MonoBehaviour
     }
 
     void GenerateEnemy(){
-        float maxTime = 240/enemies.Count;
+        float maxTime = maxGameTime/enemies.Count;
+        float rareMaxTime = maxGameTime/rarerEnemies.Count;
         float time = Time.timeSinceLevelLoad;
         Vector2 generatedPos = GenerateRandomPosAtEdgeOfCircle();
         //Higher chance to pick next array enemy as time goes on
         int enemyIndex = Mathf.Min(enemies.Count-1, Mathf.FloorToInt(Random.Range(0.5f, 1f) * time/maxTime));
+        int rareEnemyIndex = Mathf.Min(rarerEnemies.Count-1, Mathf.FloorToInt(Random.Range(0.5f, 1f) * time/rareMaxTime));
 
         GameObject newEnemy = Instantiate(enemies[enemyIndex], generatedPos, Quaternion.identity);
         newEnemy.transform.SetParent(enemyHolder, false);
         //Generate a rare monster at the given chance proc
         if(Random.Range(0f,1) < (rareEnemyProc+extraRareProcChance)){
-            newEnemy = Instantiate(rarerEnemies[enemyIndex], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
+            newEnemy = Instantiate(rarerEnemies[rareEnemyIndex], GenerateRandomPosAtEdgeOfCircle(), Quaternion.identity);
             newEnemy.transform.SetParent(enemyHolder, false);
             extraRareProcChance = 0;
         }else{
             //If no rare enemy generated, increase the chance by 1%
-            extraRareProcChance += 0.015f;
+            extraRareProcChance += rareChanceInc;
         }
     }
 
