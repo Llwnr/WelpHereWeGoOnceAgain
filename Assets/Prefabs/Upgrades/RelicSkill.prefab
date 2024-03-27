@@ -186,4 +186,4 @@ MonoBehaviour:
       Data2: 1095980625
       Data3: 665316280
       Data4: 1928183948
-    Path: event:/ClickSfx
+    Path: event:/UISfx/ClickSfx

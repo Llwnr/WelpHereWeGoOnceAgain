@@ -10,6 +10,10 @@ public class DistortOnHit : MonoBehaviour, IWhenDamaged
     private void Start() {
         healthManager = GetComponent<HealthManager>();
         healthManager.AddOnDamageListener(this);
+
+        foreach (MonoBehaviour scripts in distortEffect.GetComponents<MonoBehaviour>()) {
+            scripts.enabled = false;
+        }
     }
 
     public void WhenDamaged(float dmgAmt, Vector2 hitPoint) {

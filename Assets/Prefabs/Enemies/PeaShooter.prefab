@@ -432,7 +432,7 @@ MonoBehaviour:
       Data2: 1301920334
       Data3: -621778763
       Data4: 475071466
-    Path: event:/BasicShootSfx
+    Path: event:/BulletSfx/BasicShootSfx
 --- !u!1 &6435314151186084810
 GameObject:
   m_ObjectHideFlags: 0

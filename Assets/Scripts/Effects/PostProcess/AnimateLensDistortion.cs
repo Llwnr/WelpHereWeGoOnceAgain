@@ -32,7 +32,6 @@ public class AnimateLensDistortion : MonoBehaviour
 
     void DisablePostProcess() {
         foreach (MonoBehaviour scripts in gameObject.GetComponents<MonoBehaviour>()) {
-            Debug.Log(scripts.GetType().Name);
             scripts.enabled = false;
         }
     }

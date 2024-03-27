@@ -1497,7 +1497,7 @@ MonoBehaviour:
   rareChanceInc: 0.04
   randomTime: 0.3
   enemyHolder: {fileID: 1359293125}
-  maxGameTime: 120
+  maxGameTime: 100
   boundary: {fileID: 1127610755}
 --- !u!4 &291785071
 Transform:
@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  m_Color: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2969,8 +2969,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2663881834202902157, guid: a870135a1bd9b8f4ebac6a41516f58ee,
         type: 3}
+      propertyPath: simulationSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663881834202902157, guid: a870135a1bd9b8f4ebac6a41516f58ee,
+        type: 3}
       propertyPath: NoiseModule.strength.scalar
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663881834202902157, guid: a870135a1bd9b8f4ebac6a41516f58ee,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2663881834202902157, guid: a870135a1bd9b8f4ebac6a41516f58ee,
         type: 3}
@@ -2986,6 +2996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: NoiseModule.strengthZ.minMaxState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663881834202902157, guid: a870135a1bd9b8f4ebac6a41516f58ee,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2663881834202902157, guid: a870135a1bd9b8f4ebac6a41516f58ee,
         type: 3}
@@ -3485,7 +3500,7 @@ MonoBehaviour:
       Data2: 1144615515
       Data3: -1915649612
       Data4: 784022559
-    Path: event:/BulletShootSfx
+    Path: event:/BulletSfx/BulletShootSfx
   Event: 
   PlayEvent: 20
   StopEvent: 0
@@ -3615,7 +3630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial: {fileID: 529213489}
-  duration: 3
+  duration: 1
 --- !u!1 &559493976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,6 +3897,7 @@ GameObject:
   - component: {fileID: 597148041}
   - component: {fileID: 597148042}
   - component: {fileID: 597148043}
+  - component: {fileID: 597148050}
   - component: {fileID: 597148040}
   - component: {fileID: 597148045}
   - component: {fileID: 597148049}
@@ -4121,7 +4137,7 @@ MonoBehaviour:
       Data2: 1144615515
       Data3: -1915649612
       Data4: 784022559
-    Path: event:/BulletShootSfx
+    Path: event:/BulletSfx/BulletShootSfx
 --- !u!114 &597148041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4147,9 +4163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99b2a1f3c422334986c5262918e1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 5
-  frequency: 2
-  duration: 0.25
+  intensity: 10
+  frequency: 16
+  duration: 0.15
   fadeOut: 0.5
   shakeCondition: 2
 --- !u!114 &597148043
@@ -4164,10 +4180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99b2a1f3c422334986c5262918e1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0.4
+  intensity: 1.6
   frequency: 1
   duration: 0.05
-  fadeOut: 0
+  fadeOut: 0.36
   shakeCondition: 3
 --- !u!114 &597148044
 MonoBehaviour:
@@ -4200,7 +4216,7 @@ MonoBehaviour:
       Data2: 1248207766
       Data3: 373032869
       Data4: 1408193761
-    Path: event:/GlitchSfx
+    Path: event:/UISfx/GlitchSfx
 --- !u!114 &597148046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4276,7 +4292,20 @@ MonoBehaviour:
       Data2: 1131915721
       Data3: -1635044676
       Data4: -1359823814
-    Path: event:/LvlUp
+    Path: event:/UISfx/LvlUp
+--- !u!114 &597148050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597148025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108d930911e689a45ab13ff634685fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 1
 --- !u!1 &636004118
 GameObject:
   m_ObjectHideFlags: 0
@@ -29433,7 +29462,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0, g: 0.054862, b: 0.33962262, a: 1}
+  m_Color: {r: 0, g: 0.08993127, b: 0.5660378, a: 1}
   m_Origin: {x: -29, y: -19, z: 0}
   m_Size: {x: 57, y: 38, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -29838,7 +29867,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190101920}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -29861,7 +29890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
-  maxIntensity: 0.7
+  maxIntensity: 0.5
   minIntensity: 0.2
 --- !u!4 &1289548298 stripped
 Transform:
@@ -31622,8 +31651,8 @@ MonoBehaviour:
   generateEnemy: {fileID: 291785070}
   bossPrefab: {fileID: 1548749184022547290, guid: 8759e1be6fef09e46bfdaa8c14744bb2,
     type: 3}
-  maxMin: 0
-  maxSec: 1
+  maxMin: 2
+  maxSec: 0
 --- !u!224 &1564465462 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3324085362254392130, guid: 3b3f01c5b0555084cad0dfeb537b31bc,
@@ -32119,7 +32148,7 @@ MonoBehaviour:
       Data2: 1321214838
       Data3: 149086344
       Data4: 1429306156
-    Path: event:/LightningStrike
+    Path: event:/RelicSfx/LightningStrike
 --- !u!1001 &1625551407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34334,14 +34363,14 @@ MonoBehaviour:
       Data2: 1196911508
       Data3: 949647023
       Data4: 821162921
-    Path: event:/ReloadSfxStart
+    Path: event:/GunSfx/ReloadSfxStart
   reloadCompleteSfx:
     Guid:
       Data1: 1992694300
       Data2: 1274463785
       Data3: 756303772
       Data4: 1953341344
-    Path: event:/ReloadSfxEnd
+    Path: event:/GunSfx/ReloadSfxEnd
 --- !u!1 &1897576671
 GameObject:
   m_ObjectHideFlags: 0

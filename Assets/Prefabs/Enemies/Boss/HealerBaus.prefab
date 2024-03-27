@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df639652414d1cf4aad52f896fa27135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 4000
+  maxHp: 8000
 --- !u!114 &1548749184022547288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.6
+      scalar: 2.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -883,8 +883,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.7
+      scalar: 1.2
+      minScalar: 0.9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1691,7 +1691,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 300
+        scalar: 500
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1756,7 +1756,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.5
+          value: 0.3783791
           inSlope: -0.5897264
           outSlope: -0.5897264
           tangentMode: 0
@@ -1773,8 +1773,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.26049227
         - serializedVersion: 3
-          time: 0.65507925
-          value: 0.6605507
+          time: 0.66226614
+          value: 0.49838793
           inSlope: -0.32790658
           outSlope: -0.32790658
           tangentMode: 0
@@ -2096,8 +2096,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.08486235, g: 0.7924528, b: 0, a: 1}
-        key1: {r: 0.024612034, g: 0.89411765, b: 0, a: 0.6039216}
-        key2: {r: 1, g: 0.5021508, b: 0, a: 0.38039216}
+        key1: {r: 0.024612034, g: 0.89411765, b: 0, a: 0.36078432}
+        key2: {r: 0.05385971, g: 1, b: 0, a: 0}
         key3: {r: 1, g: 0.11054226, b: 0, a: 0}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2112,8 +2112,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 59753
+        atime1: 31226
+        atime2: 65150
         atime3: 0
         atime4: 0
         atime5: 0
@@ -2121,7 +2121,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 4
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -2276,10 +2276,10 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2332,7 +2332,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2385,7 +2385,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2438,7 +2438,7 @@ ParticleSystem:
         m_RotationOrder: 4
     orbitalX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2491,7 +2491,7 @@ ParticleSystem:
         m_RotationOrder: 4
     orbitalY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2544,9 +2544,9 @@ ParticleSystem:
         m_RotationOrder: 4
     orbitalZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
-      minScalar: 0
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2810,7 +2810,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3202,7 +3202,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3255,7 +3255,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2

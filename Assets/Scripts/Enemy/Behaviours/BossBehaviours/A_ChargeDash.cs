@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
+using FMODUnity;
 
 [System.Serializable]
 public class A_ChargeDash : ActionNode
@@ -13,12 +14,17 @@ public class A_ChargeDash : ActionNode
     private float slowdownDurationCounter;
     private Rigidbody2D rb;
     private Vector2 dashDir;
+
+    public EventReference dashSfx;
+
     protected override void OnStart() {
         rb = context.transform.GetComponent<Rigidbody2D>();
         //Stop transform's other movement from being active while dashing
         rb.GetComponent<MoveTowardsPlayer>().SetHaltState(true);
 
         dashDir = ConvertAngleToDir(rb.transform.eulerAngles.z+90);
+
+        RuntimeManager.PlayOneShot(dashSfx, rb.transform.position);
 
         ResetDuration();
         ResetSlowdownDuration();

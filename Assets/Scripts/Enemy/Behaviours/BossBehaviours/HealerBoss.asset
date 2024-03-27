@@ -34,7 +34,7 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  viewPosition: {x: 203.2, y: 232.8, z: 0}
+  viewPosition: {x: 104.8, y: 254.4, z: 0}
   viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
@@ -211,6 +211,13 @@ MonoBehaviour:
         duration: 0.25
         slowdownDuration: 0.25
         slowFactor: 0.15
+        dashSfx:
+          Guid:
+            Data1: 538247046
+            Data2: 1189367989
+            Data3: 747720634
+            Data4: 309263542
+          Path: event:/LazerDash
     - rid: 5011283986314428416
       type: {class: RandomSelector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
