@@ -59,6 +59,7 @@ public class HealthManager : MonoBehaviour, IDamagable
 
     public void Heal(int amt){
         currHp += amt;
+        GetComponent<PlayOnHeal>().PlayEffect();
         if(currHp > maxHp) currHp = maxHp;
     }
 }

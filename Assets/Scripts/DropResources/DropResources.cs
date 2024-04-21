@@ -7,7 +7,7 @@ public class DropResources : MonoBehaviour, IOnDeath
     [SerializeField]private float expDropAmt;
     [Header ("Droppable items")]
     [SerializeField]private List<GameObject> items;
-    private float dropChance = 1.6f;
+    [SerializeField]private float dropChance = 1.6f;
     //This will be dropped when enemies die as exp points for player
     [SerializeField]private GameObject expDrop;
     

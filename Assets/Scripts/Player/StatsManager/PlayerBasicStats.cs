@@ -19,8 +19,10 @@ public class PlayerBasicStats : MonoBehaviour, IOnLevelUp
     }
 
     private void Update() {
+        return;
         if(Input.GetKeyDown(KeyCode.C)){
             PlayerLevelManager.LevelUp();
+            Debug.Log("Forced level up from here");
         }
     }
 
