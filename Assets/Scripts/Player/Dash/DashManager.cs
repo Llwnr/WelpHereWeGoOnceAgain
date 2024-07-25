@@ -73,6 +73,10 @@ public class DashManager : MonoBehaviour
         durationCounter = dashDuration;
     }
 
+    public float GetReloadPercentage(){
+        return cooldownCounter/dashCooldown;
+    }
+
     // Update is called once per frame
     void Update()
     {

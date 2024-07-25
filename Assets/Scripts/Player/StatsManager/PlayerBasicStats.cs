@@ -19,15 +19,15 @@ public class PlayerBasicStats : MonoBehaviour, IOnLevelUp
     }
 
     private void Update() {
-        return;
-        if(Input.GetKeyDown(KeyCode.C)){
-            PlayerLevelManager.LevelUp();
-            Debug.Log("Forced level up from here");
-        }
+        // if(Input.GetKeyDown(KeyCode.C)){
+        //     PlayerLevelManager.LevelUp();
+        //     Debug.Log("Forced level up from here");
+        // }
     }
 
     private void Start() {
         PlayerLevelManager.AddLevelupListener(this);
+        PlayerLevelManager.ResetLevel();
     }
 
     private void OnDisable() {

@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 0.07889801, g: 0.07575648, b: 0.3584906, a: 1}
+  m_Color: {r: 0.15674612, g: 0.15151297, b: 0.5283019, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf743009eb5fa5946b13e44412e404f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgAmt: 16
+  dmgAmt: 2
+  dmgInterval: 1
 --- !u!114 &89718786766409899
 MonoBehaviour:
   m_ObjectHideFlags: 0

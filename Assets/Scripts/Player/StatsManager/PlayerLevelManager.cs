@@ -27,6 +27,13 @@ public static class PlayerLevelManager
         level++;
         NotifyLevelUp();
     }
+
+    public static void ResetLevel(){
+        level = 1;
+        expForNextLevel = 5;
+        expThresholdIncrease = 5.5f;
+        expAmt = 0;
+    }
     
     public static void AddExp(float expGained){
         expAmt += expGained;

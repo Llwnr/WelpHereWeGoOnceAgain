@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour, IDamagable
 {
@@ -48,7 +49,7 @@ public class HealthManager : MonoBehaviour, IDamagable
         NotifyWhenDamaged(dmgAmt, hitPoint);
 
         if(currHp <= 0){
-            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

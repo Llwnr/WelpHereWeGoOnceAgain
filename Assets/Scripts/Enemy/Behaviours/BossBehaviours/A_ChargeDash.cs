@@ -25,6 +25,7 @@ public class A_ChargeDash : ActionNode
         dashDir = ConvertAngleToDir(rb.transform.eulerAngles.z+90);
 
         RuntimeManager.PlayOneShot(dashSfx, rb.transform.position);
+        ScreenShaker.Instance.ShakeScreenOnce(7, 2, 0.4f, 0.2f);
 
         ResetDuration();
         ResetSlowdownDuration();

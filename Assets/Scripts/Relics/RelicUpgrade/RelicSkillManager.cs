@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class RelicSkillManager : MonoBehaviour
 {
     public new string name;
     public Sprite icon;
-    [TextArea]
+    [TextArea(5,10)]
     public string description;
 
     public bool isUnlocked{get; private set;} = false;
@@ -22,6 +23,44 @@ public class RelicSkillManager : MonoBehaviour
             //Add this as a child to the target parent
             parentUpgrader.myConnectedChildNodes.Add(this);
         }
+
+        SetupDescColors();
+    }
+
+    //This will give color to description keywords such as "increase to green color", "decrease to red" etc
+    void SetupDescColors(){
+        Regex regex = new Regex("[ \n]");
+        string[] words = regex.Split(description);
+        string newDesc = "";
+        int wordSkipCount = 0;
+
+        foreach(string word in words){
+            string newWord = word;
+            if(wordSkipCount > 0){
+                wordSkipCount--;
+                if(wordSkipCount == 0){
+                    newDesc += "</color>";
+                }
+            }
+            if(word == "Increases" || word == "extra" || word == "more" || word == "Increase"){
+                newWord = "<color=green>" + word + "</color>";
+            }else if(word == "Reduces" || word == "less"){
+                newWord = "<color=red>" + word + "</color>";
+            }
+            //For descriptions with relic activation condition such as "Every x shots"
+            else if(word == "Every"){
+                wordSkipCount = 3;
+                newDesc += "<color=yellow>" + word + " ";
+                continue;
+            }
+            else if(word == "After"){
+                wordSkipCount = 2;
+                newDesc += "<color=purple>" + word + " ";
+                continue;
+            }
+            newDesc += newWord + " ";
+        }
+        description = newDesc;
     }
 
     private void OnEnable(){

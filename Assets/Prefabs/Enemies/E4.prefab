@@ -439,8 +439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692aadfb93845ec4e8c2a4970ca16fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.4
-  maxMoveSpeed: 2.4
+  moveSpeed: 2.8
+  maxMoveSpeed: 2.8
 --- !u!114 &5412813265501462327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 120
+  alreadyDead: 0
 --- !u!114 &1115290132099970906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +483,7 @@ MonoBehaviour:
   expDropAmt: 7
   items:
   - {fileID: 1849866024938298854, guid: 7b4ddfa311b453f418a64a7eadf57cbc, type: 3}
+  dropChance: 1
   expDrop: {fileID: 1395697807140634325, guid: b40d189b71327a948961e158e5c4b58f, type: 3}
 --- !u!114 &1215070343853153434
 MonoBehaviour:

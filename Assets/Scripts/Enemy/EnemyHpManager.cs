@@ -9,6 +9,7 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
     private float currHp;
 
     private Collider2D col;
+    public bool alreadyDead = false;
     //Manage observers
     private List<IOnDeath> onDeathListeners = new List<IOnDeath>();
     public void AddDeathListener(IOnDeath listener){
@@ -58,6 +59,7 @@ public class EnemyHpManager : MonoBehaviour, IDamagable
         currHp -= dmgAmt;
         NotifyWhenDamaged(dmgAmt, hitPoint);
         if(currHp <= 0){
+            alreadyDead = true;
             //Wait for knockback then die
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(DestroyAfterKnockback());

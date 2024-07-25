@@ -107,7 +107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5060152765576111420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.611102, w: 0.79155195}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 160
+  alreadyDead: 0
 --- !u!114 &1115290132099970906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +345,7 @@ MonoBehaviour:
   expDropAmt: 4
   items:
   - {fileID: 1849866024938298854, guid: 7b4ddfa311b453f418a64a7eadf57cbc, type: 3}
+  dropChance: 1.6
   expDrop: {fileID: 1395697807140634325, guid: b40d189b71327a948961e158e5c4b58f, type: 3}
 --- !u!114 &1215070343853153434
 MonoBehaviour:

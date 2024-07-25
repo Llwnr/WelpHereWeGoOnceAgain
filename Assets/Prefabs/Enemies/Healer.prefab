@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 1215070343853153434}
   - component: {fileID: -8330054138166999570}
   - component: {fileID: 6568515929605508454}
+  - component: {fileID: 3310988912363490655}
   m_Layer: 3
   m_Name: Healer
   m_TagString: Enemy
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 250
+  alreadyDead: 0
 --- !u!114 &6632149926067503064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +373,7 @@ MonoBehaviour:
   expDropAmt: 4
   items:
   - {fileID: 1849866024938298854, guid: 7b4ddfa311b453f418a64a7eadf57cbc, type: 3}
+  dropChance: 1.6
   expDrop: {fileID: 1395697807140634325, guid: b40d189b71327a948961e158e5c4b58f, type: 3}
 --- !u!114 &1215070343853153434
 MonoBehaviour:
@@ -415,6 +418,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 5964382333044863984}
+--- !u!114 &3310988912363490655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5412813265501462477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f13f1f7a2a377848b01eaefb43cbef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathParticle: {fileID: 5412813265501462477, guid: ce217ccfa1b90ff40a89430dee3698fd,
+    type: 3}
 --- !u!1 &5827510637961617839
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +587,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cd70120fe91029140b9b0bb986b0af81, type: 2}
+    - target: {fileID: 7146425429705541469, guid: 3a7f5af7281104742890300b2a6f356e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146425429705541469, guid: 3a7f5af7281104742890300b2a6f356e,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7146425429705541470, guid: 3a7f5af7281104742890300b2a6f356e,
         type: 3}
       propertyPath: m_Name

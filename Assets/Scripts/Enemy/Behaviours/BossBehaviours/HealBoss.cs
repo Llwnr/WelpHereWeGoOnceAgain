@@ -27,6 +27,7 @@ public class HealBoss : MonoBehaviour
             ResetCooldown();
             SendHeal();
         }
+        if(!boss) Destroy(gameObject);
     }
 
     void SendHeal(){

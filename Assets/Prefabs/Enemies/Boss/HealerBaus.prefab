@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 8000
+  alreadyDead: 0
 --- !u!114 &1548749184022547288
 MonoBehaviour:
   m_ObjectHideFlags: 0
